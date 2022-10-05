@@ -1,0 +1,17 @@
+<% content_for(:title, t('.title')) %>
+<div>
+  <div>
+    <div>
+      <h1><%= t('.title') %></h1>
+      <%= form_with url: password_resets_path, method: :post, local: true do |f| %>
+        <div>
+          <%= f.label :email, User.human_attribute_name(:email) %>
+          <%= f.email_field :email %>
+        </div>
+        <div class="actions">
+          <%= f.submit ('送信') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
