@@ -82,3 +82,4 @@ end
 gem 'annotate'
 gem 'sorcery'
 gem 'config'
+gem 'pry-rails'
