@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_030317) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_070035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profile_cards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.integer "kind", null: false
+    t.integer "gender"
+    t.date "birthday"
+    t.string "face_image"
+    t.string "pad_image", null: false
+    t.string "favorite_toy"
+    t.string "favorite_treat"
+    t.integer "personality"
+    t.integer "card_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profile_cards_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -31,4 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_030317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "profile_cards", "users"
 end
