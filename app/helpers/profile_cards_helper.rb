@@ -1,0 +1,2 @@
+module ProfileCardsHelper
+end

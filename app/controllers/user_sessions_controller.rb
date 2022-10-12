@@ -7,13 +7,13 @@ class UserSessionsController < ApplicationController
       redirect_back_or_to root_path, success:'ログインに成功しました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     logout
-    redirect_to login_path, success:'ログアウトしました'
+    redirect_to login_path, success:'ログアウトしました', status: :see_other
   end
 
   private

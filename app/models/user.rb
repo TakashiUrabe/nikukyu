@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :reset_password_token, uniqueness: true, allow_nil: true
+
+  has_many :profile_cards
 end
