@@ -7,8 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       current_profile_card = ProfileCard.find(cookies[:id])
-      current_profile_card.user_id = @user.id
-      current_profile_card.save
+      current_profile_card.user_id_setting(@user.id)
       cookies.delete :id
       redirect_to login_path
       flash[:notice] = 'ユーザーの作成に成功しました'
