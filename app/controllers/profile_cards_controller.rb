@@ -6,6 +6,7 @@ class ProfileCardsController < ApplicationController
     @profile_card = ProfileCard.new(profile_card_params)
     if @profile_card.save
       cookies[:id] = @profile_card.id
+      @result = @profile_card.image_recognition(@profile_card.pad_image.url)
       redirect_to new_profile_card_path, success: '診断結果です'
     else
       flash.now[:danger] = '画像ファイルが受け付けられませんでした'

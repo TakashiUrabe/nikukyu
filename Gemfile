@@ -83,5 +83,9 @@ gem 'annotate'
 gem 'sorcery'
 gem 'config'
 gem 'pry-rails'
-gem 'carrierwave'
 gem 'rmagick'
+
+# for image uploader with AWS S3
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'dotenv-rails'
