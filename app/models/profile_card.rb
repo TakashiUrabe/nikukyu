@@ -1,17 +1,19 @@
 class ProfileCard < ApplicationRecord
+  require 'net/http'
+  require 'json'
+
   belongs_to :user, optional: true
 
   validates :kind, presence: true
 
   mount_uploader :pad_image, PadImageUploader
 
+  enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
+
   def user_id_setting(id)
     self.user_id = id
     self.save
   end
-
-  require 'net/http'
-  require 'json'
 
   def image_recognition(file)
     if self.kind == 1
