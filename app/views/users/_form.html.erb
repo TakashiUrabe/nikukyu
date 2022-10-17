@@ -1,6 +1,6 @@
 <h1>ユーザー登録</h1>
 <%= form_with model: @user, local: true do |f| %>
-  <div class="form-group">
+  <div class="form-group" id="user_registration">
     <%= f.label :email, 'メールアドレス' %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
