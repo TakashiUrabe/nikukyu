@@ -7,6 +7,7 @@ class ProfileCard < ApplicationRecord
   validates :kind, presence: true
 
   mount_uploader :pad_image, PadImageUploader
+  mount_uploader :face_image, FaceImageUploader
 
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
 

@@ -18,9 +18,26 @@ class ProfileCardsController < ApplicationController
     @profile_card = ProfileCard.find(params[:id])
   end
 
+  def update
+    if @profile.update(profile_card_params)
+      redirect_to @profile_card
+    else
+      flash.now[:danger] = '入力項目が受け付けられませんでした'
+      render :show, status: :unprocessable_entity
+    end
+  end
+    def update
+    if @board.update(board_params)
+      redirect_to @board, success: t('defaults.message.updated',item:Board.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.message.not_updated',item:Board.model_name.human)
+      render :edit
+    end
+  end
+
   private
 
   def profile_card_params
-    params.require(:profile_card).permit(:kind, :pad_image, :pad_image_cache)
+    params.require(:profile_card).permit(:name, :kind, :pad_image, :pad_image_cache)
   end
 end
