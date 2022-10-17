@@ -1,13 +1,20 @@
 <%= turbo_frame_tag "preview_image" do %>
   <%= form_with model:profile_card, local: true do |f| %>
-    <%= f.label :kind %><br>
-    <%= f.select :kind, [['犬', 1], ['猫', 2]], { include_blank: '選択してください' } %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :kind %><br>
+      <%= f.select :kind, [['犬', 1], ['猫', 2]], { include_blank: '選択してください' } %>
+    </div>
     <div data-controller="preview-image">
       <%= image_tag profile_card.pad_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
       <%= f.label :pad_image %><br>
       <%= f.file_field :pad_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
       <%= f.hidden_field :pad_image_cache %>
     </div>
+    <br>
     <%= f.submit '肉球性格診断をする', class:'btn btn-primary' %>
   <% end %>
 <% end %>
