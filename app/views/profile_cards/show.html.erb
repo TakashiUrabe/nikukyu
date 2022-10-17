@@ -1,0 +1,7 @@
+<h1>診断結果</h1>
+<%= @profile_card.personality %>
+<h1>肉球写真と診断結果からプロフィールカードを作成しよう！</h1>
+
+<% unless logged_in?  %>
+  <%= render 'users/form' %>
+<% end %>
