@@ -16,7 +16,8 @@ class ProfileCard < ApplicationRecord
   end
 
   def image_recognition(file,kind)
-    if kind == 1
+    binding.b
+    if kind == "1"
       self.dog_image_recognition(file)
     else
       self.cat_image_recoginition(file)
