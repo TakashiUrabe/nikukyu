@@ -1,21 +1,19 @@
-<%= turbo_frame_tag "preview_image" do %>
-  <%= form_with model:profile_card, local: true do |f| %>
-    <div>
-    </div>
-    <div>
-      <%= f.label :gender %><br>
-      <%= f.select :gender, [['男の子', 1], ['女の子', 2]], { include_blank: '選択してください' } %>
-    </div>
-    <div>
-      <%= f.label :birthday %><br>
-      <%= f.date_select :birthday, class: 'form-control' %>
-    </div>
-    <div data-controller="preview-image">
-      <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
-      <%= f.label :face_image %><br>
-      <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
-      <%= f.hidden_field :face_image_cache %>
-    </div>
-    <%= f.submit '顔画像を登録する', class:'btn btn-primary' %>
-  <% end %>
+<%= form_with model:profile_card, local: true do |f| %>
+  <div>
+  </div>
+  <div>
+    <%= f.label :gender %><br>
+    <%= f.select :gender, [['男の子', 1], ['女の子', 2]], { include_blank: '選択してください' } %>
+  </div>
+  <div>
+    <%= f.label :birthday %><br>
+    <%= f.date_select :birthday, class: 'form-control' %>
+  </div>
+  <div data-controller="preview-image">
+    <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
+    <%= f.label :face_image %><br>
+    <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
+    <%= f.hidden_field :face_image_cache %>
+  </div>
+  <%= f.submit 'このカードをダウンロードする', class:'btn btn-primary' %>
 <% end %>
