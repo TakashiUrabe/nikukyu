@@ -22,6 +22,7 @@ class ProfileCardsController < ApplicationController
   def update
     @profile_card = ProfileCard.find(params[:id])
     if @profile_card.update(profile_card_params)
+      cookies.delete :kind
       redirect_to @profile_card
     else
       flash.now[:danger] = '入力項目が受け付けられませんでした'
