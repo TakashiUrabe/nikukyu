@@ -32,6 +32,6 @@ class ProfileCardsController < ApplicationController
   private
 
   def profile_card_params
-    params.require(:profile_card).permit(:name, :pad_image, :pad_image_cache)
+    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy, )
   end
 end
