@@ -1,13 +1,13 @@
 <%= form_with model:profile_card, local: true do |f| %>
-  <% if cookies[:kind] == 1 %>
+  <% if cookies[:kind] == "1" %>
     <div>
       <%= f.label :breed_id %><br>
       <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]} %>
     </div>
     <div>
       <%= f.label :favorite_treat %><br>
-      <%= f.text_field :favorite_treat, list: 'list-name' %>
-      <datalist id="list-name">
+      <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off" %>
+      <datalist id="dog-treat">
         <option value="ちゅーる">
         <option value="歯磨きガム">
         <option value="にぼし">
@@ -21,8 +21,8 @@
     </div>
     <div>
       <%= f.label :favorite_toy %><br>
-      <%= f.text_field :favorite_toy, list: 'list-name' %>
-      <datalist id="list-name">
+      <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off" %>
+      <datalist id="dog-toy">
         <option value="ボール">
         <option value="ぬいぐるみ">
         <option value="ロープ">
@@ -38,28 +38,27 @@
     </div>
     <div>
       <%= f.label :favorite_treat %><br>
-      <%= f.text_field :favorite_treat, list: 'list-name' %>
-      <datalist id="list-name">
+      <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off" %>
+      <datalist id="cat-treat">
         <option value="ちゅーる">
-        <option value="ぴゅーれ">
+        <option value="クリスピーキッス">
         <option value="かつお節">
-        <option value="かつお">
-        <option value="まぐろ">
+        <option value="焼かつお">
+        <option value="にぼし">
         <option value="かにかま">
         <option value="ささみ">
-        <option value="またたび">
         <option value="ジャーキー">
       </datalist>
     </div>
     <div>
       <%= f.label :favorite_toy %><br>
-      <%= f.text_field :favorite_toy, list: 'list-name' %>
-      <datalist id="list-name">
-        <option value="釣竿タイプ">
-        <option value="ぬいぐるみ">
-        <option value="ボール">
-        <option value="ねずみ">
+      <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off" %>
+      <datalist id="cat-toy">
         <option value="ねこじゃらし">
+        <option value="ぬいぐるみ">
+        <option value="ぽんぽん">
+        <option value="レーザーポインター">
+        <option value="トンネル">
       </datalist>
     </div>
   <% end %>
