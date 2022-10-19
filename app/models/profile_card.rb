@@ -3,8 +3,7 @@ class ProfileCard < ApplicationRecord
   require 'json'
 
   belongs_to :user, optional: true
-
-  validates :kind, presence: true
+  belongs_to :breed, optional: true
 
   mount_uploader :pad_image, PadImageUploader
   mount_uploader :face_image, FaceImageUploader
@@ -16,8 +15,8 @@ class ProfileCard < ApplicationRecord
     self.save
   end
 
-  def image_recognition(file)
-    if self.kind == 1
+  def image_recognition(file,kind)
+    if kind == 1
       self.dog_image_recognition(file)
     else
       self.cat_image_recoginition(file)
