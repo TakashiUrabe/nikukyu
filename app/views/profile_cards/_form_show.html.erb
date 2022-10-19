@@ -1,21 +1,81 @@
-<%= turbo_frame_tag "preview_image" do %>
-  <%= form_with model:profile_card, local: true do |f| %>
+<%= form_with model:profile_card, local: true do |f| %>
+  <% if cookies[:kind] == 1 %>
     <div>
-    </div>
-    <div>
-      <%= f.label :gender %><br>
-      <%= f.select :gender, [['男の子', 1], ['女の子', 2]], { include_blank: '選択してください' } %>
+      <%= f.label :breed_id %><br>
+      <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]} %>
     </div>
     <div>
-      <%= f.label :birthday %><br>
-      <%= f.date_select :birthday, class: 'form-control' %>
+      <%= f.label :favorite_treat %><br>
+      <%= f.text_field :favorite_treat, list: 'list-name' %>
+      <datalist id="list-name">
+        <option value="ちゅーる">
+        <option value="歯磨きガム">
+        <option value="にぼし">
+        <option value="おいも">
+        <option value="ジャーキー">
+        <option value="チーズ">
+        <option value="ささみ">
+        <option value="ビスケット">
+        <option value="ドライフルーツ">
+      </datalist>
     </div>
-    <div data-controller="preview-image">
-      <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
-      <%= f.label :face_image %><br>
-      <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
-      <%= f.hidden_field :face_image_cache %>
+    <div>
+      <%= f.label :favorite_toy %><br>
+      <%= f.text_field :favorite_toy, list: 'list-name' %>
+      <datalist id="list-name">
+        <option value="ボール">
+        <option value="ぬいぐるみ">
+        <option value="ロープ">
+        <option value="コング">
+        <option value="フリスビー">
+        <option value="デンタルトイ">
+      </datalist>
     </div>
-    <%= f.submit '顔画像を登録する', class:'btn btn-primary' %>
+  <% else %>
+    <div>
+      <%= f.label :breed_id %><br>
+      <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]} %>
+    </div>
+    <div>
+      <%= f.label :favorite_treat %><br>
+      <%= f.text_field :favorite_treat, list: 'list-name' %>
+      <datalist id="list-name">
+        <option value="ちゅーる">
+        <option value="ぴゅーれ">
+        <option value="かつお節">
+        <option value="かつお">
+        <option value="まぐろ">
+        <option value="かにかま">
+        <option value="ささみ">
+        <option value="またたび">
+        <option value="ジャーキー">
+      </datalist>
+    </div>
+    <div>
+      <%= f.label :favorite_toy %><br>
+      <%= f.text_field :favorite_toy, list: 'list-name' %>
+      <datalist id="list-name">
+        <option value="釣竿タイプ">
+        <option value="ぬいぐるみ">
+        <option value="ボール">
+        <option value="ねずみ">
+        <option value="ねこじゃらし">
+      </datalist>
+    </div>
   <% end %>
+  <div>
+    <%= f.label :gender %><br>
+    <%= f.select :gender, [['男の子', 1], ['女の子', 2]], { include_blank: '選択してください' } %>
+  </div>
+  <div>
+    <%= f.label :birthday %><br>
+    <%= f.date_select :birthday, class: 'form-control' %>
+  </div>
+  <div data-controller="preview-image">
+    <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
+    <%= f.label :face_image %><br>
+    <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
+    <%= f.hidden_field :face_image_cache %>
+  </div>
+  <%= f.submit 'このカードをダウンロードする', class:'btn btn-primary' %>
 <% end %>
