@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_070035) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_142738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "profile_cards", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.integer "kind", null: false
     t.integer "gender"
     t.date "birthday"
     t.string "face_image"
