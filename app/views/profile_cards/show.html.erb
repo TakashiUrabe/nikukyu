@@ -2,7 +2,8 @@
 <%= @profile_card.personality %>
 <h1>肉球写真と診断結果からプロフィールカードを作成しよう！</h1>
 <%= render 'form_show', {profile_card: @profile_card} %>
-
+<%= image_tag @profile_card.binarize_image.url %>
+<input type="color">
 <% unless logged_in?  %>
   <%= render 'users/form' %>
 <% end %>

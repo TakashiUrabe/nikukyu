@@ -7,6 +7,7 @@ class ProfileCard < ApplicationRecord
 
   mount_uploader :pad_image, PadImageUploader
   mount_uploader :face_image, FaceImageUploader
+  mount_uploader :binarize_image, BinarizeImageUploader
 
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
 
@@ -96,8 +97,7 @@ class ProfileCard < ApplicationRecord
     img = ImageList.new(file)
     gray_img = img.quantize(256, GRAYColorspace)
     bin_img = gray_img.threshold(t*256.to_i)
-    bin_img.write('bin_img.jpg')
-    bin_img.resize_to_fit(100,100)
+    bin_img.write("app/assets/images/bin_img.jpg")
   end
 
   def create_histogram(gray_img)
