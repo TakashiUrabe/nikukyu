@@ -1,15 +1,15 @@
 <%= form_with model:profile_card, local: true do |f| %>
   <div>
-    <%= f.label :name %>
+    <%= f.label :name,"名前" %>
     <%= f.text_field :name %>
   </div>
   <div>
-    <%= f.label :kind %><br>
+    <%= f.label :kind,"犬or猫" %><br>
     <%= f.select :kind, [['犬', 1], ['猫', 2]], { include_blank: '選択してください' } %>
   </div>
   <div data-controller="preview-image">
     <%= image_tag profile_card.pad_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
-    <%= f.label :pad_image %><br>
+    <%= f.label :pad_image,"肉球の写真" %><br>
     <%= f.file_field :pad_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
     <%= f.hidden_field :pad_image_cache %>
   </div>
