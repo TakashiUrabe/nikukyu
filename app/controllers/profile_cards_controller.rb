@@ -17,6 +17,9 @@ class ProfileCardsController < ApplicationController
   def show
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
+    @profile_card.binarize_otsu(@profile_card.pad_image)
+    @profile_card.binarize_image = File.open("./app/assets/images/bin_img.jpg","r")
+    @profile_card.save
   end
 
   def update
