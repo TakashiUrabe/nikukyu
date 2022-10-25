@@ -8,6 +8,10 @@ class ProfileCard < ApplicationRecord
   mount_uploader :pad_image, PadImageUploader
   mount_uploader :face_image, FaceImageUploader
   mount_uploader :binarize_image, BinarizeImageUploader
+  mount_uploader :profile_card_data_a, ProfileCardDataUploader
+  mount_uploader :profile_card_data_b, ProfileCardDataUploader
+  mount_uploader :profile_card_data_c, ProfileCardDataUploader
+  mount_uploader :profile_card_data_d, ProfileCardDataUploader
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
@@ -178,7 +182,7 @@ class ProfileCard < ApplicationRecord
 
     base_img.composite!(img3 , 50, 200, OverCompositeOp)
 
-    base_img.write("app/assets/images/product_img.jpg") # save to file
+    base_img.write("app/assets/images/profile_card_data_a.jpg") # save to file
   end
 
 end
