@@ -8,7 +8,12 @@ class ProfileCard < ApplicationRecord
   mount_uploader :pad_image, PadImageUploader
   mount_uploader :face_image, FaceImageUploader
   mount_uploader :binarize_image, BinarizeImageUploader
+  mount_uploader :profile_card_data_a, ProfileCardDataUploader
+  mount_uploader :profile_card_data_b, ProfileCardDataUploader
+  mount_uploader :profile_card_data_c, ProfileCardDataUploader
+  mount_uploader :profile_card_data_d, ProfileCardDataUploader
 
+  enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
 
   def user_id_setting(id)
@@ -142,4 +147,42 @@ class ProfileCard < ApplicationRecord
     t_dis = discriminant(file)
     binarize(file, t_dis)
   end
+
+  def create_profile_card(profile_card)
+    base_img = ImageList.new("app/assets/images/base_img.jpg")
+
+    draw = Draw.new
+    draw.font      = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.fill      = '#3d3b3e'
+    draw.stroke    = 'transparent'
+    draw.pointsize = 20
+    draw.gravity   = CenterGravity
+    draw.annotate(base_img, 0, 0, 0, -60, profile_card.personality_i18n)
+    draw.annotate(base_img, 0, 0, 0, -30, profile_card.gender_i18n)
+    draw.annotate(base_img, 0, 0, 0, 0, "誕生日:#{I18n.l profile_card.birthday}")
+    draw.annotate(base_img, 0, 0, 0, 30, "犬種:#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 0, 60, "好きな食べ物:#{profile_card.favorite_treat}")
+    draw.annotate(base_img, 0, 0, 0, 90, "好きな食べ物:#{profile_card.favorite_toy}")
+
+    draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.annotate(base_img, 0, 0, 0, -100, profile_card.name)
+
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize(200, 200)
+
+    img2 = Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = "white"
+    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
+    idr.draw(img2);
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3 , 50, 200, OverCompositeOp)
+
+    base_img.write("app/assets/images/profile_card_data_a.jpg") # save to file
+  end
+
 end
