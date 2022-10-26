@@ -6,6 +6,9 @@
 <div>
   <%= image_tag @profile_card.profile_card_data_a.to_s %>
   <%= link_to 'このカードをダウンロードする', download_profile_card_path(@profile_card),class:'btn btn-primary' %>
+
+  <%= link_to 'カードをTwitterに投稿する', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
+  %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn btn-primary' %>
 </div>
 <% unless logged_in?  %>
   <%= render 'users/form' %>
