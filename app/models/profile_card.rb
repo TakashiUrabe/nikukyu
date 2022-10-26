@@ -157,15 +157,16 @@ class ProfileCard < ApplicationRecord
     draw.stroke    = 'transparent'
     draw.pointsize = 20
     draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, 0, -60, profile_card.personality_i18n)
-    draw.annotate(base_img, 0, 0, 0, -30, profile_card.gender_i18n)
-    draw.annotate(base_img, 0, 0, 0, 0, "誕生日:#{I18n.l profile_card.birthday}")
-    draw.annotate(base_img, 0, 0, 0, 30, "犬種:#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, 0, 60, "好きな食べ物:#{profile_card.favorite_treat}")
-    draw.annotate(base_img, 0, 0, 0, 90, "好きな食べ物:#{profile_card.favorite_toy}")
+    draw.annotate(base_img, 0, 0, 0, -100, profile_card.personality_i18n)
+    draw.annotate(base_img, 0, 0, 0, -20, profile_card.gender_i18n)
+    draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
+    draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
+    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
 
     draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
-    draw.annotate(base_img, 0, 0, 0, -100, profile_card.name)
+    draw.pointsize = 30
+    draw.annotate(base_img, 0, 0, 0, -60, profile_card.name)
 
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize(200, 200)
 
