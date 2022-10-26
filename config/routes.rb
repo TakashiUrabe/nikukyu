@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   resources :profile_cards
+  resources :profile_cards do
+    get :download, on: :member
+  end
 end

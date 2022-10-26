@@ -36,9 +36,19 @@ class ProfileCardsController < ApplicationController
     end
   end
 
+  def download
+    profile_card = ProfileCard.find(download_params[:id])
+    image = profile_card.profile_card_data_a
+    send_data(image.read, filename: "#{profile_card.name}ちゃんのプロフィールカード")
+  end
+
   private
 
   def profile_card_params
     params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy, )
+  end
+
+  def download_params
+    params.permit(:id)
   end
 end
