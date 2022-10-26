@@ -3,8 +3,10 @@
 <h1>肉球写真と診断結果からプロフィールカードを作成しよう！</h1>
 <%= render 'form_show', {profile_card: @profile_card} %>
 <%= image_tag @profile_card.binarize_image.url %>
-<%= image_tag @profile_card.profile_card_data_a.url %>
-<input type="color">
+<div>
+  <%= image_tag @profile_card.profile_card_data_a.to_s %>
+  <%= link_to 'このカードをダウンロードする', download_profile_card_path(@profile_card),class:'btn btn-primary' %>
+</div>
 <% unless logged_in?  %>
   <%= render 'users/form' %>
 <% end %>
