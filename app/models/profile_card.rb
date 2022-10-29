@@ -181,7 +181,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3 , 50, 200, OverCompositeOp)
+    base_img.composite!(img3 , 80, 200, OverCompositeOp)
 
     base_img.write("app/assets/images/profile_card_data_a.jpg") # save to file
   end
