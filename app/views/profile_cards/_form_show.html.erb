@@ -4,6 +4,7 @@
       <%= f.label :breed_id,"犬種" %><br>
       <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]} %>
     </div>
+    <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくことも可能です</p>
     <div>
       <%= f.label :favorite_treat, "好きなおやつ" %><br>
       <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off" %>
@@ -36,6 +37,7 @@
       <%= f.label :breed_id, "猫種" %><br>
       <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]} %>
     </div>
+    <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくことも可能です</p>
     <div>
       <%= f.label :favorite_treat, "好きなおやつ" %><br>
       <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off" %>
