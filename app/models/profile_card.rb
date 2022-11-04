@@ -1,5 +1,6 @@
 class ProfileCard < ApplicationRecord
   require 'net/http'
+  require 'uri'
   require 'json'
 
   belongs_to :user, optional: true
@@ -76,26 +77,6 @@ class ProfileCard < ApplicationRecord
 
   require 'RMagick'
   include Magick
-
-  #遠い色はとばす
-  def change_color(file)
-    img = ImageList.new(file)
-    compare = Magick::Pixel.new(49*256,50*256,54*256) # この色から遠い領域を探す
-    replace = Magick::Pixel.new(255*256,255*256,255*256) # この色で塗りつぶす
-    for y in 0...img.rows
-      for x in 0...img.columns
-        src = img.pixel_color(x, y) # 元画像のピクセルを取得
-
-        dr = src.red - compare.red # 赤要素の差
-        dg = src.green - compare.green # 緑要素の差
-        db = src.blue - compare.blue # 青要素の差
-
-        # RGB空間上において2つの色が遠ければ塗りつぶす
-        img.pixel_color(x, y, replace)if dr*dr + dg*dg + db*db > (50*256*50*256)*3
-      end
-    end
-    img
-  end
 
   # 2値化する
   def binarize(file, t)
