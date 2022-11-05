@@ -1,3 +1,5 @@
+require 'pycall/import'
+include PyCall::Import
 class ProfileCard < ApplicationRecord
   require 'net/http'
   require 'uri'
@@ -83,7 +85,7 @@ class ProfileCard < ApplicationRecord
     img = ImageList.new(file)
     gray_img = img.quantize(256, GRAYColorspace)
     bin_img = gray_img.threshold(t*256.to_i)
-    bin_img.write("app/assets/images/bin_img.jpg")
+    bin_img.write("app/assets/images/bin_img.png")
   end
 
   def create_histogram(gray_img)
@@ -129,7 +131,7 @@ class ProfileCard < ApplicationRecord
     binarize(file, t_dis)
   end
 
-  def create_profile_card(profile_card)
+  def create_profile_card_a(profile_card)
     base_img = ImageList.new("app/assets/images/base_img.jpg")
 
     draw = Draw.new
@@ -151,7 +153,7 @@ class ProfileCard < ApplicationRecord
 
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize(200, 200)
 
-    img2 = Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
     img2 = img2.matte_reset!
 
     idr = Draw.new
@@ -167,4 +169,39 @@ class ProfileCard < ApplicationRecord
     base_img.write("app/assets/images/profile_card_data_a.jpg") # save to file
   end
 
+  def create_profile_card_b(profile_card)
+    base_img = ImageList.new("app/assets/images/base_img.jpg")
+
+    draw = Draw.new
+    draw.font      = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.fill      = '#3d3b3e'
+    draw.stroke    = 'transparent'
+    draw.pointsize = 20
+    draw.gravity   = CenterGravity
+    draw.annotate(base_img, 0, 0, 0, -100, profile_card.personality_i18n)
+    draw.annotate(base_img, 0, 0, 0, -20, profile_card.gender_i18n)
+    draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
+    draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
+    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
+
+    draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.pointsize = 30
+    draw.annotate(base_img, 0, 0, 0, -60, profile_card.name)
+
+    profile_face_image = ImageList.new('app/assets/images/rembg_face_image.png').first.resize(200, 200)
+
+    base_img.composite!(profile_face_image , 80, 200, OverCompositeOp)
+
+    base_img.write("app/assets/images/profile_card_data_b.jpg") # save to file
+  end
+
+  pyfrom :PIL, import: :Image
+
+  def remove_background(input_path,output_path)
+    pyfrom :rembg, import: :remove
+    input = Image.open(input_path)
+    output = remove(input)
+    output.save(output_path)
+  end
 end

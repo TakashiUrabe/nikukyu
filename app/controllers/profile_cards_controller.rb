@@ -7,7 +7,7 @@ class ProfileCardsController < ApplicationController
       cookies[:id] = @profile_card.id
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
-      redirect_to @profile_card, success: '診断結果です'
+      redirect_to @profile_card
     else
       flash.now[:danger] = '画像ファイルが受け付けられませんでした'
       render template: "welcome_pages/top", status: :unprocessable_entity
@@ -17,8 +17,10 @@ class ProfileCardsController < ApplicationController
   def show
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
-    @profile_card.binarize_otsu(@profile_card.pad_image)
-    @profile_card.binarize_image = File.open("./app/assets/images/bin_img.jpg","r")
+    @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/rembg_pad_image.png')
+    @profile_card.rembg_pad_image = File.open("./app/assets/images/rembg_pad_image.png","r")
+    @profile_card.binarize_otsu("./app/assets/images/rembg_pad_image.png")
+    @profile_card.binarize_image = File.open("./app/assets/images/bin_img.png","r")
     @profile_card.save
   end
 
@@ -26,8 +28,11 @@ class ProfileCardsController < ApplicationController
     @profile_card = ProfileCard.find(params[:id])
     if @profile_card.update(profile_card_params)
       cookies.delete :kind
-      @profile_card.create_profile_card(@profile_card)
+      @profile_card.remove_background(@profile_card.face_image, 'app/assets/images/rembg_face_image.png')
+      @profile_card.create_profile_card_a(@profile_card)
       @profile_card.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
+      @profile_card.create_profile_card_b(@profile_card)
+      @profile_card.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
       @profile_card.save
       redirect_to @profile_card
     else

@@ -84,6 +84,7 @@ gem 'sorcery'
 gem 'config'
 gem 'pry-rails'
 gem 'rmagick'
+gem 'pycall'
 
 # for image uploader with AWS S3
 gem 'carrierwave'
