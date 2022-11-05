@@ -1,4 +1,8 @@
 ja:
+  defaults:
+      login: 'ログイン'
+      register: '登録'
+      logout: 'ログアウト'
   enums:
     profile_card:
       personality:
