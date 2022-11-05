@@ -1,8 +1,15 @@
-<header>
-  <a href='/'>
-    <%= image_tag 'nikukyu_top.jpg' %>
-  </a>
-  <div>
-    <%= link_to 'ログインページへ', login_path %>
+<header class="flex items-center justify-between bg-yellow-900 flex-wrap px-2 py-2">
+  <div class="flex items-center mx-5">
+    <%= link_to root_path do %>
+      <%= image_tag 'nikukyu_top.jpg' %>
+    <% end %>
+  </div>
+  <div class="flex items-center">
+    <%= link_to logout_path,  data: { "turbo-method": :delete } do %>
+      <div class="inline-block text-center mx-5">
+        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+        <p><%= t('defaults.login') %></p>
+      </div>
+    <% end %>
   </div>
 </header>
