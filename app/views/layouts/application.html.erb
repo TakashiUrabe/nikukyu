@@ -17,7 +17,10 @@
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'shared/flash_message' %>
+    <div class="container mx-auto px-5 flex justify-center content-center">
     <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
+    <%= render 'shared/bottom_navbar' %>
   </body>
 </html>
