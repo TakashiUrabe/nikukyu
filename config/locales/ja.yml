@@ -3,6 +3,9 @@ ja:
       login: 'ログイン'
       register: '登録'
       logout: 'ログアウト'
+      terms_of_service: '利用規約'
+      privacy_policy: 'プライバシーポリシー'
+      contact: 'お問い合わせ'
   enums:
     profile_card:
       personality:
