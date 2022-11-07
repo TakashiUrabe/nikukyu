@@ -17,8 +17,4 @@ Rails.application.routes.draw do
   resources :profile_cards do
     get :download, on: :member
   end
-
-  # 静的ページ
-  get '/terms_of_service', to: 'static_pages#terms_of_service'
-  get '/privacy_policy', to: 'static_pages#privacy_policy'
 end
