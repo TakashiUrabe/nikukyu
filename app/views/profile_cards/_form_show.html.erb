@@ -1,13 +1,13 @@
 <%= form_with model:profile_card, local: true do |f| %>
   <% if cookies[:kind] == "1" %>
-    <div>
-      <%= f.label :breed_id,"犬種" %><br>
-      <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]} %>
+    <div class='my-10'>
+      <%= f.label :breed_id,"犬種", class:'block mb-1' %>
+      <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
     </div>
-    <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくことも可能です</p>
-    <div>
-      <%= f.label :favorite_treat, "好きなおやつ" %><br>
-      <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off" %>
+    <p>※好きなおやつとオモチャは選択肢以外を、入力していただくことも可能です</p>
+    <div class='mb-10'>
+      <%= f.label :favorite_treat, "好きなおやつ", class: 'block mb-1' %>
+      <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="dog-treat">
         <option value="ちゅーる">
         <option value="歯磨きガム">
@@ -20,9 +20,9 @@
         <option value="ドライフルーツ">
       </datalist>
     </div>
-    <div>
-      <%= f.label :favorite_toy, "好きなオモチャ" %><br>
-      <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off" %>
+    <div class='my-10'>
+      <%= f.label :favorite_toy, "好きなオモチャ", class: 'block mb-1' %>
+      <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="dog-toy">
         <option value="ボール">
         <option value="ぬいぐるみ">
@@ -33,14 +33,16 @@
       </datalist>
     </div>
   <% else %>
-    <div>
-      <%= f.label :breed_id, "猫種" %><br>
-      <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]} %>
+    <div class='my-10'>
+      <%= f.label :breed_id, "猫種", class: 'block mb-1' %>
+      <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
     </div>
-    <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくことも可能です</p>
     <div>
-      <%= f.label :favorite_treat, "好きなおやつ" %><br>
-      <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off" %>
+      <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくこともできます</p>
+    </div>
+    <div class='mb-10'>
+      <%= f.label :favorite_treat, "好きなおやつ", class: 'block my-1' %>
+      <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="cat-treat">
         <option value="ちゅーる">
         <option value="クリスピーキッス">
@@ -52,9 +54,9 @@
         <option value="ジャーキー">
       </datalist>
     </div>
-    <div>
-      <%= f.label :favorite_toy, "好きなオモチャ" %><br>
-      <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off" %>
+    <div class='my-10'>
+      <%= f.label :favorite_toy, "好きなオモチャ", class: 'block mb-1' %>
+      <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="cat-toy">
         <option value="ねこじゃらし">
         <option value="ぬいぐるみ">
@@ -64,18 +66,20 @@
       </datalist>
     </div>
   <% end %>
-  <div>
-    <%= f.label :gender,"性別" %><br>
-    <%= f.select :gender, [['男の子', "male"], ['女の子', "female"]], { include_blank: '選択してください' } %>
+  <div class='my-10'>
+    <%= f.label :gender,"性別", class: 'block mb-1' %>
+    <%= f.select :gender, [['男の子', "male"], ['女の子', "female"]], { include_blank: '選択してください' }, class: 'w-full rounded border border-gray-200 p-2' %>
   </div>
-  <div>
-    <%= f.label :birthday,"お誕生日" %><br>
-    <%= f.date_select :birthday, :use_month_numbers => true, class: 'form-control' %>
+  <div class='my-10'>
+    <%= f.label :birthday,"お誕生日", class: 'block mb-1' %>
+    <div class='flex'>
+    <%= f.date_select :birthday, {use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year-30, prompt:"--" }, class: 'w-full rounded border border-gray-200 p-2' %>
+    </div>
   </div>
   <div data-controller="preview-image">
     <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
-    <%= f.label :face_image,"顔もしくは全身の写真" %><br>
-    <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } %>
+    <%= f.label :face_image,"顔もしくは全身の写真" %>
+    <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } ,class: 'w-full rounded border border-gray-200 p-2' %>
     <%= f.hidden_field :face_image_cache %>
   </div>
   <%= f.submit 'この内容でカードを作成する', class:'btn btn-primary' %>

@@ -18,6 +18,7 @@ class ProfileCard < ApplicationRecord
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5 }
+  enum card_type: {hide: 1, A: 2, B: 3, C: 4, D: 5}
 
   def user_id_setting(id)
     self.user_id = id
@@ -197,7 +198,6 @@ class ProfileCard < ApplicationRecord
   end
 
   pyfrom :PIL, import: :Image
-
   def remove_background(input_path,output_path)
     pyfrom :rembg, import: :remove
     input = Image.open(input_path)
