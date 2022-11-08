@@ -17,6 +17,8 @@ ja:
       gender:
         male: '男の子'
         female: '女の子'
+      card_type:
+        hide: '表示しない'
   date:
     formats:
       default: "%Y.%m.%d"

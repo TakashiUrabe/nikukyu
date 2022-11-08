@@ -17,8 +17,8 @@ class ProfileCardsController < ApplicationController
   def show
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
-    @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/rembg_pad_image.png')
-    @profile_card.rembg_pad_image = File.open("./app/assets/images/rembg_pad_image.png","r")
+    # @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/rembg_pad_image.png')
+    # @profile_card.rembg_pad_image = File.open("./app/assets/images/rembg_pad_image.png","r")
     @profile_card.binarize_otsu("./app/assets/images/rembg_pad_image.png")
     @profile_card.binarize_image = File.open("./app/assets/images/bin_img.png","r")
     @profile_card.save
@@ -29,6 +29,7 @@ class ProfileCardsController < ApplicationController
     if @profile_card.update(profile_card_params)
       cookies.delete :kind
       @profile_card.remove_background(@profile_card.face_image, 'app/assets/images/rembg_face_image.png')
+      @profile_card.rembg_face_image = File.open("./app/assets/images/rembg_face_image.png","r")
       @profile_card.create_profile_card_a(@profile_card)
       @profile_card.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
       @profile_card.create_profile_card_b(@profile_card)
@@ -41,10 +42,36 @@ class ProfileCardsController < ApplicationController
     end
   end
 
-  def download
-    profile_card = ProfileCard.find(download_params[:id])
-    image = profile_card.profile_card_data_a
-    send_data(image.read, filename: "#{profile_card.name}ちゃんのプロフィールカード")
+  def download_a
+    @profile_card = ProfileCard.find(download_params[:id])
+    image = @profile_card.profile_card_data_a
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    @profile_card.card_type = 'A'
+    @profile_card.save
+  end
+
+  def download_b
+    @profile_card = ProfileCard.find(download_params[:id])
+    image = @profile_card.profile_card_data_b
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    @profile_card.card_type = 'B'
+    @profile_card.save
+  end
+
+  def download_c
+    @profile_card = ProfileCard.find(download_params[:id])
+    image = @profile_card.profile_card_data_c
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    @profile_card.card_type = 'C'
+    @profile_card.save
+  end
+
+  def download_d
+    @profile_card = ProfileCard.find(download_params[:id])
+    image = @profile_card.profile_card_data_d
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    @profile_card.card_type = 'D'
+    @profile_card.save
   end
 
   private
