@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #プロフィールカード
   resources :profile_cards
   resources :profile_cards do
-    get :download, on: :member
+  get :download_a, on: :member
+  get :download_b, on: :member
+  get :download_c, on: :member
+  get :download_d, on: :member
   end
 end
