@@ -146,7 +146,7 @@ class ProfileCard < ApplicationRecord
     draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
     draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
     draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
-    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
+    draw.annotate(base_img, 0, 0, 0, 100, "好きなオモチャ:#{profile_card.favorite_toy}")
 
     draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
     draw.pointsize = 30
@@ -184,7 +184,7 @@ class ProfileCard < ApplicationRecord
     draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
     draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
     draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
-    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
+    draw.annotate(base_img, 0, 0, 0, 100, "好きなオモチャ:#{profile_card.favorite_toy}")
 
     draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
     draw.pointsize = 30

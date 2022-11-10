@@ -5,7 +5,7 @@
       <%= render 'profile_cards/form_top', {profile_card: @profile_card} %>
     </div>
   </div>
-  <div>
+  <div id='friends'>
     <h1 class="text-2xl text-gray-700 my-2 text-center">みんなのプロフィールカード</h1>
     <%= turbo_frame_tag "image-list" do %>
       <div>

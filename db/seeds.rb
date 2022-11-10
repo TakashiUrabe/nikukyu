@@ -210,7 +210,7 @@ Breed.create(name: "レオンベルガー", kind: "dog")
 Breed.create(name: "ロットワイラー", kind: "dog")
 Breed.create(name: "ワイマラナー", kind: "dog")
 Breed.create(name: "ワイヤーフォックステリア", kind: "dog")
-Breed.create(name: "MIX", kind: "dog")
+Breed.create(name: "ミックス", kind: "dog")
 
 
 Breed.create(name: "MIX", kind: "cat")
