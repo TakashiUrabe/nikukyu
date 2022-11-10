@@ -21,6 +21,10 @@
     <%= yield %>
     </div>
     <%= render 'shared/footer' %>
-    <%= render 'shared/bottom_navbar' %>
+    <% if @profile_card.personality.nil? %>
+      <%= render 'shared/before_test_bottom_navbar' %>
+    <% else %>
+      <%= render 'shared/bottom_navbar' %>
+    <% end %>
   </body>
 </html>
