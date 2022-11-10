@@ -86,7 +86,7 @@ class ProfileCard < ApplicationRecord
     img = ImageList.new(file)
     gray_img = img.quantize(256, GRAYColorspace)
     bin_img = gray_img.threshold(t*256.to_i)
-    bin_img.write("app/assets/images/bin_img.png")
+    bin_img.write("app/assets/images/sample/bin_img.png")
   end
 
   def create_histogram(gray_img)
@@ -167,7 +167,7 @@ class ProfileCard < ApplicationRecord
 
     base_img.composite!(img3 , 80, 200, OverCompositeOp)
 
-    base_img.write("app/assets/images/profile_card_data_a.jpg") # save to file
+    base_img.write("app/assets/images/sample/profile_card_data_a.jpg") # save to file
   end
 
   def create_profile_card_b(profile_card)
@@ -190,11 +190,11 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, 0, -60, profile_card.name)
 
-    profile_face_image = ImageList.new('app/assets/images/rembg_face_image.png').first.resize(200, 200)
+    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize(200, 200)
 
     base_img.composite!(profile_face_image , 80, 200, OverCompositeOp)
 
-    base_img.write("app/assets/images/profile_card_data_b.jpg") # save to file
+    base_img.write("app/assets/images/sample/profile_card_data_b.jpg") # save to file
   end
 
   pyfrom :PIL, import: :Image
