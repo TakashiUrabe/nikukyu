@@ -86,6 +86,7 @@ gem 'pry-rails'
 gem 'rmagick'
 gem 'pycall'
 gem 'high_voltage'
+gem 'kaminari'
 
 # for image uploader with AWS S3
 gem 'carrierwave'
