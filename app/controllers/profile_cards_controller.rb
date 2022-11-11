@@ -1,4 +1,9 @@
 class ProfileCardsController < ApplicationController
+  def new
+    @profile_card = ProfileCard.new
+    @profile_cards = ProfileCard.where.not(card_type: nil).order(updated_at: :desc)
+    @profile_cards = @profile_cards.page(params[:page]).per(5)
+  end
 
   def create
     @profile_card = ProfileCard.new(profile_card_params)

@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   #プロフィールカード
-  resources :profile_cards
-  resources :profile_cards do
+  resources :profile_cards, only: %i[new create show update] do
     member do
       get :download_a
       get :download_b
