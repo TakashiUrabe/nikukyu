@@ -1,22 +1,34 @@
 class ProfileCardsController < ApplicationController
   def new
     @profile_card = ProfileCard.new
+  end
+
+  def index
     @profile_cards = ProfileCard.where.not(card_type: nil).order(updated_at: :desc)
-    @profile_cards = @profile_cards.page(params[:page]).per(5)
+    @profile_cards = @profile_cards.page(params[:page]).per(10)
   end
 
   def create
-    @profile_card = ProfileCard.new(profile_card_params)
+    if current_user.nil?
+      @profile_card = ProfileCard.new(profile_card_params)
+      cookies[:id] = @profile_card.id
+    else
+      @profile_card = current_user.profile_cards.build(profile_card_params)
+    end
     cookies[:kind] = params[:profile_card][:kind]
     if @profile_card.save
-      cookies[:id] = @profile_card.id
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
-      redirect_to @profile_card
+      redirect_to action: :result, id: @profile_card.id
     else
+      cookies.delete :id
       flash.now[:danger] = '画像ファイルが受け付けられませんでした'
       render template: "welcome_pages/top", status: :unprocessable_entity
     end
+  end
+
+  def result
+    @profile_card = ProfileCard.find(params[:id])
   end
 
   def show

@@ -1,50 +1,39 @@
 <div>
-  <div>
-    <h1>診断結果</h1>
-    <%= @profile_card.personality %>
-  </div>
-  <div class="my-10 id='create_profile_card'">
-    <h1>肉球写真と診断結果からプロフィールカードを作成しよう！</h1>
+  <div class="my-10">
+    <h1>にくきゅう写真と診断結果からプロフィールカードを作成しよう！</h1>
     <%= render 'form_show', {profile_card: @profile_card} %>
   </div>
   <div>
-    <div class="mt-10 mb-20">
+    <div class="mt-10 mb-20"  id="another_download">
       <%= image_tag @profile_card.profile_card_data_a.to_s %>
       <div class="flex my-3 justify-center">
         <%= link_to 'このカードをダウンロードする', download_a_profile_card_path(@profile_card), class:'btn btn-primary' %>
+        <%= link_to 'このカードをTwitterに投稿する', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
+    %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
     </div>
     <div class="mt-10 mb-20">
       <%= image_tag @profile_card.profile_card_data_b.to_s %>
       <div class="flex my-3 justify-center">
         <%= link_to 'このカードをダウンロードする', download_b_profile_card_path(@profile_card),class:'btn btn-primary' %>
+        <%= link_to 'このカードをTwitterに投稿する', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
+    %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
     </div>
     <div class="mt-10 mb-20">
       <%= image_tag @profile_card.profile_card_data_c.to_s %>
       <div class="flex my-3 justify-center">
         <%= link_to 'このカードをダウンロードする', download_c_profile_card_path(@profile_card),class:'btn btn-primary' %>
+        <%= link_to 'このカードをTwitterに投稿する', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
+    %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
     </div>
     <div class="mt-10 mb-20">
       <%= image_tag @profile_card.profile_card_data_d.to_s %>
       <div class="flex my-3 justify-center">
         <%= link_to 'このカードをダウンロードする', download_d_profile_card_path(@profile_card),class:'btn btn-primary' %>
-      </div>
-    </div>
-    <div class="mt-10 mb-20">
-      <% if @profile_card.card_type == 'A' %>
-        <%= image_tag @profile_card.profile_card_data_a.to_s %>
-      <% elsif @profile_card.card_type == 'B' %>
-        <%= image_tag @profile_card.profile_card_data_b.to_s %>
-      <% elsif @profile_card.card_type == 'C' %>
-        <%= image_tag @profile_card.profile_card_data_c.to_s %>
-      <% elsif @profile_card.card_type == 'D' %>
-        <%= image_tag @profile_card.profile_card_data_d.to_s %>
-      <% end %>
-      <div class="flex my-3 justify-center">
         <%= link_to 'このカードをTwitterに投稿する', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
-    %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn btn-primary' %>
+    %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
     </div>
   </div>

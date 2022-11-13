@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def new
+    @user = User.new
+  end
 
   def create
     @user = User.new(user_params)
@@ -8,11 +11,11 @@ class UsersController < ApplicationController
       current_profile_card.user_id_setting(@user.id)
       cookies.delete :id
       @profile_card = current_profile_card
-      redirect_to @profile_card
-      flash[:notice] = 'ユーザーの作成に成功しました'
+      redirect_to @profile_card, success:'ユーザーの作成に成功しました'
     else
       flash.now[:alert] = 'ユーザーの作成に失敗しました'
-      render @profile_card
+      render new_user_path, status: :unprocessable_entity
+      binding.b
     end
   end
 
