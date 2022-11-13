@@ -1,0 +1,17 @@
+<div class="max-w-md pb-20">
+    <h1 class="text-2xl text-gray-700 my-2 text-center">みんなのプロフィールカード</h1>
+    <%= turbo_frame_tag "image-list" do %>
+      <div>
+        <% @profile_cards.each do |profile_card| %>
+          <div class='py-5'>
+            <%= image_tag profile_card.profile_card_data_a.to_s if profile_card.card_type == "A" %>
+            <%= image_tag profile_card.profile_card_data_b.to_s if profile_card.card_type == "B" %>
+            <%= image_tag profile_card.profile_card_data_c.to_s if profile_card.card_type == "C" %>
+            <%= image_tag profile_card.profile_card_data_d.to_s if profile_card.card_type == "D" %>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate(@profile_cards) %>
+    <% end %>
+  </div>
+</div>
