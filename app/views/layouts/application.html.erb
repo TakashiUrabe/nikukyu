@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="bg-orange-100">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
@@ -18,9 +18,13 @@
     <% end %>
     <%= render 'shared/flash_message' %>
     <div class="container mx-auto px-5 flex justify-center content-center">
-    <%= yield %>
+      <%= yield %>
     </div>
     <%= render 'shared/footer' %>
-    <%= render 'shared/bottom_navbar' %>
+    <% if logged_in? %>
+      <%= render 'shared/bottom_navbar' %>
+    <% else %>
+      <%= render 'shared/before_login_bottom_navbar' %>
+    <% end %>
   </body>
 </html>

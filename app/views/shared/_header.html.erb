@@ -1,11 +1,11 @@
-<header class="flex items-center justify-between bg-base-300 flex-wrap px-2 py-2">
+<header class="flex items-center justify-between flex-wrap px-2 py-2">
   <div class="flex items-center mx-5">
     <%= link_to root_path do %>
-      <%= image_tag 'nikukyu_top.jpg' %>
+      <%= image_tag 'logo.PNG' %>
     <% end %>
   </div>
   <div class="flex items-center">
-    <%= link_to logout_path,  data: { "turbo-method": :delete } do %>
+    <%= link_to logout_path, data: { "turbo-method": :delete } do %>
       <div class="inline-block text-center mx-5">
         <i class="fa-solid fa-right-from-bracket fa-xl"></i>
         <p><%= t('defaults.logout') %></p>

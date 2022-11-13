@@ -132,67 +132,60 @@ class ProfileCard < ApplicationRecord
     binarize(file, t_dis)
   end
 
-  def create_profile_card_a(profile_card)
-    base_img = ImageList.new("app/assets/images/base_img.jpg")
+def create_profile_card_a(profile_card)
+    base_img = ImageList.new("app/assets/images/sample/base_img_a.jpg")
 
     draw = Draw.new
-    draw.font      = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
     draw.fill      = '#3d3b3e'
     draw.stroke    = 'transparent'
-    draw.pointsize = 20
+    draw.pointsize = 40
     draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, 0, -100, profile_card.personality_i18n)
-    draw.annotate(base_img, 0, 0, 0, -20, profile_card.gender_i18n)
-    draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
-    draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
-    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
-
-    draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.annotate(base_img, 0, 0, 0, -90, profile_card.personality_i18n)
+    draw.font      = 'app/assets/fonts/SawarabiGothic-Regular.ttf'
     draw.pointsize = 30
-    draw.annotate(base_img, 0, 0, 0, -60, profile_card.name)
+    draw.annotate(base_img, 0, 0, 0, -40, profile_card.gender_i18n)
+    draw.annotate(base_img, 0, 0, 0, 5, "誕生日：#{I18n.l profile_card.birthday}")
+    draw.annotate(base_img, 0, 0, 0, 50, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 0, 95, "好きな食べ物：#{profile_card.favorite_treat}")
+    draw.annotate(base_img, 0, 0, 0, 140, "好きなおもちゃ：#{profile_card.favorite_toy}")
 
-    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize(200, 200)
+    draw.font = 'app/assets/fonts/keifont.ttf'
+    draw.pointsize = 50
+    draw.annotate(base_img, 0, 0, 0, -150, profile_card.name)
 
-    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
-    img2 = img2.matte_reset!
+    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(400, 400)
 
-    idr = Draw.new
-    idr.fill = "white"
-    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
-    idr.draw(img2);
-
-    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
-
-    base_img.composite!(img3 , 80, 200, OverCompositeOp)
+    base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
 
     base_img.write("app/assets/images/sample/profile_card_data_a.jpg") # save to file
   end
 
   def create_profile_card_b(profile_card)
-    base_img = ImageList.new("app/assets/images/base_img.jpg")
+    base_img = ImageList.new("app/assets/images/sample/base_img_b.png")
 
     draw = Draw.new
-    draw.font      = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
     draw.fill      = '#3d3b3e'
     draw.stroke    = 'transparent'
-    draw.pointsize = 20
+    draw.pointsize = 40
     draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, 0, -100, profile_card.personality_i18n)
-    draw.annotate(base_img, 0, 0, 0, -20, profile_card.gender_i18n)
-    draw.annotate(base_img, 0, 0, 0, 10, "誕生日:#{I18n.l profile_card.birthday}")
-    draw.annotate(base_img, 0, 0, 0, 40, "犬種:#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, 0, 70, "好きな食べ物:#{profile_card.favorite_treat}")
-    draw.annotate(base_img, 0, 0, 0, 100, "好きな食べ物:#{profile_card.favorite_toy}")
-
-    draw.font = 'app/assets/fonts/NotoSansJP-Medium.otf'
+    draw.annotate(base_img, 0, 0, 0, -90, profile_card.personality_i18n)
+    draw.font      = 'app/assets/fonts/SawarabiGothic-Regular.ttf'
     draw.pointsize = 30
-    draw.annotate(base_img, 0, 0, 0, -60, profile_card.name)
+    draw.annotate(base_img, 0, 0, 0, -40, profile_card.gender_i18n)
+    draw.annotate(base_img, 0, 0, 0, 5, "誕生日：#{I18n.l profile_card.birthday}")
+    draw.annotate(base_img, 0, 0, 0, 50, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 0, 95, "好きな食べ物：#{profile_card.favorite_treat}")
+    draw.annotate(base_img, 0, 0, 0, 140, "好きなおもちゃ：#{profile_card.favorite_toy}")
 
-    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize(200, 200)
+    draw.font = 'app/assets/fonts/keifont.ttf'
+    draw.pointsize = 50
+    draw.annotate(base_img, 0, 0, 0, -150, profile_card.name)
 
-    base_img.composite!(profile_face_image , 80, 200, OverCompositeOp)
+    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(400, 400)
+
+    base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
 
     base_img.write("app/assets/images/sample/profile_card_data_b.jpg") # save to file
   end

@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <h1>診断結果</h1>
+    <%= @profile_card.personality %>
+  </div>
+  <div class='max-w-md'>
+    <%= render'result_a', {profile_card: @profile_card} %>
+  </div>
+  <div class="flex my-3 justify-center">
+    <%= link_to 'プロフィールカードをつくる', profile_card_path(@profile_card),class:'btn btn-primary' %>
+  </div>
+</div>
