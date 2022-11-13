@@ -4,7 +4,7 @@
       <%= f.label :breed_id,"犬種", class:'block mb-1' %>
       <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
     </div>
-    <p>※好きなおやつとオモチャは選択肢以外を、入力していただくことも可能です</p>
+    <p>※好きなおやつとおもちゃは選択肢以外を、入力していただくことも可能です</p>
     <div class='mb-10'>
       <%= f.label :favorite_treat, "好きなおやつ", class: 'block mb-1' %>
       <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
@@ -21,7 +21,7 @@
       </datalist>
     </div>
     <div class='my-10'>
-      <%= f.label :favorite_toy, "好きなオモチャ", class: 'block mb-1' %>
+      <%= f.label :favorite_toy, "好きなおもちゃ", class: 'block mb-1' %>
       <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="dog-toy">
         <option value="ボール">
@@ -38,7 +38,7 @@
       <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
     </div>
     <div>
-      <p>※下記のおやつとオモチャは選択肢のもの以外に、入力していただくこともできます</p>
+      <p>※下記のおやつとおもちゃは選択肢のもの以外に、入力していただくこともできます</p>
     </div>
     <div class='mb-10'>
       <%= f.label :favorite_treat, "好きなおやつ", class: 'block my-1' %>
@@ -55,7 +55,7 @@
       </datalist>
     </div>
     <div class='my-10'>
-      <%= f.label :favorite_toy, "好きなオモチャ", class: 'block mb-1' %>
+      <%= f.label :favorite_toy, "好きなおもちゃ", class: 'block mb-1' %>
       <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
       <datalist id="cat-toy">
         <option value="ねこじゃらし">
