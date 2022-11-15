@@ -1,4 +1,5 @@
 <%= form_with model:profile_card, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <% if cookies[:kind] == "1" %>
     <div class='my-10'>
       <%= f.label :breed_id,"犬種", class:'block mb-1' %>

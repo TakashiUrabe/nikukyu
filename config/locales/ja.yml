@@ -28,3 +28,16 @@ ja:
       default: "%Y.%m.%d"
       short: "%m/%d"
       long: "%Y年%m月%d日(%a)"
+  activerecord:
+    attributes:
+      profile_card:
+        name:               "名前"
+        pad_image:          "肉球の写真"
+      user:
+        name: "表示名"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        email: "メールアドレス"
+  password_resets:
+    new:
+      title: 'パスワード変更の為のメールアドレス入力'
