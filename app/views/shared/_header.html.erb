@@ -6,9 +6,9 @@
   </div>
   <div class="flex items-center">
     <%= link_to logout_path, data: { "turbo-method": :delete } do %>
-      <div class="inline-block text-center mx-5">
+      <div class="group inline-block text-center mx-5 group-hover:text-sky-700">
         <i class="fa-solid fa-right-from-bracket fa-xl"></i>
-        <p><%= t('defaults.logout') %></p>
+        <p class="group-hover:text-sky-700"><%= t('defaults.logout') %></p>
       </div>
     <% end %>
   </div>

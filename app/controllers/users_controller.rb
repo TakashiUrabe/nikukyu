@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
+      cookies[:id]
       current_profile_card = ProfileCard.find(cookies[:id])
       current_profile_card.user_id_setting(@user.id)
       cookies.delete :id
@@ -15,7 +16,6 @@ class UsersController < ApplicationController
     else
       flash.now[:alert] = 'ユーザーの作成に失敗しました'
       render new_user_path, status: :unprocessable_entity
-      binding.b
     end
   end
 

@@ -8,6 +8,9 @@ class ProfileCard < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :breed, optional: true
 
+  validates :name, presence: true, length: {maximum: 15}
+  validates :pad_image, presence: true
+
   mount_uploader :pad_image, PadImageUploader
   mount_uploader :face_image, FaceImageUploader
   mount_uploader :binarize_image, BinarizeImageUploader

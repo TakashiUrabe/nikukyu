@@ -1,5 +1,6 @@
 <h1>ユーザー登録</h1>
 <%= form_with model: @user, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class='my-5'>
     <%= f.label :email, 'メールアドレス', class:'block mb-1' %>
     <%= f.email_field :email, class: 'w-full rounded border border-gray-200 p-2' %>

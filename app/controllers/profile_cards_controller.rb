@@ -11,19 +11,18 @@ class ProfileCardsController < ApplicationController
   def create
     if current_user.nil?
       @profile_card = ProfileCard.new(profile_card_params)
-      cookies[:id] = @profile_card.id
     else
       @profile_card = current_user.profile_cards.build(profile_card_params)
     end
     cookies[:kind] = params[:profile_card][:kind]
     if @profile_card.save
+      cookies[:id] = @profile_card.id
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
       redirect_to action: :result, id: @profile_card.id
     else
-      cookies.delete :id
-      flash.now[:danger] = '画像ファイルが受け付けられませんでした'
-      render template: "welcome_pages/top", status: :unprocessable_entity
+      flash.now[:danger] = 'にくきゅう診断ができませんでした'
+      render new_profile_card_path, status: :unprocessable_entity
     end
   end
 
