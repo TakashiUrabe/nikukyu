@@ -32,7 +32,7 @@ ja:
     attributes:
       profile_card:
         name:               "名前"
-        pad_image:          "肉球の写真"
+        pad_image:          "にくきゅうの写真"
       user:
         name: "表示名"
         password: "パスワード"
