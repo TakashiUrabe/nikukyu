@@ -5,10 +5,10 @@
     <% end %>
   </div>
   <div class="flex items-center">
-    <%= link_to logout_path,  data: { "turbo-method": :delete } do %>
-      <div class="inline-block text-center mx-5">
-        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
-        <p><%= t('defaults.login') %></p>
+    <%= link_to login_path do %>
+      <div class="group inline-block text-center mx-5">
+        <i class="fa-solid fa-right-to-bracket fa-xl group-hover:text-sky-700"></i>
+        <p class="group-hover:text-sky-700"><%= t('defaults.login') %></p>
       </div>
     <% end %>
   </div>
