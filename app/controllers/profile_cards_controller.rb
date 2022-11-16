@@ -16,7 +16,7 @@ class ProfileCardsController < ApplicationController
     end
     cookies[:kind] = params[:profile_card][:kind]
     if @profile_card.save
-      cookies[:id] = @profile_card.id
+      cookies[:nikukyu_id] = @profile_card.id
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
       redirect_to action: :result, id: @profile_card.id
@@ -35,9 +35,9 @@ class ProfileCardsController < ApplicationController
     @profile_card = ProfileCard.find(params[:id])
     # @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/sample/rembg_pad_image.png')
     # @profile_card.rembg_pad_image = File.open("./app/assets/images/sample/rembg_pad_image.png","r")
-    @profile_card.binarize_otsu("./app/assets/images/sample/rembg_pad_image.png")
-    @profile_card.binarize_image = File.open("./app/assets/images/sample/bin_img.png","r")
-    @profile_card.save
+    # @profile_card.binarize_otsu("./app/assets/images/sample/rembg_pad_image.png")
+    # @profile_card.binarize_image = File.open("./app/assets/images/sample/bin_img.png","r")
+    # @profile_card.save
   end
 
   def update

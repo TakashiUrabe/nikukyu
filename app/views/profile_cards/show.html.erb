@@ -4,7 +4,7 @@
     <%= render 'form_show', {profile_card: @profile_card} %>
   </div>
   <div>
-    <div class="mt-10 mb-20"  id="another_download">
+    <div class="mt-10 mb-20" id="another_download">
       <%= image_tag @profile_card.profile_card_data_a.to_s %>
       <div class="flex my-3 justify-center">
         <%= link_to 'このカードをダウンロードする', download_a_profile_card_path(@profile_card), class:'btn btn-primary' %>
