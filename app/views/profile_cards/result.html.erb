@@ -3,19 +3,16 @@
     <h1><%= @profile_card.name %>ちゃんの診断結果</h1>
   </div>
   <div class='max-w-md'>
-    <% if cookies[:kind] == '1' || @profile_card.breed&.kind == 'dog' %>
-      <%= render'profile_cards/result/dog/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
-      <%= render'profile_cards/result/dog/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
-      <%= render'profile_cards/result/dog/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
-      <%= render'profile_cards/result/dog/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeD' %>
-      <%= render'profile_cards/result/dog/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeE' %>
-    <% else %>
-      <%= render'profile_cards/result/cat/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
-      <%= render'profile_cards/result/cat/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
-      <%= render'profile_cards/result/cat/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
-      <%= render'profile_cards/result/cat/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeD' %>
-      <%= render'profile_cards/result/cat/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeE' %>
-    <% end %>
+    <%= render'profile_cards/result/dog/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
+    <%= render'profile_cards/result/dog/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
+    <%= render'profile_cards/result/dog/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
+    <%= render'profile_cards/result/dog/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeD' %>
+    <%= render'profile_cards/result/dog/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeE' %>
+    <%= render'profile_cards/result/cat/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeF' %>
+    <%= render'profile_cards/result/cat/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeG' %>
+    <%= render'profile_cards/result/cat/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeH' %>
+    <%= render'profile_cards/result/cat/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeI' %>
+    <%= render'profile_cards/result/cat/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
   </div>
   <div class="flex my-3 justify-center">
     <%= link_to 'プロフィールカードをつくる', profile_card_path(@profile_card),class:'btn btn-primary' %>
