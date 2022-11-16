@@ -61,7 +61,7 @@ class ProfileCardsController < ApplicationController
   def download_a
     @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_a
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'A'
     @profile_card.save
   end
@@ -69,7 +69,7 @@ class ProfileCardsController < ApplicationController
   def download_b
     @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_b
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'B'
     @profile_card.save
   end
@@ -77,7 +77,7 @@ class ProfileCardsController < ApplicationController
   def download_c
     @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_c
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'C'
     @profile_card.save
   end
@@ -85,7 +85,7 @@ class ProfileCardsController < ApplicationController
   def download_d
     @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_d
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード")
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'D'
     @profile_card.save
   end
