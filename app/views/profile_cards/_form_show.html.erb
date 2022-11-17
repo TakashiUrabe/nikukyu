@@ -38,8 +38,9 @@
       <%= f.label :breed_id, "猫種", class: 'block mb-1' %>
       <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
     </div>
-    <div>
-      <p>※下記のおやつとおもちゃは選択肢のもの以外に、入力していただくこともできます</p>
+    <div class='text-sm mb-5'>
+      <p>※下記のおやつとおもちゃは選択肢のもの以外に、入力していただくこともできます。<br>
+      　また、選択肢を一度選ぶと他の選択肢を選ぶ時に消去しないと選べません。
     </div>
     <div class='mb-10'>
       <%= f.label :favorite_treat, "好きなおやつ", class: 'block my-1' %>

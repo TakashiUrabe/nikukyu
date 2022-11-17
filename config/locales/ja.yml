@@ -19,7 +19,7 @@ ja:
         typeD: '自信家だけど実は臆病なところも‥タイプ'
         typeE: '穏やかな食いしん坊タイプ'
         typeF: '気分屋の甘えん坊タイプ'
-        typeG: 'ちょっぴり神経質だけど実は優しいツンデレタイプ'
+        typeG: '少し神経質だけど実は優しいツンデレタイプ'
         typeH: '運動好きのイタズラっ子タイプ'
         typeI: 'のんびりインドアの平和主義者タイプ'
         typeJ: '上下関係の中で生きる体育会系タイプ'
@@ -36,8 +36,8 @@ ja:
   activerecord:
     attributes:
       profile_card:
-        name:               "名前"
-        pad_image:          "にくきゅうの写真"
+        name: "名前"
+        pad_image: "にくきゅうの写真"
       user:
         name: "表示名"
         password: "パスワード"
