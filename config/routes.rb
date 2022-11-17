@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   #プロフィールカード
   get 'result/:id', to: 'profile_cards#result'
-  resources :profile_cards, only: %i[new index create show update] do
+  resources :profile_cards, only: %i[new index create show edit update] do
     member do
       get :download_a
       get :download_b
