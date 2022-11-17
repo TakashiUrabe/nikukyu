@@ -50,6 +50,10 @@ class ProfileCardsController < ApplicationController
       @profile_card.profile_card_data_a = File.open("./app/assets/images/sample/profile_card_data_a.jpg","r")
       @profile_card.create_profile_card_b(@profile_card)
       @profile_card.profile_card_data_b = File.open("./app/assets/images/sample/profile_card_data_b.jpg","r")
+      @profile_card.create_profile_card_c(@profile_card)
+      @profile_card.profile_card_data_c = File.open("./app/assets/images/sample/profile_card_data_c.jpg","r")
+      @profile_card.create_profile_card_d(@profile_card)
+      @profile_card.profile_card_data_d = File.open("./app/assets/images/sample/profile_card_data_d.jpg","r")
       @profile_card.save
       redirect_to @profile_card
     else
