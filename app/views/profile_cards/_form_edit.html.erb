@@ -5,7 +5,8 @@
       <%= f.label :breed_id,"犬種", class:'block mb-1' %>
       <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
     </div>
-    <p>※好きなおやつとおもちゃは選択肢以外を、入力していただくことも可能です</p>
+    <p>※下記のおやつとおもちゃは選択肢のもの以外に、入力していただくこともできます。<br>
+      　選択肢を一度選んだ後、他の選択肢を選ぶ時には選択肢を消去してからお願いします。</p>
     <div class='mb-10'>
       <%= f.label :favorite_treat, "好きなおやつ", class: 'block mb-1' %>
       <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
@@ -89,5 +90,6 @@
   </div>
   <div class='text-sm mb-5'>
     <p>※画像がうまく配置されない場合、写真の切り取り等してわんちゃんねこちゃんを真ん中に配置した画像を選択いただくとうまく表示できる場合があります。<br>
+    ※また正方形に近い形の写真の方が円形に近い形に切り取られる為、綺麗に仕上がりやすいです。</p>
   </div>
 <% end %>
