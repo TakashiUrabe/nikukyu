@@ -1,5 +1,5 @@
-require 'pycall/import'
-include PyCall::Import
+# require 'pycall/import'
+# include PyCall::Import
 class ProfileCard < ApplicationRecord
   require 'net/http'
   require 'uri'
@@ -85,55 +85,55 @@ class ProfileCard < ApplicationRecord
   include Magick
 
   # 2値化する
-  def binarize(file, t)
-    img = ImageList.new(file)
-    gray_img = img.quantize(256, GRAYColorspace)
-    bin_img = gray_img.threshold(t*256.to_i)
-    bin_img.write("app/assets/images/sample/bin_img.png")
-  end
+  # def binarize(file, t)
+  #   img = ImageList.new(file)
+  #   gray_img = img.quantize(256, GRAYColorspace)
+  #   bin_img = gray_img.threshold(t*256.to_i)
+  #   bin_img.write("app/assets/images/sample/bin_img.png")
+  # end
 
-  def create_histogram(gray_img)
-    hist = Array.new(256, 0)
-    [*0...gray_img.rows].product([*0...gray_img.columns]).each{ |(y, x)|
-      b = gray_img.pixel_color(y, x)
-      b = 0.299*b.red/256+0.587*b.green/256+0.114*b.blue/256
-      hist[b.round] += 1
-    }
-    hist
-  end
+  # def create_histogram(gray_img)
+  #   hist = Array.new(256, 0)
+  #   [*0...gray_img.rows].product([*0...gray_img.columns]).each{ |(y, x)|
+  #     b = gray_img.pixel_color(y, x)
+  #     b = 0.299*b.red/256+0.587*b.green/256+0.114*b.blue/256
+  #     hist[b.round] += 1
+  #   }
+  #   hist
+  # end
 
-  # 判別分析法（大津の2値化）
-  def discriminant(file)
-    img = ImageList.new(file)
-    gray_img = img.quantize(256, GRAYColorspace)
-    hist = create_histogram(gray_img)
-    eval_value, best_t = 0, 0
-    (0...255).each{ |t|
-      # t := 閾値
-      # w1(w2) := 左側(右側)の画素数
-      # m1(m2) := 左側(右側)の平均
-      w1, w2 = 0, 0
-      m1, m2 = 0, 0
+  # # 判別分析法（大津の2値化）
+  # def discriminant(file)
+  #   img = ImageList.new(file)
+  #   gray_img = img.quantize(256, GRAYColorspace)
+  #   hist = create_histogram(gray_img)
+  #   eval_value, best_t = 0, 0
+  #   (0...255).each{ |t|
+  #     # t := 閾値
+  #     # w1(w2) := 左側(右側)の画素数
+  #     # m1(m2) := 左側(右側)の平均
+  #     w1, w2 = 0, 0
+  #     m1, m2 = 0, 0
 
-      w1 = hist[0..t].reduce(:+)
-      m1 = hist[0..t].map.with_index {|n, idx| n * idx}.reduce(:+)/w1 rescue 0
+  #     w1 = hist[0..t].reduce(:+)
+  #     m1 = hist[0..t].map.with_index {|n, idx| n * idx}.reduce(:+)/w1 rescue 0
 
-      w2 = hist[t+1..255].reduce(:+)
-      m2 = hist[t+1..255].map.with_index(t+1) {|n, idx| n * idx}.reduce(:+)/w2 rescue 0
+  #     w2 = hist[t+1..255].reduce(:+)
+  #     m2 = hist[t+1..255].map.with_index(t+1) {|n, idx| n * idx}.reduce(:+)/w2 rescue 0
 
-      e = w1 * w2 * (m1 - m2) ** 2
-      if eval_value < e
-        eval_value = e
-        best_t = t
-      end
-    }
-    best_t
-  end
+  #     e = w1 * w2 * (m1 - m2) ** 2
+  #     if eval_value < e
+  #       eval_value = e
+  #       best_t = t
+  #     end
+  #   }
+  #   best_t
+  # end
 
-  def binarize_otsu(file)
-    t_dis = discriminant(file)
-    binarize(file, t_dis)
-  end
+  # def binarize_otsu(file)
+  #   t_dis = discriminant(file)
+  #   binarize(file, t_dis)
+  # end
 
   def create_profile_card_a(profile_card)
     base_img = ImageList.new("app/assets/images/sample/base_img_a.png")
@@ -156,9 +156,25 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, -200, -150, profile_card.name)
 
-    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
+    # profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
 
-    base_img.composite!(profile_face_image , 870, 50, OverCompositeOp)
+    # base_img.composite!(profile_face_image , 870, 50, OverCompositeOp)
+
+    #ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fit(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = "white"
+    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
+    idr.draw(img2);
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3 , 900, 100, OverCompositeOp)
+    #ここまで
 
     base_img.write("app/assets/images/sample/profile_card_data_a.jpg") # save to file
   end
@@ -185,9 +201,25 @@ class ProfileCard < ApplicationRecord
     draw.fill = "#d8b469"
     draw.annotate(base_img, 0, 0, -300, -140, profile_card.name)
 
-    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
+    # profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
 
-    base_img.composite!(profile_face_image , 800, 50, OverCompositeOp)
+    # base_img.composite!(profile_face_image , 800, 50, OverCompositeOp)
+
+    #ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fit(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = "white"
+    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
+    idr.draw(img2);
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3 , 800, 120, OverCompositeOp)
+    #ここまで
 
     base_img.write("app/assets/images/sample/profile_card_data_b.jpg") # save to file
   end
@@ -214,9 +246,25 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, 0, -150, profile_card.name)
 
-    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
+    # profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
 
-    base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
+    # base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
+
+    #ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fit(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = "white"
+    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
+    idr.draw(img2);
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3 , 1050, 150, OverCompositeOp)
+    #ここまで
 
     base_img.write("app/assets/images/sample/profile_card_data_c.jpg") # save to file
   end
@@ -242,18 +290,34 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, -100, -150, profile_card.name)
 
-    profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
+    # profile_face_image = ImageList.new('app/assets/images/sample/rembg_face_image.png').first.resize_to_fit(350, 350)
 
-    base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
+    # base_img.composite!(profile_face_image , 1000, 120, OverCompositeOp)
+
+    #ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fit(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = "white"
+    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
+    idr.draw(img2);
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3 , 1000, 120, OverCompositeOp)
+    #ここまで
 
     base_img.write("app/assets/images/sample/profile_card_data_d.jpg") # save to file
   end
 
-  pyfrom :PIL, import: :Image
-  def remove_background(input_path,output_path)
-    pyfrom :rembg, import: :remove
-    input = Image.open(input_path)
-    output = remove(input)
-    output.save(output_path)
-  end
+  # pyfrom :PIL, import: :Image
+  # def remove_background(input_path,output_path)
+  #   pyfrom :rembg, import: :remove
+  #   input = Image.open(input_path)
+  #   output = remove(input)
+  #   output.save(output_path)
+  # end
 end
