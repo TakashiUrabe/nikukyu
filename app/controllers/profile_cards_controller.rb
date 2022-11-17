@@ -48,8 +48,8 @@ class ProfileCardsController < ApplicationController
     @profile_card = ProfileCard.find(params[:id])
     if @profile_card.update(profile_card_params)
       cookies.delete :kind
-      @profile_card.remove_background(@profile_card.face_image, 'app/assets/images/sample/rembg_face_image.png')
-      @profile_card.rembg_face_image = File.open("./app/assets/images/sample/rembg_face_image.png","r")
+      # @profile_card.remove_background(@profile_card.face_image, 'app/assets/images/sample/rembg_face_image.png')
+      # @profile_card.rembg_face_image = File.open("./app/assets/images/sample/rembg_face_image.png","r")
       @profile_card.create_profile_card_a(@profile_card)
       @profile_card.profile_card_data_a = File.open("./app/assets/images/sample/profile_card_data_a.jpg","r")
       @profile_card.create_profile_card_b(@profile_card)
