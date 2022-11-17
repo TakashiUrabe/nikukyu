@@ -31,6 +31,10 @@ class ProfileCardsController < ApplicationController
   end
 
   def show
+
+  end
+
+  def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
     # @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/sample/rembg_pad_image.png')
@@ -55,10 +59,10 @@ class ProfileCardsController < ApplicationController
       @profile_card.create_profile_card_d(@profile_card)
       @profile_card.profile_card_data_d = File.open("./app/assets/images/sample/profile_card_data_d.jpg","r")
       @profile_card.save
-      redirect_to @profile_card
+      redirect_to edit_profile_card_path(@profile_card)
     else
       flash.now[:danger] = '入力項目が受け付けられませんでした'
-      render :show, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
