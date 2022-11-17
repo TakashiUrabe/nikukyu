@@ -31,7 +31,7 @@ class ProfileCardsController < ApplicationController
   end
 
   def show
-
+    @profile_card = ProfileCard.find(params[:id])
   end
 
   def edit
