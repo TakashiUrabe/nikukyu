@@ -15,6 +15,6 @@
     <%= render'profile_cards/result/cat/result_j', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
   </div>
   <div class="flex my-3 justify-center">
-    <%= link_to 'プロフィールカードをつくる', profile_card_path(@profile_card),class:'btn btn-primary' %>
+    <%= link_to 'プロフィールカードをつくる', edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
   </div>
 </div>
