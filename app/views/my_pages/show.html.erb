@@ -15,7 +15,7 @@
             <%= link_to 'このカードを編集する', edit_profile_card_path(profile_card), class:'btn btn-primary mx-2' %>
             <%= link_to '他のカードをダウンロードする', edit_profile_card_path(profile_card, anchor: "another_download"), class:'btn btn-primary mx-2' %>
             <div  class='btn btn-primary mx-2'>
-            <%= link_to '診断結果を見る', controller: :profile_cards, action: :result, id: profile_card.id %>
+              <%= link_to '診断結果を見る', controller: :profile_cards, action: :result, id: profile_card.id %>
             </div>
           </div>
         <% end %>
