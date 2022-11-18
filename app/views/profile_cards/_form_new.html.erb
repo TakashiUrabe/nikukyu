@@ -13,7 +13,7 @@
     <%= f.radio_button :kind, '2' %>
   </div>
   <div data-controller='preview-image'>
-    <%= image_tag profile_card.pad_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
+    <%= image_tag profile_card.pad_image.url,size: '200x200', data: { target: "preview-image.output",required: true } %>
     <%= f.label :pad_image,"にくきゅうの写真" %>
     <%= f.file_field :pad_image, data: {target: "preview-image.input", action: "preview-image#readURL" }, class: 'w-full rounded border border-gray-300 p-2' %>
     <%= f.hidden_field :pad_image_cache %>

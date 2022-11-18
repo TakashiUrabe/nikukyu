@@ -1,15 +1,15 @@
 ja:
   defaults:
       login: 'ログイン'
-      register: 'ユーザー登録'
+      register: '登録'
       logout: 'ログアウト'
       terms_of_service: '利用規約'
       privacy_policy: 'プライバシーポリシー'
       contact: 'お問い合わせ'
-      friends: 'みんなのプロフィールカード'
+      friends: 'カード一覧'
       home: 'ホーム'
       my_profile_card: 'マイページ'
-      new_test: 'にくきゅう診断'
+      new_test: '診断'
   enums:
     profile_card:
       personality:
