@@ -1,22 +1,22 @@
 ja:
   defaults:
       login: 'ログイン'
-      register: 'ユーザー登録'
+      register: '登録'
       logout: 'ログアウト'
       terms_of_service: '利用規約'
       privacy_policy: 'プライバシーポリシー'
       contact: 'お問い合わせ'
-      friends: 'みんなのプロフィールカード'
+      friends: 'カード一覧'
       home: 'ホーム'
       my_profile_card: 'マイページ'
-      new_test: 'にくきゅう診断'
+      new_test: '診断'
   enums:
     profile_card:
       personality:
         typeA: '運動大好きな甘えん坊タイプ'
         typeB: 'ちょっぴり犬見知りなのんびり屋さんタイプ'
         typeC: '安定より刺激を求める冒険家タイプ'
-        typeD: '自信家だけど実は臆病なところも‥タイプ'
+        typeD: '自信家だけど実は繊細タイプ'
         typeE: '穏やかな食いしん坊タイプ'
         typeF: '気分屋の甘えん坊タイプ'
         typeG: '少し神経質だけど実は優しいツンデレタイプ'
