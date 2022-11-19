@@ -88,11 +88,11 @@
       <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } ,class: 'w-full rounded border border-gray-200 p-2' %>
       <%= f.hidden_field :face_image_cache %>
     </div>
+    <div class='text-sm mb-5'>
+      <p>★お顔が真ん中にある画像を使うのがおすすめです</p>
+    </div>
     <div class='my-5 text-center'>
       <%= f.submit 'この内容でカードを作成する', class:'btn btn-primary' %>
-    </div>
-    <div class='text-sm mb-5'>
-      <p>★わんちゃんねこちゃんのお顔が真ん中にある画像を使うのがおすすめです</p>
     </div>
   <% end %>
 </div>

@@ -31,8 +31,8 @@
       </div>
     </div>
     <div class="flex py-10 justify-center">
-      <%= link_to 'このアプリをシェアする', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの性格診断の結果は%0a#{@profile_card.personality}でした
-      %0a%23犬%20%20%23猫20%20%23犬好きな人と繋がりたい0%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
+      <%= link_to 'このアプリをシェアする', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+      %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
     </div>
     <div class='py-10'>
       <% unless logged_in?  %>
