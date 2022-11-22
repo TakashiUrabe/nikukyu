@@ -7,17 +7,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      if cookies.has_key?(nikukyu_id)
-        current_profile_card = ProfileCard.find(cookies[nikukyu_id])
+      if cookies.has_key?(:nikukyu_id)
+        current_profile_card = ProfileCard.find(cookies[:nikukyu_id])
         current_profile_card.user_id_setting(@user.id)
-        cookies.delete nikukyu_id
+        cookies.delete :nikukyu_id
         @profile_card = current_profile_card
-        redirect_to @profile_card, success:'ユーザーの作成に成功しました'
+        redirect_to edit_profile_card_path(@profile_card), success:'ユーザー登録できました'
       else
-        redirect_to root_path, success:'ユーザーの作成に成功しました'
+        redirect_to root_path, success:'ユーザー登録できました'
       end
     else
-      flash.now[:alert] = 'ユーザーの作成に失敗しました'
+      flash.now[:alert] = 'ユーザー登録できませんでした'
       render new_user_path, status: :unprocessable_entity
     end
   end

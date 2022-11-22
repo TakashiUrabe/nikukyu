@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.font-zenmaru{
+  font-family: 'Zen Maru Gothic', serif;
+}
+.icon-text {
+  @apply text-xs;
+}

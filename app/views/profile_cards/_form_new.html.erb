@@ -5,16 +5,19 @@
     <%= f.text_field :name, class: 'w-full rounded border border-gray-200 p-2', placeholder:
     'わんちゃんねこちゃんの名前'%>
   </div>
-  <div class='my-10'>
+  <div class='my-10 flex'>
+    <div class='px-5'>
     <%= f.label :kind, '犬', value: 1 %>
     <%= f.radio_button :kind, '1' , checked: true %>
-
+    </div>
+    <div class='px-5'>
     <%= f.label :kind, '猫', value: 2 %>
     <%= f.radio_button :kind, '2' %>
+    </div>
   </div>
   <div data-controller='preview-image'>
     <%= image_tag profile_card.pad_image.url,size: '200x200', data: { target: "preview-image.output",required: true } %>
-    <%= f.label :pad_image,"にくきゅうの写真" %>
+    <%= f.label :pad_image,"肉球がおさまるように写真を撮ってください" %>
     <%= f.file_field :pad_image, data: {target: "preview-image.input", action: "preview-image#readURL" }, class: 'w-full rounded border border-gray-300 p-2' %>
     <%= f.hidden_field :pad_image_cache %>
   </div>

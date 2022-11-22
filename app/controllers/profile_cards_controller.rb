@@ -12,11 +12,14 @@ class ProfileCardsController < ApplicationController
     if current_user.nil?
       @profile_card = ProfileCard.new(profile_card_params)
     else
-      @profile_card = current_user.profile_cards.build(profile_card_params)
+      @profile_card = current_user.profile_cards.new(profile_card_params)
     end
     cookies[:kind] = params[:profile_card][:kind]
     if @profile_card.save
       cookies[:nikukyu_id] = @profile_card.id
+      unless current_user.nil?
+        cookies.delete :nikukyu_id
+      end
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
       redirect_to action: :result, id: @profile_card.id
@@ -28,6 +31,7 @@ class ProfileCardsController < ApplicationController
 
   def result
     @profile_card = ProfileCard.find(params[:id])
+    @ogp_img = "sample/ogp_result_#{@profile_card.personality}.png"
   end
 
   def show
@@ -37,29 +41,24 @@ class ProfileCardsController < ApplicationController
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
-    # @profile_card.remove_background(@profile_card.pad_image, 'app/assets/images/sample/rembg_pad_image.png')
-    # @profile_card.rembg_pad_image = File.open("./app/assets/images/sample/rembg_pad_image.png","r")
-    # @profile_card.binarize_otsu("./app/assets/images/sample/rembg_pad_image.png")
-    # @profile_card.binarize_image = File.open("./app/assets/images/sample/bin_img.png","r")
-    # @profile_card.save
+    if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
+      @ogp_img = @profile_card.select_ogp
+    else
+      redirect_to root_path, alert:'アクセス権限がありません'
+    end
   end
 
   def update
     @profile_card = ProfileCard.find(params[:id])
-    if @profile_card.update(profile_card_params)
+    if @profile_card.update(profile_card_params) && @profile_card.face_image.url != "sample/default_image.png"
       cookies.delete :kind
-      # @profile_card.remove_background(@profile_card.face_image, 'app/assets/images/sample/rembg_face_image.png')
-      # @profile_card.rembg_face_image = File.open("./app/assets/images/sample/rembg_face_image.png","r")
-      @profile_card.create_profile_card_a(@profile_card)
+      @profile_card.create_profile_card
       @profile_card.profile_card_data_a = File.open("./app/assets/images/sample/profile_card_data_a.jpg","r")
-      @profile_card.create_profile_card_b(@profile_card)
       @profile_card.profile_card_data_b = File.open("./app/assets/images/sample/profile_card_data_b.jpg","r")
-      @profile_card.create_profile_card_c(@profile_card)
       @profile_card.profile_card_data_c = File.open("./app/assets/images/sample/profile_card_data_c.jpg","r")
-      @profile_card.create_profile_card_d(@profile_card)
       @profile_card.profile_card_data_d = File.open("./app/assets/images/sample/profile_card_data_d.jpg","r")
       @profile_card.save
-      redirect_to edit_profile_card_path(@profile_card)
+      redirect_to edit_profile_card_path(@profile_card), success:'カードができました！'
     else
       flash.now[:danger] = '入力項目が受け付けられませんでした'
       render :edit, status: :unprocessable_entity

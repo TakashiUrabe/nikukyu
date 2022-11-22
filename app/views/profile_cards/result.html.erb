@@ -1,8 +1,6 @@
+<% set_meta_tags og:{image:image_url(@ogp_img)}, twitter:{image:image_url(@ogp_img)} %>
 <div>
-  <div>
-    <h1><%= @profile_card.name %>ちゃんの診断結果</h1>
-  </div>
-  <div class='max-w-md'>
+  <div class='max-w-md pt-10'>
     <%= render'profile_cards/result/dog/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
     <%= render'profile_cards/result/dog/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
     <%= render'profile_cards/result/dog/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
@@ -14,7 +12,20 @@
     <%= render'profile_cards/result/cat/result_i', {profile_card: @profile_card} if @profile_card.personality == 'typeI' %>
     <%= render'profile_cards/result/cat/result_j', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
   </div>
-  <div class="flex my-3 justify-center">
-    <%= link_to 'プロフィールカードをつくる', edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
-  </div>
+  <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
+    <div class="flex py-5 justify-center">
+      <div class='mx-2'>
+        <%= link_to '結果をシェア', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+      %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
+      </div>
+      <div class='mx-2'>
+        <%= link_to 'カードをつくる', edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
+      </div>
+
+    </div>
+  <% else %>
+    <div class='text-center py-10'>
+      <%= link_to 'にくきゅう診断をしてみる', root_path, class:'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
