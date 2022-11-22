@@ -15,6 +15,11 @@ module.exports = {
           "primary-content": "#ffffff", // btn-primaryなどの文字の色
           "base-100": "#ffecd4", // 全体の背景色
           "base-content": "#372f38", // 全体の文字の色
+          extend: {
+            fontFamily: {
+              'zenmaru': ['Zen Maru Gothic', 'serif'],
+            },
+          },
         },
       }
     ],
