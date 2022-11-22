@@ -1,4 +1,9 @@
-<h1>ユーザー登録</h1>
+<h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold">ユーザー登録</h1>
+<div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
+  <p>登録するとマイページから診断結果や作ったカードが見れたり<br>
+  期間限定カードが追加された時、いつでも入力なしで簡単に作れます！！</p>
+</div>
+
 <%= form_with model: @user, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class='my-5'>
@@ -17,3 +22,7 @@
     <%= f.submit '登録', class: 'btn btn-primary' %>
   </div>
 <% end %>
+<p>12月追加予定のカード</p>
+<div class='flex'>
+  <%= image_tag 'sample/christmas_sample1.png' %>
+</div>
