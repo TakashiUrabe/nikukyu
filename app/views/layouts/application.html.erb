@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html data-theme='garden'>
   <head>
-    <title>Nikukyu</title>
+    <title>にくきゅう診断</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag('favicon.ico') %>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
   </head>
 
   <body class="bg-orange-100">

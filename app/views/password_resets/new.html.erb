@@ -1,9 +1,6 @@
 <div class='my-20'>
-  <div class=''>
-    <% content_for(:title, t('.title')) %>
-  </div>
   <div class='align-center'>
-    <h1><%= t('.title') %></h1>
+    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold"><%= t('.title') %></h1>
     <%= form_with url: password_resets_path, method: :post, local: true do |f| %>
       <div class='mb-10'>
         <%= f.label :email, User.human_attribute_name(:email), class: 'block mb-1' %>
