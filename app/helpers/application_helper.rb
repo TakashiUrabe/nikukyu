@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'にくきゅう診断',
-      title: '犬猫のにくきゅうの写真から性格診断ができるサービス',
+      title: '実はうちの犬猫の性格は〇〇だった！気になったあなたはクリックして診断しよう！！',
       reverse: true,
       separator: '|',
       description: '「にくきゅう診断」は、犬猫のにくきゅうの写真から性格診断をして、その結果からTwitterヘッダーに設定できるプロフィールカードを作れるサービス。世界にひとつだけのプロフィールカードを作ろう!',
@@ -15,7 +15,7 @@ module ApplicationHelper
       ],
       og: {
         site_name: 'にくきゅう診断',
-        title: '犬猫のにくきゅうの写真から性格診断ができるサービス',
+        title: '実はうちの犬猫の性格は〇〇だった！気になったあなたはクリックして診断しよう！！',
         description: '「にくきゅう診断」は、犬猫のにくきゅうの写真から性格診断をして、その結果からTwitterヘッダーに設定できるプロフィールカードを作れるサービス。世界にひとつだけのプロフィールカードを作ろう!',
         type: 'website',
         url: request.original_url,
