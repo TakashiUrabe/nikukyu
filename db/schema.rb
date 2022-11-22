@@ -35,14 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_140624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "breed_id"
-    t.string "binarize_image"
-    t.string "change_color_binarize_image"
     t.string "profile_card_data_a"
     t.string "profile_card_data_b"
     t.string "profile_card_data_c"
     t.string "profile_card_data_d"
-    t.string "rembg_face_image"
-    t.string "rembg_pad_image"
     t.index ["breed_id"], name: "index_profile_cards_on_breed_id"
     t.index ["user_id"], name: "index_profile_cards_on_user_id"
   end
