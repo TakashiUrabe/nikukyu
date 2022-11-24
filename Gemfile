@@ -83,7 +83,7 @@ gem 'annotate'
 gem 'sorcery'
 gem 'config'
 gem 'pry-rails'
-gem 'rmagick'
+gem 'rmagick', :require => "RMagick"
 gem 'pycall'
 gem 'high_voltage'
 gem 'kaminari'
