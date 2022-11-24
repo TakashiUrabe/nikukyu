@@ -89,7 +89,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_a(profile_card)
-    base_img = ImageList.new("#{Rails.root}/assets/images/base_img_a.png")
+    base_img = ImageList.new("./app/assets/images/base_img_a.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
