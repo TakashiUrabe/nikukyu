@@ -78,7 +78,7 @@ class ProfileCard < ApplicationRecord
     JSON.parse(result)["predictions"][0]["tagName"]
   end
 
-  require 'RMagick'
+  require 'rmagick'
   include Magick
 
   def create_profile_card
