@@ -89,7 +89,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_a(profile_card)
-    base_img = ImageList.new("#{Rails.root}/app/assets/images/base_img_a.png")
+    base_img = ImageList.new("#{Rails.root}/assets/images/base_img_a.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -125,11 +125,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 900, 100, OverCompositeOp)
     #ここまで
 
-    base_img.write("#{Rails.root}/app/assets/images/sample/profile_card_data_a.jpg") # save to file
+    base_img.write("#{Rails.root}/assets/images/sample/profile_card_data_a.jpg") # save to file
   end
 
   def create_profile_card_b(profile_card)
-    base_img = ImageList.new("#{Rails.root}/app/assets/images/base_img_b.png")
+    base_img = ImageList.new("#{Rails.root}/assets/images/base_img_b.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -165,11 +165,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 980, 120, OverCompositeOp)
     #ここまで
 
-    base_img.write("#{Rails.root}/app/assets/images/sample/profile_card_data_b.jpg") # save to file
+    base_img.write("#{Rails.root}/assets/images/sample/profile_card_data_b.jpg") # save to file
   end
 
   def create_profile_card_c(profile_card)
-    base_img = ImageList.new("#{Rails.root}/app/assets/images/base_img_c.png")
+    base_img = ImageList.new("#{Rails.root}/assets/images/base_img_c.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -206,11 +206,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 820, 100, OverCompositeOp)
     #ここまで
 
-    base_img.write("#{Rails.root}/app/assets/images/sample/profile_card_data_c.jpg") # save to file
+    base_img.write("#{Rails.root}/assets/images/sample/profile_card_data_c.jpg") # save to file
   end
 
   def create_profile_card_d(profile_card)
-    base_img = ImageList.new("#{Rails.root}/app/assets/images/base_img_d.jpeg")
+    base_img = ImageList.new("#{Rails.root}/assets/images/base_img_d.jpeg")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -246,7 +246,7 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 1000, 120, OverCompositeOp)
     #ここまで
 
-    base_img.write("#{Rails.root}/app/assets/images/sample/profile_card_data_d.jpg") # save to file
+    base_img.write("#{Rails.root}/assets/images/sample/profile_card_data_d.jpg") # save to file
   end
 
 
