@@ -89,7 +89,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_a(profile_card)
-    base_img = ImageList.new("app/assets/images/sample/base_img_a.png")
+    base_img = ImageList.new("app/assets/images/base_img_a.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -129,7 +129,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_b(profile_card)
-    base_img = ImageList.new("app/assets/images/sample/base_img_b.png")
+    base_img = ImageList.new("app/assets/images/base_img_b.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -169,7 +169,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_c(profile_card)
-    base_img = ImageList.new("app/assets/images/sample/base_img_c.png")
+    base_img = ImageList.new("app/assets/images/base_img_c.png")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -210,7 +210,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_d(profile_card)
-    base_img = ImageList.new("app/assets/images/sample/base_img_d.jpeg")
+    base_img = ImageList.new("app/assets/images/base_img_d.jpeg")
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
