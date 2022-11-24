@@ -31,7 +31,7 @@ class ProfileCardsController < ApplicationController
 
   def result
     @profile_card = ProfileCard.find(params[:id])
-    @ogp_img = "sample/ogp_result_#{@profile_card.personality}.png"
+    @ogp_img = "ogp_result_#{@profile_card.personality}.png"
   end
 
   def show
