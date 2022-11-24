@@ -50,7 +50,7 @@ class ProfileCardsController < ApplicationController
 
   def update
     @profile_card = ProfileCard.find(params[:id])
-    if @profile_card.update(profile_card_params) && @profile_card.face_image.url != "sample/default_image.png"
+    if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
       @profile_card.create_profile_card
       @profile_card.profile_card_data_a = File.open("./app/assets/images/sample/profile_card_data_a.jpg","r")
