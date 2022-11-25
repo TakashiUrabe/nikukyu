@@ -42,11 +42,12 @@ class ProfileCardsController < ApplicationController
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
-    if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
-    else
-      flash[:notice] = 'アクセス権限がありません'
-      redirect_to action: :show
-    end
+    @ogp_img = @profile_card.select_ogp
+    # if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
+    # else
+    #   flash[:notice] = 'アクセス権限がありません'
+    #   redirect_to action: :show
+    # end
   end
 
   def update
