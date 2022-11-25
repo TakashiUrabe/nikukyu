@@ -125,7 +125,7 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 900, 100, OverCompositeOp)
     #ここまで
 
-    base_img.write("./app/assets/images/profile_card_data_a.jpg") # save to file
+    base_img.write("#{Rails.root}/assets/images/profile_card_data_a.jpg") # save to file
   end
 
   def create_profile_card_b(profile_card)
