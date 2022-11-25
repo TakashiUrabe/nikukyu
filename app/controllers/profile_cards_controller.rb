@@ -53,7 +53,7 @@ class ProfileCardsController < ApplicationController
     if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
       @profile_card.create_profile_card
-      @profile_card.profile_card_data_a = File.open("#./app/assets/images/profile_card_data_a.jpg","r")
+      @profile_card.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
       @profile_card.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
       @profile_card.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
       @profile_card.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
