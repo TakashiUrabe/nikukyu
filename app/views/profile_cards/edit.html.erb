@@ -26,7 +26,7 @@
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_c.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2', data: {controller:'reload',action: "click->reload#doReload" } %>
+          <%= link_to 'カードを保存する', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
         </div>
       </div>
       <div class="mb-20">
