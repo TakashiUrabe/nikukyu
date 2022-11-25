@@ -40,7 +40,7 @@
       <p>最後に保存したカードをTwitterにシェアできます！</p>
     </div>
     <div class="flex pb-10 justify-center">
-      <%= link_to 'カードをシェア', "https://twitter.com/share?url=#{request.url}_#{profile_card.cardtype}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+      <%= link_to 'カードをシェア', "https://twitter.com/share?url=#{request.url}_#{@profile_card.cardtype}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
       %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
     </div>
     <div class='py-10'>
