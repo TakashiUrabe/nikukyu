@@ -249,9 +249,6 @@ class ProfileCard < ApplicationRecord
     base_img.write("./app/assets/images/profile_card_data_d.jpg") # save to file
   end
 
-
-
-
   def select_ogp
     case card_type
     when "A"
