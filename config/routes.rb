@@ -20,10 +20,6 @@ Rails.application.routes.draw do
       get :download_b
       get :download_c
       get :download_d
-      get :tweet_a
-      get :tweet_b
-      get :tweet_c
-      get :tweet_d
     end
   end
   resource :my_pages, only: %i[show]
