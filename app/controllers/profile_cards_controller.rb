@@ -36,15 +36,16 @@ class ProfileCardsController < ApplicationController
 
   def show
     @profile_card = ProfileCard.find(params[:id])
+    @ogp_img = @profile_card.select_ogp
   end
 
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
     if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
-      @ogp_img = @profile_card.select_ogp
-    # else
-    #   redirect_to root_path, alert:'アクセス権限がありません'
+    else
+      flash[:notice] = 'アクセス権限がありません'
+      redirect_to action: :show
     end
   end
 
