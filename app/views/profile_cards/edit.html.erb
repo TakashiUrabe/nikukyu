@@ -1,4 +1,3 @@
-<% set_meta_tags og:{image: @ogp_img}, twitter:{image:@ogp_img} %>
 <div>
   <div class="my-10">
     <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold">診断結果からプロフィールカードを作成しよう！</h1>
@@ -41,7 +40,7 @@
       <p>最後に保存したカードをTwitterにシェアできます！</p>
     </div>
     <div class="flex pb-10 justify-center">
-      <%= link_to 'カードをシェア', "https://twitter.com/share?url=#{request.url}/?n=#{@profile_card.card_type}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+      <%= link_to 'カードをシェア', "https://twitter.com/share?url=nikukyu-shindan.herokuapp.com/profile_cards/#{@profile_card.id}/?n=#{@profile_card.card_type}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
       %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
     </div>
     <div class='py-10'>
