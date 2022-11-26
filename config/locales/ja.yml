@@ -41,7 +41,7 @@ ja:
       user:
         name: "表示名"
         password: "パスワード"
-        password_confirmation: "パスワード確認"
+        password_confirmation: "パスワード確認用（再入力）"
         email: "メールアドレス"
   password_resets:
     new:
