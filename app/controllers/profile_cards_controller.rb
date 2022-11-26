@@ -54,7 +54,7 @@ class ProfileCardsController < ApplicationController
       @profile_card.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
       @profile_card.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
       @profile_card.save
-      redirect_to edit_profile_card_path(@profile_card), success:'カードができました！'
+      redirect_to edit_profile_card_path(@profile_card), success:'ページ下部にカードができました！'
     else
       flash.now[:danger] = '入力項目が受け付けられませんでした'
       render :edit, status: :unprocessable_entity

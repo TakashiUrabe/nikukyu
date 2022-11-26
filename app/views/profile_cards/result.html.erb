@@ -15,8 +15,7 @@
   <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
     <div class="flex py-5 justify-center">
       <div class='mx-2'>
-        <%= link_to '結果をシェア', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-      %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
+        <%= link_to '結果をシェア', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
       <div class='mx-2'>
         <%= link_to 'カードをつくる', edit_profile_card_path(@profile_card),class:'btn btn-primary' %>

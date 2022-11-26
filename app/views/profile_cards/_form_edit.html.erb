@@ -43,10 +43,12 @@
         <%= f.label :breed_id, "猫種", class: 'block mb-1' %>
         <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
       </div>
-      <div class='text-sm mb-5 grid card bg-base-200  place-items-center p-2'>
-        <p>おやつとおもちゃの選択肢を選び直すときは文字を消してから<br>
-        選択肢以外も自由に入力できます<br>
-        全角10文字までがおすすめ</p>
+      <div class='text-sm mb-5 grid card bg-base-200 p-2'>
+        <p>おやつとおもちゃの選択肢を選び直すときは文字を消してから</p>
+        <br>
+        <p>選択肢以外も自由に入力できます</p>
+        <br>
+        <p>全角10文字までがおすすめです</p>
       </div>
       <div class='mb-10'>
         <%= f.label :favorite_treat, "好きなおやつ", class: 'block my-1' %>
@@ -92,7 +94,7 @@
     </div>
     <div class='text-sm mb-5'>
       <p>★お顔が真ん中にある写真を使うのがおすすめ</p>
-      <p>カード完成まで10秒ほどお時間がかかることがあります</p>
+      <p>通信状態によってカード完成まで20秒ほどお時間がかかることがあります</p>
     </div>
     <div class='my-5 text-center'>
       <%= f.submit 'この内容でカードをつくる', class:'btn btn-primary' %>
