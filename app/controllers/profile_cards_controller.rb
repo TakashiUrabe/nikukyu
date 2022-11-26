@@ -34,11 +34,6 @@ class ProfileCardsController < ApplicationController
     @ogp_img = "ogp_result_#{@profile_card.personality}.png"
   end
 
-  def show
-    @profile_card = ProfileCard.find(params[:id])
-    @ogp_img = @profile_card.select_ogp
-  end
-
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
@@ -117,7 +112,7 @@ class ProfileCardsController < ApplicationController
   private
 
   def profile_card_params
-    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy, )
+    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy )
   end
 
   def download_params

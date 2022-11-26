@@ -248,19 +248,4 @@ class ProfileCard < ApplicationRecord
 
     base_img.write("./app/assets/images/profile_card_data_d.jpg") # save to file
   end
-
-  def select_ogp
-    case card_type
-    when "A"
-      profile_card_data_a
-    when "B"
-      profile_card_data_b
-    when "C"
-      profile_card_data_c
-    when "D"
-      profile_card_data_d
-    else
-      profile_card_data_a
-    end
-  end
 end
