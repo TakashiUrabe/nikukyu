@@ -10,40 +10,41 @@
         <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
           <p>よかったらTwitterヘッダーとして使ってください</p>
           <br>
-          <p>最後に保存したカードが「みんなのカード」に載ります</p>
+          <p>iPhoneの場合、画像を長押しから写真を保存にて保存がおすすめです</p>
+          <br>
+          <p>最後に「カードを保存」したカードが「みんなのカード」に載ります</p>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_a.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_a_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
-          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_a/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+          <%= link_to 'カードを保存', download_a_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_a/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_b.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_b_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
-          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_b/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+          <%= link_to 'カードを保存', download_b_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_b/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_c.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
-          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_c/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+          <%= link_to 'カードを保存', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_c/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_d.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_d_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
-          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_d/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+          <%= link_to 'カードを保存', download_d_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_d/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
+      </div>
+      <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
+          <p>Twitterシェアしていただくとハッシュタグから同じ性格の子を検索できます</p>
       </div>
     </div>
     <div class='py-10'>
