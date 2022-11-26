@@ -31,32 +31,28 @@ class ProfileCardsController < ApplicationController
 
   def result
     @profile_card = ProfileCard.find(params[:id])
-    @ogp_img = "sample/ogp_result_#{@profile_card.personality}.png"
-  end
-
-  def show
-    @profile_card = ProfileCard.find(params[:id])
+    @ogp_img = "ogp_result_#{@profile_card.personality}.png"
   end
 
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
     if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
-      @ogp_img = @profile_card.select_ogp
     else
-      redirect_to root_path, alert:'アクセス権限がありません'
+      flash[:notice] = 'アクセス権限がありません'
+      redirect_to root_path
     end
   end
 
   def update
     @profile_card = ProfileCard.find(params[:id])
-    if @profile_card.update(profile_card_params) && @profile_card.face_image.url != "sample/default_image.png"
+    if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
       @profile_card.create_profile_card
-      @profile_card.profile_card_data_a = File.open("./app/assets/images/sample/profile_card_data_a.jpg","r")
-      @profile_card.profile_card_data_b = File.open("./app/assets/images/sample/profile_card_data_b.jpg","r")
-      @profile_card.profile_card_data_c = File.open("./app/assets/images/sample/profile_card_data_c.jpg","r")
-      @profile_card.profile_card_data_d = File.open("./app/assets/images/sample/profile_card_data_d.jpg","r")
+      @profile_card.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
+      @profile_card.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
+      @profile_card.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
+      @profile_card.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
       @profile_card.save
       redirect_to edit_profile_card_path(@profile_card), success:'カードができました！'
     else
@@ -97,10 +93,26 @@ class ProfileCardsController < ApplicationController
     @profile_card.save
   end
 
+  def tweet_a
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_b
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_c
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_d
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
   private
 
   def profile_card_params
-    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy, )
+    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy )
   end
 
   def download_params
