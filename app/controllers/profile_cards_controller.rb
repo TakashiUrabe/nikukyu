@@ -45,7 +45,7 @@ class ProfileCardsController < ApplicationController
     if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
     else
       flash[:notice] = 'アクセス権限がありません'
-      redirect_to action: :show
+      redirect_to root_path
     end
   end
 
@@ -96,6 +96,22 @@ class ProfileCardsController < ApplicationController
     send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'D'
     @profile_card.save
+  end
+
+  def tweet_a
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_b
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_c
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
+  def tweet_d
+    @profile_card = ProfileCard.find(params[:id])
   end
 
   private
