@@ -6,6 +6,3 @@ import { application } from "./application"
 
 import PreviewImageController from "./preview_image_controller"
 application.register("preview-image", PreviewImageController)
-
-import ReloadController from "./reload_controller"
-application.register("reload", ReloadController)

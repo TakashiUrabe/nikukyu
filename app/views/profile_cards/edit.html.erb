@@ -1,48 +1,50 @@
-<% set_meta_tags og:{image: @ogp_img}, twitter:{image:@ogp_img} %>
 <div>
   <div class="my-10">
-    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold">診断結果からプロフィールカードを作成しよう！</h1>
+    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold">診断結果から<br>Twitterヘッダーにも使える<br>プロフィールカードを作成しよう！</h1>
     <%= render 'form_edit', {profile_card: @profile_card} %>
   </div>
   <% if @profile_card.profile_card_data_a.present? %>
     <div>
       <div class='py-10'>
-      <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold">作成したプロフィールカード</h1>
-      <div class='text-sm text-center'>
-        <p>最後に保存したカードが「みんなのカード」に載ります</p>
-      </div>
+        <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold">作成したプロフィールカード</h1>
+        <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
+          <p>よかったらTwitterヘッダーとして使ってください</p>
+          <br>
+          <p>最後に保存したカードが「みんなのカード」に載ります</p>
+        </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_a.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_a_profile_card_path(@profile_card), class:'btn btn-primary mx-2', data: {controller:'reload',action: "click->reload#doReload" } %>
+          <%= link_to 'カードを保存する', download_a_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_a/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_b.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_b_profile_card_path(@profile_card), class:'btn btn-primary mx-2', data: {controller:'reload',action: "click->reload#doReload" } %>
+          <%= link_to 'カードを保存する', download_b_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_b/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_c.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2', data: {controller:'reload',action: "click->reload#doReload" } %>
+          <%= link_to 'カードを保存する', download_c_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_c/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
       <div class="mb-20">
         <%= image_tag @profile_card.profile_card_data_d.to_s %>
         <div class="flex my-3 justify-center">
-          <%= link_to 'カードを保存する', download_d_profile_card_path(@profile_card), class:'btn btn-primary mx-2', data: {controller:'reload',action: "click->reload#doReload" } %>
+          <%= link_to 'カードを保存する', download_d_profile_card_path(@profile_card), class:'btn btn-primary mx-2' %>
+          <%= link_to 'カードをシェア', "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet_d/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
+          %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
         </div>
       </div>
-    </div>
-    <div class='text-sm mb-2 grid card bg-base-200 rounded-box place-items-center p-5'>
-      <p>最後に保存したカードをTwitterにシェアできます！</p>
-    </div>
-    <div class="flex pb-10 justify-center">
-      <%= link_to 'カードをシェア', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんのにくきゅう診断の結果は%0a#{@profile_card.personality_i18n}でした
-      %0a%23犬%20%20%23猫%20%23犬好きな人と繋がりたい%20%23猫好きな人と繋がりたい%20", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
     </div>
     <div class='py-10'>
       <% unless logged_in?  %>
