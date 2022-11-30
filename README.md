@@ -53,7 +53,7 @@
 　・AmazonS3<br>
 　・PostgreSQL<br>
 API<br>
-　・Microsoft CustomVision<br>
+　・Microsoft CustomVision(性格診断に使用)<br>
 
 ## スケジュール
 　企画〜技術調査：9/31〆切<br>
