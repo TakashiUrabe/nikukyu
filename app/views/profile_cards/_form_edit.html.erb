@@ -1,7 +1,7 @@
 <div class='pb-10'>
   <%= form_with model:profile_card, local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    <% if cookies[:kind] == "1" %>
+    <% if (profile_card.breed_id.present? && profile_card.breed_id <= 205) || cookies[:kind] == "1" %>
       <div class='my-10'>
         <%= f.label :breed_id,"犬種", class:'block mb-1' %>
         <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
@@ -38,7 +38,7 @@
           <option value="デンタルトイ">
         </datalist>
       </div>
-    <% else %>
+    <% elsif (profile_card.breed_id.present? && profile_card.breed_id >= 206) || cookies[:kind] == "2" %>
       <div class='my-10'>
         <%= f.label :breed_id, "猫種", class: 'block mb-1' %>
         <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
