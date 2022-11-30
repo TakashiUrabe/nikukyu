@@ -37,8 +37,7 @@ class ProfileCardsController < ApplicationController
   def edit
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
-    if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
-    else
+    unless @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
       flash[:notice] = 'アクセス権限がありません'
       redirect_to root_path
     end
