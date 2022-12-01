@@ -12,12 +12,12 @@ class UsersController < ApplicationController
         current_profile_card.user_id_setting(@user.id)
         cookies.delete :nikukyu_id
         @profile_card = current_profile_card
-        redirect_to edit_profile_card_path(@profile_card), success:'ユーザー登録できました'
+        redirect_to edit_profile_card_path(@profile_card), success: t('.success')
       else
-        redirect_to root_path, success:'ユーザー登録できました'
+        redirect_to root_path, success: t('.success')
       end
     else
-      flash.now[:alert] = 'ユーザー登録できませんでした'
+      flash.now[:alert] = t('.fail')
       render new_user_path, status: :unprocessable_entity
     end
   end

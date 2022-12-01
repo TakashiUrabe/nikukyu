@@ -24,7 +24,7 @@ class ProfileCardsController < ApplicationController
       @profile_card.save
       redirect_to action: :result, id: @profile_card.id
     else
-      flash.now[:danger] = 'にくきゅう診断ができませんでした'
+      flash.now[:danger] = t('defaults.message.not_tested')
       render new_profile_card_path, status: :unprocessable_entity
     end
   end
@@ -38,7 +38,7 @@ class ProfileCardsController < ApplicationController
     @user = User.new
     @profile_card = ProfileCard.find(params[:id])
     unless @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
-      flash[:notice] = 'アクセス権限がありません'
+      flash[:notice] = t('defaults.message.not_authorized')
       redirect_to root_path
     end
   end
@@ -53,9 +53,9 @@ class ProfileCardsController < ApplicationController
       @profile_card.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
       @profile_card.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
       @profile_card.save
-      redirect_to edit_profile_card_path(@profile_card), success:'ページ下部にカードができました！'
+      redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
     else
-      flash.now[:danger] = '入力項目が受け付けられませんでした'
+      flash.now[:danger] = t('defaults.message.not_updated')
       render :edit, status: :unprocessable_entity
     end
   end

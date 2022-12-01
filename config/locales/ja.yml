@@ -1,15 +1,20 @@
 ja:
   defaults:
-      login: 'ログイン'
-      register: '登録'
-      logout: 'ログアウト'
-      terms_of_service: '利用規約'
-      privacy_policy: 'プライバシーポリシー'
-      contact: 'お問い合わせ'
-      friends: 'みんなのカード'
-      home: 'ホーム'
-      my_profile_card: 'マイページ'
-      new_test: '診断'
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    terms_of_service: '利用規約'
+    privacy_policy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
+    friends: 'みんなのカード'
+    home: 'ホーム'
+    my_profile_card: 'マイページ'
+    new_test: '診断'
+    message:
+      not_tested: 'にくきゅう診断ができませんでした'
+      updated: 'ページ下部にカードができました！'
+      not_updated: '入力項目が受け付けられませんでした'
+      not_authorized: '権限がありません'
   enums:
     profile_card:
       personality:
@@ -34,6 +39,10 @@ ja:
       short: "%m/%d"
       long: "%Y年%m月%d日(%a)"
   activerecord:
+    models:
+      user: 'ユーザー'
+      profile_card: 'プロフィールカード'
+      breed : '種類'
     attributes:
       profile_card:
         name: "名前"
@@ -43,6 +52,22 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード確認用（再入力）"
         email: "メールアドレス"
+  users:
+    create:
+      success: 'ユーザー登録ができました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
   password_resets:
     new:
       title: 'パスワード変更の為のメールアドレス入力'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードを変更できませんでした'
