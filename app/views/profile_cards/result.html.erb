@@ -15,20 +15,18 @@
   <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
     <div class="flex py-5 justify-center">
       <div class='mx-2'>
-        <%= link_to '結果をシェア', "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
+        <%= link_to t('.share_result'), "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
       <div class='mx-2'>
-        <%= link_to 'カードをつくる', edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
+        <%= link_to t('.create_card'), edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
       </div>
     </div>
     <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
-      <p>Twitterシェアしていただくと<br>ハッシュタグから同じ性格の子を検索できます</p>
-      <br>
-      <p>シェアに画像が表示されない場合は<br>再度お試しください</p>
+      <%= t('defaults.twitter_share_description_html') %>
     </div>
   <% else %>
     <div class='text-center py-10'>
-      <%= link_to 'にくきゅう診断をしてみる', root_path, class:'btn btn-primary' %>
+      <%= link_to t('.to_top_page'), root_path, class:'btn btn-primary' %>
     </div>
   <% end %>
 </div>
