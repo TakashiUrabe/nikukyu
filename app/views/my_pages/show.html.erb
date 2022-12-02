@@ -1,7 +1,7 @@
 <div class="max-w-lg pb-20">
-    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold">マイページ</h1>
+    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold"><%= t('.title') %></h1>
     <div class='my-10 p-3 grid card bg-base-200 rounded-box place-items-center'>
-    <p class='text-center'>カードをタップで編集・保存画面にいけます</p>
+    <p class='text-center'><%= t('.description') %></p>
     </div>
 
     <%= turbo_frame_tag "image-list" do %>
@@ -17,11 +17,10 @@
             <% end %>
             <div class="flex my-2 justify-center">
               <div  class='btn btn-primary'>
-                <%= link_to '診断結果をみる', controller: :profile_cards, action: :result, id: profile_card.id %>
+                <%= link_to t('.view_result'), controller: :profile_cards, action: :result, id: profile_card.id %>
               </div>
             </div>
           </div>
-
         <% end %>
       </div>
       <%= paginate(@profile_cards) %>
