@@ -1,29 +1,5 @@
 <div class="max-w-lg w-full my-10">
-  <h1  class="text-xl text-yellow-900 mb-10 font-zenmaru text-center font-bold">ユーザー登録</h1>
-  <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
-  <p>登録するとマイページから診断結果や作ったカードが見れたり<br>
-  期間限定カードが追加された時、いつでも入力なしで簡単に作れます！！</p>
-  </div>
-  <div>
-    <%= form_with model: @user, local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <div class='my-5'>
-        <%= f.label :email, 'メールアドレス', class:'block mb-1' %>
-        <%= f.email_field :email, class: 'w-full rounded border border-gray-200 p-2' %>
-      </div>
-      <div class="my-5">
-        <%= f.label :password, 'パスワード', class:'block mb-1' %>
-        <%= f.password_field :password, class: 'w-full rounded border border-gray-200 p-2' %>
-      </div>
-      <div class="my-5">
-        <%= f.label :password_confirmation, 'パスワード確認用（再入力）', class:'block mb-1' %>
-        <%= f.password_field :password_confirmation, class: 'w-full rounded border border-gray-200 p-2' %>
-      </div>
-      <div class="my-8 text-center" >
-        <%= f.submit '登録', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'form' %>
   <p>12月追加予定のカード</p>
   <%= image_tag 'christmas_sample2.png' %>
 </div>
