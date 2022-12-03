@@ -36,9 +36,9 @@ class ProfileCard < ApplicationRecord
   def dog_image_recognition(file)
     uri = URI('https://productdogpad-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/1e6387fe-c18f-4bf5-b3d8-321ba0526d81/classify/iterations/product_dog_classification/url')
     uri.query = URI.encode_www_form({
-        # Request parameters
-        'application' => '{string}'
-    })
+                                      # Request parameters
+                                      'application' => '{string}'
+                                    })
 
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -58,9 +58,9 @@ class ProfileCard < ApplicationRecord
   def cat_image_recoginition(file)
     uri = URI('https://productcatpad-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/a5313cec-758a-4928-9813-b6f3d1c15765/classify/iterations/product_cat_classification2/url')
     uri.query = URI.encode_www_form({
-        # Request parameters
-        'application' => '{string}'
-    })
+                                      # Request parameters
+                                      'application' => '{string}'
+                                    })
 
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
