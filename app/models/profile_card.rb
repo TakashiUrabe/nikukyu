@@ -86,6 +86,11 @@ class ProfileCard < ApplicationRecord
     create_profile_card_b(self)
     create_profile_card_c(self)
     create_profile_card_d(self)
+    self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg', 'r')
+    self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg', 'r')
+    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
+    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
+    save
   end
 
   def create_profile_card_a(profile_card)
@@ -247,13 +252,5 @@ class ProfileCard < ApplicationRecord
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_d.jpg') # save to file
-  end
-
-  def save_profile_card
-    self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg', 'r')
-    self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg', 'r')
-    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
-    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
-    save
   end
 end

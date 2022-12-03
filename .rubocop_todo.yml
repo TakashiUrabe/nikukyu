@@ -22,14 +22,6 @@ Metrics/MethodLength:
   Max: 29
 
 # Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: SkipBlocks, EnforcedStyle.
-# SupportedStyles: described_class, explicit
-# RSpec/DescribedClass:
-#   Exclude:
-#     - 'spec/mailers/user_mailer_spec.rb'
-
-# Offense count: 1
 RSpec/MultipleExpectations:
   Max: 3
 
