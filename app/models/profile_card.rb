@@ -117,8 +117,8 @@ class ProfileCard < ApplicationRecord
     idr = Draw.new
     idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
-    idr.draw(img2);
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
@@ -157,8 +157,8 @@ class ProfileCard < ApplicationRecord
     idr = Draw.new
     idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
-    idr.draw(img2);
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
@@ -198,8 +198,8 @@ class ProfileCard < ApplicationRecord
     idr = Draw.new
     idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
-    idr.draw(img2);
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
@@ -238,8 +238,8 @@ class ProfileCard < ApplicationRecord
     idr = Draw.new
     idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-    profile_face_image.columns/2,profile_face_image.rows/2,0,360);
-    idr.draw(img2);
+    profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
