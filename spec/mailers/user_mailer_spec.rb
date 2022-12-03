@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UserMailer, type: :mailer do
   describe 'reset_password_email' do
-    let(:mail) { UserMailer.reset_password_email }
+    let(:mail) { described_class.reset_password_email }
 
     it 'renders the headers' do
       expect(mail.subject).to eq('Reset password email')
