@@ -25,18 +25,11 @@ Layout/EmptyLinesAroundClassBody:
   Exclude:
     - 'spec/mailers/previews/user_mailer_preview.rb'
 
-# Offense count: 22
-# This cop supports safe autocorrection (--autocorrect).
-# Layout/SpaceAfterComma:
-#   Exclude:
-#     - 'app/controllers/profile_cards_controller.rb'
-#     - 'app/models/profile_card.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceAfterNot:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
+# Layout/SpaceAfterNot:
+#   Exclude:
+#     - 'app/helpers/application_helper.rb'
 
 # Offense count: 16
 # This cop supports safe autocorrection (--autocorrect).
