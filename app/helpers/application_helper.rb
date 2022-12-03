@@ -11,7 +11,7 @@ module ApplicationHelper
       canonical: 'https://www.nikukyu-shindan.com',
       noindex: ! Rails.env.production?,
       icon: [
-        { href: image_url('favicon.ico'), sizes: '32x32' },
+        { href: image_url('favicon.ico'), sizes: '32x32' }
       ],
       og: {
         site_name: 'にくきゅう診断',
