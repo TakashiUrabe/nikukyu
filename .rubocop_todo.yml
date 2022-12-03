@@ -27,18 +27,12 @@ Layout/EmptyLinesAroundClassBody:
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
-# Layout/SpaceBeforeComma:
-#   Exclude:
-#     - 'app/models/profile_card.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
 # SupportedStyles: space, no_space
 # SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'app/models/breed.rb'
+# Layout/SpaceInsideBlockBraces:
+#   Exclude:
+#     - 'app/models/breed.rb'
 
 # Offense count: 6
 # This cop supports safe autocorrection (--autocorrect).
