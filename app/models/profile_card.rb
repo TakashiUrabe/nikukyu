@@ -109,7 +109,7 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, -200, -150, profile_card.name)
 
-    #ここからが顔画像の処理
+    # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
     img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
     img2 = img2.matte_reset!
@@ -123,7 +123,7 @@ class ProfileCard < ApplicationRecord
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
     base_img.composite!(img3 , 900, 100, OverCompositeOp)
-    #ここまで
+    # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_a.jpg') # save to file
   end
@@ -149,7 +149,7 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, -100, -150, profile_card.name)
 
-    #ここからが顔画像の処理
+    # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
     img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
     img2 = img2.matte_reset!
@@ -163,7 +163,7 @@ class ProfileCard < ApplicationRecord
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
     base_img.composite!(img3 , 980, 120, OverCompositeOp)
-    #ここまで
+    # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_b.jpg') # save to file
   end
@@ -190,7 +190,7 @@ class ProfileCard < ApplicationRecord
     draw.fill = '#d8b469'
     draw.annotate(base_img, 0, 0, -270, -140, profile_card.name)
 
-    #ここからが顔画像の処理
+    # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
     img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
     img2 = img2.matte_reset!
@@ -204,7 +204,7 @@ class ProfileCard < ApplicationRecord
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
     base_img.composite!(img3 , 820, 100, OverCompositeOp)
-    #ここまで
+    # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_c.jpg') # save to file
   end
@@ -230,7 +230,7 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 50
     draw.annotate(base_img, 0, 0, -20, -75, profile_card.name)
 
-    #ここからが顔画像の処理
+    # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
     img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
     img2 = img2.matte_reset!
@@ -244,7 +244,7 @@ class ProfileCard < ApplicationRecord
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
     base_img.composite!(img3 , 1000, 120, OverCompositeOp)
-    #ここまで
+    # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_d.jpg') # save to file
   end

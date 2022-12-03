@@ -25,21 +25,13 @@ Layout/EmptyLinesAroundClassBody:
   Exclude:
     - 'spec/mailers/previews/user_mailer_preview.rb'
 
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: special_inside_parentheses, consistent, align_braces
-# Layout/FirstHashElementIndentation:
-#   Exclude:
-#     - 'app/models/profile_card.rb'
-
 # Offense count: 9
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'app/models/profile_card.rb'
-    - 'app/uploaders/face_image_uploader.rb'
+# Layout/LeadingCommentSpace:
+#   Exclude:
+#     - 'app/models/profile_card.rb'
+#     - 'app/uploaders/face_image_uploader.rb'
 
 # Offense count: 22
 # This cop supports safe autocorrection (--autocorrect).

@@ -18,7 +18,7 @@ class FaceImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  #アップロードした画像の表示
+  # アップロードした画像の表示
   def store_dir
     if Rails.env.production?
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
