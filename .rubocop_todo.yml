@@ -10,9 +10,9 @@
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
 # Include: **/*.gemfile, **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
+# Bundler/OrderedGems:
+#   Exclude:
+#     - 'Gemfile'
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
@@ -223,14 +223,6 @@ Style/PercentLiteralDelimiters:
 Style/PreferredHashMethods:
   Exclude:
     - 'app/controllers/users_controller.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-# Style/TrailingCommaInHashLiteral:
-#   Exclude:
-#     - 'app/helpers/application_helper.rb'
 
 # Offense count: 5
 # This cop supports safe autocorrection (--autocorrect).
