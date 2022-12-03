@@ -8,14 +8,6 @@
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowForAlignment.
-# Layout/CommentIndentation:
-#   Exclude:
-#     - 'app/uploaders/face_image_uploader.rb'
-#     - 'app/uploaders/pad_image_uploader.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
 Layout/EmptyLinesAroundBlockBody:
@@ -37,9 +29,9 @@ Layout/EmptyLinesAroundClassBody:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
-Layout/FirstHashElementIndentation:
-  Exclude:
-    - 'app/models/profile_card.rb'
+# Layout/FirstHashElementIndentation:
+#   Exclude:
+#     - 'app/models/profile_card.rb'
 
 # Offense count: 9
 # This cop supports safe autocorrection (--autocorrect).
