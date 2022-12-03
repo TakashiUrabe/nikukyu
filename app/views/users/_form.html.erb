@@ -2,7 +2,7 @@
 <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
   <p><%= t('.benefits_of_registering_html') %></p>
 </div>
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with model: user, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class='my-5'>
     <%= f.label :email, class:'block mb-1' %>
