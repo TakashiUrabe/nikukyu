@@ -45,7 +45,6 @@ class ProfileCardsController < ApplicationController
     if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
       @profile_card.create_profile_card
-      @profile_card.save_profile_card
       redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
     else
       flash.now[:danger] = t('defaults.message.not_updated')
