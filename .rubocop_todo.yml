@@ -25,19 +25,13 @@ Layout/EmptyLinesAroundClassBody:
   Exclude:
     - 'spec/mailers/previews/user_mailer_preview.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Layout/SpaceAfterNot:
-#   Exclude:
-#     - 'app/helpers/application_helper.rb'
-
 # Offense count: 16
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowForAlignment, EnforcedStyleForExponentOperator.
 # SupportedStylesForExponentOperator: space, no_space
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'app/models/profile_card.rb'
+# Layout/SpaceAroundOperators:
+#   Exclude:
+#     - 'app/models/profile_card.rb'
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
