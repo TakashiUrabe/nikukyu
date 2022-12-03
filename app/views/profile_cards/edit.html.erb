@@ -45,7 +45,7 @@
     </div>
     <div class='py-10'>
       <% unless logged_in?  %>
-        <%= render 'users/form' %>
+        <%= render 'users/form', user:@user %>
         <p><%= t('defaults.to_be_added') %></p>
         <div class='flex'>
           <%= image_tag 'christmas_sample1.png' %>
