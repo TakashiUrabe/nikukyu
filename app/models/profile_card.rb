@@ -22,14 +22,14 @@ class ProfileCard < ApplicationRecord
 
   def user_id_setting(id)
     self.user_id = id
-    self.save
+    save
   end
 
   def image_recognition(file,kind)
     if kind == '1'
-      self.dog_image_recognition(file)
+      dog_image_recognition(file)
     else
-      self.cat_image_recoginition(file)
+      cat_image_recoginition(file)
     end
   end
 
@@ -254,6 +254,6 @@ class ProfileCard < ApplicationRecord
     self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg','r')
     self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg','r')
     self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg','r')
-    self.save
+    save
   end
 end
