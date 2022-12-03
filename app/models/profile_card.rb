@@ -26,11 +26,12 @@ class ProfileCard < ApplicationRecord
   end
 
   def image_recognition(file, kind)
-    if kind == '1'
-      dog_image_recognition(file)
-    else
-      cat_image_recoginition(file)
-    end
+    self.personality = if kind == '1'
+                         dog_image_recognition(file)
+                       else
+                         cat_image_recognition(file)
+                       end
+    save
   end
 
   def dog_image_recognition(file)
@@ -55,7 +56,7 @@ class ProfileCard < ApplicationRecord
     JSON.parse(result)['predictions'][0]['tagName']
   end
 
-  def cat_image_recoginition(file)
+  def cat_image_recognition(file)
     uri = URI('https://productcatpad-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/a5313cec-758a-4928-9813-b6f3d1c15765/classify/iterations/product_cat_classification2/url')
     uri.query = URI.encode_www_form({
                                       # Request parameters

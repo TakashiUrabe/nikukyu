@@ -20,8 +20,7 @@ class ProfileCardsController < ApplicationController
     if @profile_card.save
       cookies[:kind] = params[:profile_card][:kind]
       cookies[:nikukyu_id] = @profile_card.id if current_user.nil?
-      @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url, cookies[:kind])
-      @profile_card.save
+      @profile_card.image_recognition(@profile_card.pad_image.url, cookies[:kind])
       redirect_to action: :result, id: @profile_card.id
     else
       flash.now[:danger] = t('defaults.message.not_tested')
