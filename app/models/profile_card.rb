@@ -122,7 +122,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3 , 900, 100, OverCompositeOp)
+    base_img.composite!(img3, 900, 100, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_a.jpg') # save to file
@@ -162,7 +162,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3 , 980, 120, OverCompositeOp)
+    base_img.composite!(img3, 980, 120, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_b.jpg') # save to file
@@ -203,7 +203,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3 , 820, 100, OverCompositeOp)
+    base_img.composite!(img3, 820, 100, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_c.jpg') # save to file
@@ -243,7 +243,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3 , 1000, 120, OverCompositeOp)
+    base_img.composite!(img3, 1000, 120, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_d.jpg') # save to file
