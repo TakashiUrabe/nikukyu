@@ -33,3 +33,7 @@ ClassAndModuleChildren:
 # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# Gemfileのアルファベットソート必須を無視
+Bundler/OrderedGems:
+  Enabled: false
