@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      if cookies.has_key?(:nikukyu_id)
+      if cookies.key?(:nikukyu_id)
         @profile_card = ProfileCard.find(cookies[:nikukyu_id])
         @profile_card.user_id_setting(@user.id)
         cookies.delete :nikukyu_id
