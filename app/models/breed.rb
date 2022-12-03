@@ -6,6 +6,6 @@ class Breed < ApplicationRecord
 
   enum kind: { dog: 1, cat: 2}
 
-  scope :dog_name, -> {where(kind: dog).order(id: :asc)}
-  scope :cat_name, -> {where(kind: cat).order(id: :asc)}
+  scope :dog_name, -> { where(kind: dog).order(id: :asc) }
+  scope :cat_name, -> { where(kind: cat).order(id: :asc) }
 end
