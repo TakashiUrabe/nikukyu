@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowInHeredoc.
-# Layout/TrailingWhitespace:
-#   Exclude:
-#     - 'spec/factories/users.rb'
-
 # Offense count: 12
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods, CountRepeatedAttributes.
 Metrics/AbcSize:
@@ -58,9 +51,9 @@ Style/GuardClause:
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: short, verbose
-Style/PreferredHashMethods:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
+# Style/PreferredHashMethods:
+#   Exclude:
+#     - 'app/controllers/users_controller.rb'
 
 # Offense count: 5
 # This cop supports safe autocorrection (--autocorrect).
