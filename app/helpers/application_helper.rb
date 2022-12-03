@@ -9,7 +9,7 @@ module ApplicationHelper
       keywords: 'にくきゅう診断',
       charset: 'UTF-8',
       canonical: 'https://www.nikukyu-shindan.com',
-      noindex: ! Rails.env.production?,
+      noindex: !Rails.env.production?,
       icon: [
         { href: image_url('favicon.ico'), sizes: '32x32' }
       ],
