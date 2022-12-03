@@ -20,12 +20,12 @@ module ApplicationHelper
         type: 'website',
         url: 'https://www.nikukyu-shindan.com',
         image: image_url('ogp.png'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@TUrabe22',
-      },
+        site: '@TUrabe22'
+      }
     }
   end
 end
