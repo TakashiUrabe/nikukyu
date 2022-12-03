@@ -248,4 +248,12 @@ class ProfileCard < ApplicationRecord
 
     base_img.write("./app/assets/images/profile_card_data_d.jpg") # save to file
   end
+
+  def save_profile_card
+    self.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
+    self.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
+    self.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
+    self.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
+    self.save
+  end
 end
