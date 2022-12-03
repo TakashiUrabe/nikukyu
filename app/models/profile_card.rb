@@ -26,7 +26,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def image_recognition(file,kind)
-    if kind == "1"
+    if kind == '1'
       self.dog_image_recognition(file)
     else
       self.cat_image_recoginition(file)
@@ -52,7 +52,7 @@ class ProfileCard < ApplicationRecord
       http.request(request)
     end
     result = response.body
-    JSON.parse(result)["predictions"][0]["tagName"]
+    JSON.parse(result)['predictions'][0]['tagName']
   end
 
   def cat_image_recoginition(file)
@@ -75,7 +75,7 @@ class ProfileCard < ApplicationRecord
     end
 
     result = response.body
-    JSON.parse(result)["predictions"][0]["tagName"]
+    JSON.parse(result)['predictions'][0]['tagName']
   end
 
   require 'rmagick'
@@ -89,7 +89,7 @@ class ProfileCard < ApplicationRecord
   end
 
   def create_profile_card_a(profile_card)
-    base_img = ImageList.new("./app/assets/images/base_img_a.png")
+    base_img = ImageList.new('./app/assets/images/base_img_a.png')
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -102,8 +102,8 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, -200, -35, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, -200, 10, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -200, 55, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ""
-    draw.annotate(base_img, 0, 0, -200, 100, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ""
+    draw.annotate(base_img, 0, 0, -200, 55, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -200, 100, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
@@ -115,7 +115,7 @@ class ProfileCard < ApplicationRecord
     img2 = img2.matte_reset!
 
     idr = Draw.new
-    idr.fill = "white"
+    idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
     profile_face_image.columns/2,profile_face_image.rows/2,0,360);
     idr.draw(img2);
@@ -125,11 +125,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 900, 100, OverCompositeOp)
     #ここまで
 
-    base_img.write("./app/assets/images/profile_card_data_a.jpg") # save to file
+    base_img.write('./app/assets/images/profile_card_data_a.jpg') # save to file
   end
 
   def create_profile_card_b(profile_card)
-    base_img = ImageList.new("./app/assets/images/base_img_b.png")
+    base_img = ImageList.new('./app/assets/images/base_img_b.png')
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -142,8 +142,8 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, -100, -40, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, -100, 5, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -100, 50, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ""
-    draw.annotate(base_img, 0, 0, -100, 95, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ""
+    draw.annotate(base_img, 0, 0, -100, 50, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -100, 95, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
@@ -155,7 +155,7 @@ class ProfileCard < ApplicationRecord
     img2 = img2.matte_reset!
 
     idr = Draw.new
-    idr.fill = "white"
+    idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
     profile_face_image.columns/2,profile_face_image.rows/2,0,360);
     idr.draw(img2);
@@ -165,11 +165,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 980, 120, OverCompositeOp)
     #ここまで
 
-    base_img.write("./app/assets/images/profile_card_data_b.jpg") # save to file
+    base_img.write('./app/assets/images/profile_card_data_b.jpg') # save to file
   end
 
   def create_profile_card_c(profile_card)
-    base_img = ImageList.new("./app/assets/images/base_img_c.png")
+    base_img = ImageList.new('./app/assets/images/base_img_c.png')
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -182,12 +182,12 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, -270, -10, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, -270, 35, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -270, 80, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ""
-    draw.annotate(base_img, 0, 0, -270, 125, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ""
+    draw.annotate(base_img, 0, 0, -270, 80, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -270, 125, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
-    draw.fill = "#d8b469"
+    draw.fill = '#d8b469'
     draw.annotate(base_img, 0, 0, -270, -140, profile_card.name)
 
     #ここからが顔画像の処理
@@ -196,7 +196,7 @@ class ProfileCard < ApplicationRecord
     img2 = img2.matte_reset!
 
     idr = Draw.new
-    idr.fill = "white"
+    idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
     profile_face_image.columns/2,profile_face_image.rows/2,0,360);
     idr.draw(img2);
@@ -206,11 +206,11 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 820, 100, OverCompositeOp)
     #ここまで
 
-    base_img.write("./app/assets/images/profile_card_data_c.jpg") # save to file
+    base_img.write('./app/assets/images/profile_card_data_c.jpg') # save to file
   end
 
   def create_profile_card_d(profile_card)
-    base_img = ImageList.new("./app/assets/images/base_img_d.jpeg")
+    base_img = ImageList.new('./app/assets/images/base_img_d.jpeg')
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -223,8 +223,8 @@ class ProfileCard < ApplicationRecord
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, -20, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, -20, 50, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ""
-    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ""
+    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
@@ -236,7 +236,7 @@ class ProfileCard < ApplicationRecord
     img2 = img2.matte_reset!
 
     idr = Draw.new
-    idr.fill = "white"
+    idr.fill = 'white'
     idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
     profile_face_image.columns/2,profile_face_image.rows/2,0,360);
     idr.draw(img2);
@@ -246,14 +246,14 @@ class ProfileCard < ApplicationRecord
     base_img.composite!(img3 , 1000, 120, OverCompositeOp)
     #ここまで
 
-    base_img.write("./app/assets/images/profile_card_data_d.jpg") # save to file
+    base_img.write('./app/assets/images/profile_card_data_d.jpg') # save to file
   end
 
   def save_profile_card
-    self.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
-    self.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
-    self.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
-    self.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
+    self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg','r')
+    self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg','r')
+    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg','r')
+    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg','r')
     self.save
   end
 end
