@@ -12,11 +12,11 @@ class ProfileCardsController < ApplicationController
   end
 
   def create
-    if current_user.nil?
-      @profile_card = ProfileCard.new(profile_card_params)
-    else
-      @profile_card = current_user.profile_cards.new(profile_card_params)
-    end
+    @profile_card = if current_user.nil?
+                      ProfileCard.new(profile_card_params)
+                    else
+                      current_user.profile_cards.new(profile_card_params)
+                    end
     if @profile_card.save
       cookies[:kind] = params[:profile_card][:kind]
       cookies[:nikukyu_id] = @profile_card.id if current_user.nil?

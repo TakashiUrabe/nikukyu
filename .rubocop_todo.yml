@@ -24,14 +24,6 @@ Layout/TrailingWhitespace:
   Exclude:
     - 'spec/factories/users.rb'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods, IgnoreNotImplementedMethods.
-# Lint/UnusedMethodArgument:
-#   Exclude:
-#     - 'app/uploaders/face_image_uploader.rb'
-#     - 'app/uploaders/pad_image_uploader.rb'
-
 # Offense count: 12
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods, CountRepeatedAttributes.
 Metrics/AbcSize:
@@ -71,9 +63,9 @@ Rails/UniqueValidationWithoutIndex:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
 # SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'app/controllers/profile_cards_controller.rb'
+# Style/ConditionalAssignment:
+#   Exclude:
+#     - 'app/controllers/profile_cards_controller.rb'
 
 # Offense count: 1
 # Configuration parameters: MinBodyLength, AllowConsecutiveConditionals.
