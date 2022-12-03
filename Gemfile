@@ -13,7 +13,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'bootsnap', require: false
 
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'annotate'
 gem 'carrierwave'
@@ -32,7 +32,7 @@ gem 'sorcery'
 
 group :development, :test do
   gem 'capybara'
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'

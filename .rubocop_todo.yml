@@ -17,19 +17,11 @@ Layout/EmptyLinesAroundBlockBody:
     - 'spec/requests/user_sessions_spec.rb'
     - 'spec/requests/users_spec.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, compact, no_space
-# Layout/SpaceInsideParens:
-#   Exclude:
-#     - 'app/controllers/profile_cards_controller.rb'
-
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Exclude:
-    - 'Gemfile'
+# Layout/SpaceInsidePercentLiteralDelimiters:
+#   Exclude:
+#     - 'Gemfile'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
