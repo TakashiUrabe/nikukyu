@@ -48,7 +48,7 @@ class ProfileCard < ApplicationRecord
     # Request body
     request.body = "{Url: '#{file}'}"
 
-    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
     result = response.body
@@ -70,7 +70,7 @@ class ProfileCard < ApplicationRecord
     # Request body
     request.body = "{Url: '#{file}'}"
 
-    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
 
