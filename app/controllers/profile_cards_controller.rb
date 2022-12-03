@@ -1,4 +1,7 @@
 class ProfileCardsController < ApplicationController
+  before_action :set_profile_card, only: %i[result edit update tweet_a tweet_b tweet_c tweet_d]
+  before_action :set_download_card, only: %i[download_a download_b download_c download_d]
+
   def new
     @profile_card = ProfileCard.new
   end
@@ -14,12 +17,9 @@ class ProfileCardsController < ApplicationController
     else
       @profile_card = current_user.profile_cards.new(profile_card_params)
     end
-    cookies[:kind] = params[:profile_card][:kind]
     if @profile_card.save
-      cookies[:nikukyu_id] = @profile_card.id
-      unless current_user.nil?
-        cookies.delete :nikukyu_id
-      end
+      cookies[:kind] = params[:profile_card][:kind]
+      cookies[:nikukyu_id] = @profile_card.id if current_user.nil?
       @profile_card.personality = @profile_card.image_recognition(@profile_card.pad_image.url,cookies[:kind])
       @profile_card.save
       redirect_to action: :result, id: @profile_card.id
@@ -30,13 +30,11 @@ class ProfileCardsController < ApplicationController
   end
 
   def result
-    @profile_card = ProfileCard.find(params[:id])
     @ogp_img = "ogp_result_#{@profile_card.personality}.png"
   end
 
   def edit
     @user = User.new
-    @profile_card = ProfileCard.find(params[:id])
     unless @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
       flash[:notice] = t('defaults.message.not_authorized')
       redirect_to root_path
@@ -44,15 +42,10 @@ class ProfileCardsController < ApplicationController
   end
 
   def update
-    @profile_card = ProfileCard.find(params[:id])
     if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
       @profile_card.create_profile_card
-      @profile_card.profile_card_data_a = File.open("./app/assets/images/profile_card_data_a.jpg","r")
-      @profile_card.profile_card_data_b = File.open("./app/assets/images/profile_card_data_b.jpg","r")
-      @profile_card.profile_card_data_c = File.open("./app/assets/images/profile_card_data_c.jpg","r")
-      @profile_card.profile_card_data_d = File.open("./app/assets/images/profile_card_data_d.jpg","r")
-      @profile_card.save
+      @profile_card.save_profile_card
       redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
     else
       flash.now[:danger] = t('defaults.message.not_updated')
@@ -61,7 +54,6 @@ class ProfileCardsController < ApplicationController
   end
 
   def download_a
-    @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_a
     send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'A'
@@ -69,7 +61,6 @@ class ProfileCardsController < ApplicationController
   end
 
   def download_b
-    @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_b
     send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'B'
@@ -77,7 +68,6 @@ class ProfileCardsController < ApplicationController
   end
 
   def download_c
-    @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_c
     send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'C'
@@ -85,28 +75,19 @@ class ProfileCardsController < ApplicationController
   end
 
   def download_d
-    @profile_card = ProfileCard.find(download_params[:id])
     image = @profile_card.profile_card_data_d
     send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
     @profile_card.card_type = 'D'
     @profile_card.save
   end
 
-  def tweet_a
-    @profile_card = ProfileCard.find(params[:id])
-  end
+  def tweet_a; end
 
-  def tweet_b
-    @profile_card = ProfileCard.find(params[:id])
-  end
+  def tweet_b; end
 
-  def tweet_c
-    @profile_card = ProfileCard.find(params[:id])
-  end
+  def tweet_c; end
 
-  def tweet_d
-    @profile_card = ProfileCard.find(params[:id])
-  end
+  def tweet_d; end
 
   private
 
@@ -114,7 +95,15 @@ class ProfileCardsController < ApplicationController
     params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy )
   end
 
+  def set_profile_card
+    @profile_card = ProfileCard.find(params[:id])
+  end
+
   def download_params
     params.permit(:id)
+  end
+
+  def set_download_card
+    @profile_card = ProfileCard.find(download_params[:id])
   end
 end

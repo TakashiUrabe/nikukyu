@@ -8,10 +8,9 @@ class UsersController < ApplicationController
     if @user.save
       auto_login(@user)
       if cookies.has_key?(:nikukyu_id)
-        current_profile_card = ProfileCard.find(cookies[:nikukyu_id])
-        current_profile_card.user_id_setting(@user.id)
+        @profile_card = ProfileCard.find(cookies[:nikukyu_id])
+        @profile_card.user_id_setting(@user.id)
         cookies.delete :nikukyu_id
-        @profile_card = current_profile_card
         redirect_to edit_profile_card_path(@profile_card), success: t('.success')
       else
         redirect_to root_path, success: t('.success')
