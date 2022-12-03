@@ -10,12 +10,12 @@
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'spec/mailers/user_mailer_spec.rb'
-    - 'spec/requests/password_resets_spec.rb'
-    - 'spec/requests/user_sessions_spec.rb'
-    - 'spec/requests/users_spec.rb'
+# Layout/EmptyLinesAroundBlockBody:
+#   Exclude:
+#     - 'spec/mailers/user_mailer_spec.rb'
+#     - 'spec/requests/password_resets_spec.rb'
+#     - 'spec/requests/user_sessions_spec.rb'
+#     - 'spec/requests/users_spec.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -64,15 +64,6 @@ Rails/UniqueValidationWithoutIndex:
 Style/GuardClause:
   Exclude:
     - 'app/controllers/profile_cards_controller.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: PreferredDelimiters.
-# Style/PercentLiteralDelimiters:
-#   Exclude:
-#     - 'app/uploaders/face_image_uploader.rb'
-#     - 'app/uploaders/pad_image_uploader.rb'
-#     - 'app/uploaders/profile_card_data_uploader.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
