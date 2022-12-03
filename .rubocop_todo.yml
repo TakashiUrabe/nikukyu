@@ -17,20 +17,14 @@ Layout/EmptyLinesAroundBlockBody:
     - 'spec/requests/user_sessions_spec.rb'
     - 'spec/requests/users_spec.rb'
 
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Layout/SpaceInsidePercentLiteralDelimiters:
-#   Exclude:
-#     - 'Gemfile'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingEmptyLines:
-  Exclude:
-    - 'Gemfile'
-    - 'app/mailers/user_mailer.rb'
+# Layout/TrailingEmptyLines:
+#   Exclude:
+#     - 'Gemfile'
+#     - 'app/mailers/user_mailer.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
