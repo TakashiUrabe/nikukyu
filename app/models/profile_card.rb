@@ -25,7 +25,7 @@ class ProfileCard < ApplicationRecord
     save
   end
 
-  def image_recognition(file,kind)
+  def image_recognition(file, kind)
     if kind == '1'
       dog_image_recognition(file)
     else
@@ -116,8 +116,8 @@ class ProfileCard < ApplicationRecord
 
     idr = Draw.new
     idr.fill = 'white'
-    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-                profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.ellipse(profile_face_image.columns/2, profile_face_image.rows/2,
+                profile_face_image.columns/2, profile_face_image.rows/2, 0, 360)
     idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
@@ -156,8 +156,8 @@ class ProfileCard < ApplicationRecord
 
     idr = Draw.new
     idr.fill = 'white'
-    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-                profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.ellipse(profile_face_image.columns/2, profile_face_image.rows/2,
+                profile_face_image.columns/2, profile_face_image.rows/2, 0, 360)
     idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
@@ -197,8 +197,8 @@ class ProfileCard < ApplicationRecord
 
     idr = Draw.new
     idr.fill = 'white'
-    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-                profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.ellipse(profile_face_image.columns/2, profile_face_image.rows/2,
+                profile_face_image.columns/2, profile_face_image.rows/2, 0, 360)
     idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
@@ -237,8 +237,8 @@ class ProfileCard < ApplicationRecord
 
     idr = Draw.new
     idr.fill = 'white'
-    idr.ellipse(profile_face_image.columns/2,profile_face_image.rows/2,
-                profile_face_image.columns/2,profile_face_image.rows/2,0,360)
+    idr.ellipse(profile_face_image.columns/2, profile_face_image.rows/2,
+                profile_face_image.columns/2, profile_face_image.rows/2, 0, 360)
     idr.draw(img2)
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
@@ -250,10 +250,10 @@ class ProfileCard < ApplicationRecord
   end
 
   def save_profile_card
-    self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg','r')
-    self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg','r')
-    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg','r')
-    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg','r')
+    self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg', 'r')
+    self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg', 'r')
+    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
+    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
     save
   end
 end
