@@ -43,10 +43,6 @@ ja:
       title: 'にくきゅう診断をしてみよう'
     index:
       title: 'みんなのカード'
-    result:
-      to_top_page: 'トップページへ'
-      create_card: 'カードをつくる'
-      share_result: '結果をシェア'
     edit:
       title_html: '診断結果から<br>Twitterヘッダーにも使える<br>プロフィールカードを作成しよう！'
       created_profile_card: '作成したプロフィールカード'
@@ -89,3 +85,8 @@ ja:
       title: 'マイページ'
       description: 'カードをタップで編集・保存画面にいけます'
       view_result: '診断結果をみる'
+  results:
+    result:
+      to_top_page: 'トップページへ'
+      create_card: 'カードをつくる'
+      share_result: '結果をシェア'

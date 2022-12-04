@@ -1,5 +1,5 @@
 class ProfileCardsController < ApplicationController
-  before_action :set_profile_card, only: %i[result edit update]
+  before_action :set_profile_card, only: %i[edit update]
 
   def new
     @profile_card = ProfileCard.new
@@ -20,15 +20,11 @@ class ProfileCardsController < ApplicationController
       cookies[:kind] = params[:profile_card][:kind]
       cookies[:nikukyu_id] = @profile_card.id if current_user.nil?
       @profile_card.image_recognition(@profile_card.pad_image.url, cookies[:kind])
-      redirect_to action: :result, id: @profile_card.id
+      redirect_to controller: :results, action: :result, id: @profile_card.id
     else
       flash.now[:danger] = t('defaults.message.not_tested')
       render new_profile_card_path, status: :unprocessable_entity
     end
-  end
-
-  def result
-    @ogp_img = "ogp_result_#{@profile_card.personality}.png"
   end
 
   def edit
