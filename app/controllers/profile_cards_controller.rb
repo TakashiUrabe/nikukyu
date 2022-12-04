@@ -1,5 +1,5 @@
 class ProfileCardsController < ApplicationController
-  before_action :set_profile_card, only: %i[result edit update tweet_a tweet_b tweet_c tweet_d]
+  before_action :set_profile_card, only: %i[result edit update]
 
   def new
     @profile_card = ProfileCard.new
@@ -50,21 +50,9 @@ class ProfileCardsController < ApplicationController
     end
   end
 
-  def tweet_a; end
-
-  def tweet_b; end
-
-  def tweet_c; end
-
-  def tweet_d; end
-
   private
 
   def profile_card_params
     params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy)
-  end
-
-  def set_profile_card
-    @profile_card = ProfileCard.find(params[:id])
   end
 end

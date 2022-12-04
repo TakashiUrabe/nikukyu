@@ -20,10 +20,10 @@ Rails.application.routes.draw do
       get :download_b, to: 'downloads#download_b'
       get :download_c, to: 'downloads#download_c'
       get :download_d, to: 'downloads#download_d'
-      get :tweet_a
-      get :tweet_b
-      get :tweet_c
-      get :tweet_d
+      get :tweet_a, to: 'tweets#tweet_a'
+      get :tweet_b, to: 'tweets#tweet_b'
+      get :tweet_c, to: 'tweets#tweet_c'
+      get :tweet_d, to: 'tweets#tweet_d'
     end
   end
   resource :my_pages, only: %i[show]
