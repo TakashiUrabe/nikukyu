@@ -1,0 +1,46 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      profile_card: 'プロフィールカード'
+      breed : '種類'
+    attributes:
+      profile_card:
+        name: "名前"
+        pad_image: "にくきゅうの写真"
+        favorite_treat: '好きなおやつ'
+        favorite_toy: '好きなおもちゃ'
+        gender: '性別'
+        birthday: 'お誕生日'
+        face_image: '顔もしくは全身の写真'
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認用（再入力）"
+        remember_me: ログインを記憶する
+  attributes:
+    id: 'ID'
+    created_at: '作成日時'
+    updated_at: '更新日時'
+
+  enums:
+    profile_card:
+      personality:
+        typeA: '運動大好きな甘えん坊タイプ'
+        typeB: 'ちょっぴり犬見知りなのんびり屋さんタイプ'
+        typeC: '安定より刺激を求める冒険家タイプ'
+        typeD: '自信家だけど実は繊細なタイプ'
+        typeE: '穏やかな食いしん坊タイプ'
+        typeF: '気分屋の甘えん坊タイプ'
+        typeG: '少し神経質だけど実は優しいツンデレタイプ'
+        typeH: '運動好きのイタズラっ子タイプ'
+        typeI: 'のんびりインドアの平和主義者タイプ'
+        typeJ: '上下関係の中で生きる体育会系タイプ'
+        typeB_indention_html: 'ちょっぴり犬見知りな<br>のんびり屋さんタイプ'
+        typeD_indention_html:  '堂々としている自信家。<br>でも実は繊細なタイプ'
+        typeG_indention_html:  'ちょっぴり神経質だけど<br>実は優しいツンデレタイプ'
+      gender:
+        male: '男の子'
+        female: '女の子'
+      card_type:
+        hide: '表示しない'

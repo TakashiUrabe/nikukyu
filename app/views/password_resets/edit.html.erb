@@ -1,22 +1,25 @@
-<div class="container">
-  <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
-    <%= render 'shared/error_messages', object:  %>
-    <div>
-      <%= f.label :email,'メールアドレス' %>
-      <%= @user.email %>
-    </div>
-    <div>
-      <%= f.label :password,'パスワード' %>
-      <%= f.password_field :password %>
-    </div>
-    <div>
-      <%= f.label :password_confirmation,'パスワード再入力' %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions">
-      <p>
-        <%= f.submit ('送信'), class: 'btn btn-primary' %>
-      </p>
-    </div>
-  <% end %>
+<div class='my-20'>
+  <div class='align-center'>
+    <h1 class="text-xl text-yellow-900 my-2 font-zenmaru text-center font-bold"><%= t('.title') %></h1>
+    <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="my-10">
+        <%= f.label :email %>
+        <%= @user.email %>
+      </div>
+      <div class="my-10">
+        <%= f.label :password, class: 'block mb-1' %>
+        <%= f.password_field :password, class: 'w-full rounded border border-gray-200 p-2' %>
+      </div>
+      <div class="my-10">
+        <%= f.label :password_confirmation, class: 'block mb-1' %>
+        <%= f.password_field :password_confirmation, class: 'w-full rounded border border-gray-200 p-2' %>
+      </div>
+      <div class="actions text-center mt-10 mb-20">
+        <p>
+          <%= f.submit t('defaults.send'), class: 'btn btn-primary' %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>

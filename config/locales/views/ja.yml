@@ -1,0 +1,91 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    terms_of_service: '利用規約'
+    privacy_policy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
+    friends: 'みんなのカード'
+    home: 'ホーム'
+    my_profile_card: 'マイページ'
+    new_test: '診断'
+    here: 'こちら'
+    take_test: 'にくきゅう診断をする'
+    send: '送信'
+    password_reset: 'パスワードリセット'
+    to_be_added: '12月追加予定のカード'
+    twitter_share_description_html: '<p>Twitterシェアしていただくと<br>ハッシュタグから同じ性格の子を検索できます</p><br><p>シェアに画像が表示されない場合は<br>再度お試しください</p>'
+    attachment: '愛着度'
+    naughty: 'やんちゃ度'
+    wild: '野生度'
+    coward: '怖がり度'
+    easy_to_train: 'しつけやす度'
+    friendly: 'フレンドリー度'
+    selfish: 'わがまま度'
+
+
+    message:
+      not_tested: 'にくきゅう診断ができませんでした'
+      updated: 'ページ下部にカードができました！'
+      not_updated: '入力項目が受け付けられませんでした'
+      not_authorized: '権限がありません'
+
+  date:
+    formats:
+      default: "%Y.%m.%d"
+
+  welcome_pages:
+    top_page_partial:
+      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とTwitterヘッダーができます！'
+  profile_cards:
+    new:
+      title: 'にくきゅう診断をしてみよう'
+    index:
+      title: 'みんなのカード'
+    result:
+      to_top_page: 'トップページへ'
+      create_card: 'カードをつくる'
+      share_result: '結果をシェア'
+    edit:
+      title_html: '診断結果から<br>Twitterヘッダーにも使える<br>プロフィールカードを作成しよう！'
+      created_profile_card: '作成したプロフィールカード'
+      created_profile_card_description_html: '<p>よかったらTwitterヘッダーとして使ってください</p><br><p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>最後に「カードを保存」したカードが「みんなのカード」に載ります</p>'
+      save_card: 'カードを保存'
+      share_card: 'カードをシェア'
+    form_edit:
+      make_card_this_content: 'この内容でカードを作る'
+      favorite_treat_toy_description_html: '<p>おやつとおもちゃの選択肢を選び直すときは文字を消してから選んでください</p><br><p>選択肢以外も自由に入力できます</p><br><p>全角10文字までがおすすめです</p>'
+      face_image_description_html: '<p>★お顔が真ん中にある写真を使うのがおすすめ</p><p>通信状態によってカード完成まで20秒ほどお時間がかかることがあります</p>'
+  users:
+    form:
+      title: 'ユーザー登録'
+      benefits_of_registering_html: '登録するとマイページから診断結果や作ったカードが見れたり<br>期間限定カードが追加された時、いつでも入力なしで簡単に作れます！！'
+    create:
+      success: 'ユーザー登録ができました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: 'ユーザー登録の方は'
+      password_forget: 'パスワードをお忘れの方は'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  password_resets:
+    new:
+      title: 'パスワード変更の為のメールアドレス入力'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    edit:
+      title: '新しいパスワードの入力'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードを変更できませんでした'
+  my_pages:
+    show:
+      title: 'マイページ'
+      description: 'カードをタップで編集・保存画面にいけます'
+      view_result: '診断結果をみる'
