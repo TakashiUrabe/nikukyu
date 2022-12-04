@@ -1,5 +1,5 @@
 <div class="max-w-lg pb-20">
-    <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold">みんなのカード</h1>
+    <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold"><%= t('.title') %></h1>
     <%= turbo_frame_tag "image-list" do %>
       <div>
         <% @profile_cards.each do |profile_card| %>

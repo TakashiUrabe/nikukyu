@@ -14,16 +14,16 @@ Rails.application.routes.draw do
 
   #プロフィールカード
   get 'result/:id', to: 'profile_cards#result'
-  resources :profile_cards, only: %i[new index create show edit update] do
+  resources :profile_cards, only: %i[new index create edit update] do
     member do
-      get :download_a
-      get :download_b
-      get :download_c
-      get :download_d
-      get :tweet_a
-      get :tweet_b
-      get :tweet_c
-      get :tweet_d
+      get :download_a, to: 'downloads#download_a'
+      get :download_b, to: 'downloads#download_b'
+      get :download_c, to: 'downloads#download_c'
+      get :download_d, to: 'downloads#download_d'
+      get :tweet_a, to: 'tweets#tweet_a'
+      get :tweet_b, to: 'tweets#tweet_b'
+      get :tweet_c, to: 'tweets#tweet_c'
+      get :tweet_d, to: 'tweets#tweet_d'
     end
   end
   resource :my_pages, only: %i[show]

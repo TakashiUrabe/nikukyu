@@ -10,7 +10,11 @@ class ProfileCardDataUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    if Rails.env.production?
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    else
+      "uploads/#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
   end
 
   # # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -36,7 +40,7 @@ class ProfileCardDataUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

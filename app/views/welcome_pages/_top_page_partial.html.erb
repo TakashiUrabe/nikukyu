@@ -4,7 +4,7 @@
   </div>
 
   <div class="mt-20 mb-10 pt-20">
-    <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とTwitterヘッダーができます！</h1>
+    <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold"><%= t('.site_description_html') %></h1>
   </div>
   <div class='md:flex text-sm mb-5 border-dotted border-2 border-yellow-700 rounded-box place-items-center p-5'>
     <div class='my-10'>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class='text-center pt-20'>
-    <%= link_to 'にくきゅう診断をする', new_profile_card_path, class:'btn btn-primary' %>
+    <%= link_to t('defaults.take_test'), new_profile_card_path, class:'btn btn-primary' %>
   </div>
 
 </div>

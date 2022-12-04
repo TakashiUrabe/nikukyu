@@ -6,13 +6,11 @@
         <%= f.label :breed_id,"犬種", class:'block mb-1' %>
         <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
       </div>
-      <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
-        <p>おやつとおもちゃの選択肢を選び直すときは文字を消してから選んでください</p>
-        <p>選択肢以外も自由に入力できます</p>
-        <p>全角10文字までがおすすめ</p>
+      <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
+        <%= t('.favorite_treat_toy_description_html') %>
       </div>
       <div class='mt-5 mb-10'>
-        <%= f.label :favorite_treat, "好きなおやつ", class: 'block mb-1' %>
+        <%= f.label :favorite_treat, class: 'block mb-1' %>
         <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="dog-treat">
           <option value="ちゅーる">
@@ -27,7 +25,7 @@
         </datalist>
       </div>
       <div class='my-10'>
-        <%= f.label :favorite_toy, "好きなおもちゃ", class: 'block mb-1' %>
+        <%= f.label :favorite_toy, class: 'block mb-1' %>
         <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="dog-toy">
           <option value="ボール">
@@ -44,14 +42,10 @@
         <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
       </div>
       <div class='text-sm mb-5 grid card bg-base-200 p-2'>
-        <p>おやつとおもちゃの選択肢を選び直すときは文字を消してから選んでください</p>
-        <br>
-        <p>選択肢以外も自由に入力できます</p>
-        <br>
-        <p>全角10文字までがおすすめです</p>
+        <%= t('.favorite_treat_toy_description_html') %>
       </div>
       <div class='mb-10'>
-        <%= f.label :favorite_treat, "好きなおやつ", class: 'block my-1' %>
+        <%= f.label :favorite_treat, class: 'block my-1' %>
         <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="cat-treat">
           <option value="ちゅーる">
@@ -65,7 +59,7 @@
         </datalist>
       </div>
       <div class='my-10'>
-        <%= f.label :favorite_toy, "好きなおもちゃ", class: 'block mb-1' %>
+        <%= f.label :favorite_toy, class: 'block mb-1' %>
         <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="cat-toy">
           <option value="ねこじゃらし">
@@ -77,27 +71,26 @@
       </div>
     <% end %>
     <div class='my-10'>
-      <%= f.label :gender,"性別", class: 'block mb-1' %>
-      <%= f.select :gender, [['男の子', "male"], ['女の子', "female"]], { include_blank: '選択してください' }, class: 'w-full rounded border border-gray-200 p-2' %>
+      <%= f.label :gender, class: 'block mb-1' %>
+      <%= f.select :gender, ProfileCard.genders.keys.map{|k|[I18n.t("enums.profile_card.gender.#{k}"),k]}, { include_blank: '選択してください' }, class: 'w-full rounded border border-gray-200 p-2' %>
     </div>
     <div class='my-10'>
-      <%= f.label :birthday,"お誕生日", class: 'block mb-1' %>
+      <%= f.label :birthday, class: 'block mb-1' %>
       <div class='flex'>
       <%= f.date_select :birthday, {use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year-30 }, class: 'w-full rounded border border-gray-200 p-2' %>
       </div>
     </div>
     <div data-controller="preview-image" class='justify-center'>
       <%= image_tag profile_card.face_image.url,size: '300x200', data: { target: "preview-image.output",required: true } %>
-      <%= f.label :face_image,"顔もしくは全身の写真" %>
+      <%= f.label :face_image %>
       <%= f.file_field :face_image, data: {target: "preview-image.input", action: "preview-image#readURL" } ,class: 'w-full rounded border border-gray-200 p-2' %>
       <%= f.hidden_field :face_image_cache %>
     </div>
     <div class='text-sm mb-5'>
-      <p>★お顔が真ん中にある写真を使うのがおすすめ</p>
-      <p>通信状態によってカード完成まで20秒ほどお時間がかかることがあります</p>
+      <%= t('.face_image_description_html') %>
     </div>
     <div class='my-5 text-center'>
-      <%= f.submit 'この内容でカードをつくる', class:'btn btn-primary' %>
+      <%= f.submit t('.make_card_this_content'), class:'btn btn-primary' %>
     </div>
   <% end %>
 </div>
