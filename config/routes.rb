@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   #プロフィールカード
-  get 'result/:id', to: 'profile_cards#result'
+  get 'result/:id', to: 'results#result'
   resources :profile_cards, only: %i[new index create edit update] do
     member do
       get :download_a, to: 'downloads#download_a'
