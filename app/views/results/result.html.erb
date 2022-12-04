@@ -1,0 +1,32 @@
+<% set_meta_tags og:{image:image_url(@ogp_img)}, twitter:{image:image_url(@ogp_img)} %>
+<div>
+  <div class='max-w-md pt-10'>
+    <%= render'results/result/dog/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
+    <%= render'results/result/dog/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
+    <%= render'results/result/dog/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
+    <%= render'results/result/dog/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeD' %>
+    <%= render'results/result/dog/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeE' %>
+    <%= render'results/result/cat/result_f', {profile_card: @profile_card} if @profile_card.personality == 'typeF' %>
+    <%= render'results/result/cat/result_g', {profile_card: @profile_card} if @profile_card.personality == 'typeG' %>
+    <%= render'results/result/cat/result_h', {profile_card: @profile_card} if @profile_card.personality == 'typeH' %>
+    <%= render'results/result/cat/result_i', {profile_card: @profile_card} if @profile_card.personality == 'typeI' %>
+    <%= render'results/result/cat/result_j', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
+  </div>
+  <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
+    <div class="flex py-5 justify-center">
+      <div class='mx-2'>
+        <%= link_to t('.share_result'), "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
+      </div>
+      <div class='mx-2'>
+        <%= link_to t('.create_card'), edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
+      </div>
+    </div>
+    <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
+      <%= t('defaults.twitter_share_description_html') %>
+    </div>
+  <% else %>
+    <div class='text-center py-10'>
+      <%= link_to t('.to_top_page'), root_path, class:'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
