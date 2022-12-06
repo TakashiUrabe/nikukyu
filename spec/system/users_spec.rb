@@ -10,8 +10,9 @@ RSpec.describe 'Users', type: :system do
         fill_in 'メールアドレス', with: 'test01@example.com'
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
-        expect { click_button 'register' }.to change { User.count }.by(1)
+        click_button 'register'
         expect(page).to have_content 'ユーザー登録ができました'
+        expect(current_path).to eq root_path
       end
     end
 
@@ -21,7 +22,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
-        expect { click_button 'register' }.to change { User.count }.by(0)
+        click_button 'register'
         expect(current_path).to eq new_user_path
         expect(page).to have_content 'ユーザー登録に失敗しました'
         expect(page).to have_content 'メールアドレスを入力してください'
@@ -32,7 +33,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'メールアドレス', with: existed_user.email
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
-        expect { click_button 'register' }.to change { User.count }.by(0)
+        click_button 'register'
         expect(current_path).to eq new_user_path
         expect(page).to have_content 'ユーザー登録に失敗しました'
         expect(page).to have_content 'メールアドレスはすでに存在します'
