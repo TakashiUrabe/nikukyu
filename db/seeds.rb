@@ -277,3 +277,20 @@ FavoriteTreatDog.create(name: "チーズ")
 FavoriteTreatDog.create(name: "ささみ")
 FavoriteTreatDog.create(name: "ビスケット")
 FavoriteTreatDog.create(name: "ドライフルーツ")
+
+
+FavoriteToyCat.create(name: "ねこじゃらし")
+FavoriteToyCat.create(name: "ぬいぐるみ")
+FavoriteToyCat.create(name: "ぽんぽん")
+FavoriteToyCat.create(name: "レーザーポインター")
+FavoriteToyCat.create(name: "トンネル")
+
+
+FavoriteTreatCat.create(name: "ちゅーる")
+FavoriteTreatCat.create(name: "クリスピーキッス")
+FavoriteTreatCat.create(name: "かつお節")
+FavoriteTreatCat.create(name: "焼かつお")
+FavoriteTreatCat.create(name: "にぼし")
+FavoriteTreatCat.create(name: "かにかま")
+FavoriteTreatCat.create(name: "ささみ")
+FavoriteTreatCat.create(name: "ジャーキー")
