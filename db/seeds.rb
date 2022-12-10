@@ -258,3 +258,39 @@ Breed.create(name: "マンチカール", kind: "cat")
 Breed.create(name: "メインクーン", kind: "cat")
 Breed.create(name: "ラガマフィン", kind: "cat")
 Breed.create(name: "ラパーマ", kind: "cat")
+
+
+FavoriteToyDog.create(name: "ボール")
+FavoriteToyDog.create(name: "ぬいぐるみ")
+FavoriteToyDog.create(name: "ロープ")
+FavoriteToyDog.create(name: "コング")
+FavoriteToyDog.create(name: "フリスビー")
+FavoriteToyDog.create(name: "デンタルトイ")
+
+
+FavoriteTreatDog.create(name: "ちゅーる")
+FavoriteTreatDog.create(name: "歯磨きガム")
+FavoriteTreatDog.create(name: "にぼし")
+FavoriteTreatDog.create(name: "おいも")
+FavoriteTreatDog.create(name: "ジャーキー")
+FavoriteTreatDog.create(name: "チーズ")
+FavoriteTreatDog.create(name: "ささみ")
+FavoriteTreatDog.create(name: "ビスケット")
+FavoriteTreatDog.create(name: "ドライフルーツ")
+
+
+FavoriteToyCat.create(name: "ねこじゃらし")
+FavoriteToyCat.create(name: "ぬいぐるみ")
+FavoriteToyCat.create(name: "ぽんぽん")
+FavoriteToyCat.create(name: "レーザーポインター")
+FavoriteToyCat.create(name: "トンネル")
+
+
+FavoriteTreatCat.create(name: "ちゅーる")
+FavoriteTreatCat.create(name: "クリスピーキッス")
+FavoriteTreatCat.create(name: "かつお節")
+FavoriteTreatCat.create(name: "焼かつお")
+FavoriteTreatCat.create(name: "にぼし")
+FavoriteTreatCat.create(name: "かにかま")
+FavoriteTreatCat.create(name: "ささみ")
+FavoriteTreatCat.create(name: "ジャーキー")
