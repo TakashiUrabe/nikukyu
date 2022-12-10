@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_140624) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_020621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,34 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_140624) do
     t.integer "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_toy_cats", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_favorite_toy_cats_on_name", unique: true
+  end
+
+  create_table "favorite_toy_dogs", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_favorite_toy_dogs_on_name", unique: true
+  end
+
+  create_table "favorite_treat_cats", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_favorite_treat_cats_on_name", unique: true
+  end
+
+  create_table "favorite_treat_dogs", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_favorite_treat_dogs_on_name", unique: true
   end
 
   create_table "profile_cards", force: :cascade do |t|

@@ -63,7 +63,7 @@ API<br>
 　本番リリース：12/11<br>
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/c56d6c07c8bc26b16488ba5c8b2ebd7c.png)](https://gyazo.com/c56d6c07c8bc26b16488ba5c8b2ebd7c)
+[![Image from Gyazo](https://i.gyazo.com/33b677a73fc9a1158d76dc490192f2ef.png)](https://gyazo.com/33b677a73fc9a1158d76dc490192f2ef)
 
 ## 画面遷移図
 　https://www.figma.com/file/9YPN97bL9kRqLtivVG1gOa/toppage?node-id=0%3A1<br>

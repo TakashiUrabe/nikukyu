@@ -13,27 +13,18 @@
         <%= f.label :favorite_treat, class: 'block mb-1' %>
         <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="dog-treat">
-          <option value="ちゅーる">
-          <option value="歯磨きガム">
-          <option value="にぼし">
-          <option value="おいも">
-          <option value="ジャーキー">
-          <option value="チーズ">
-          <option value="ささみ">
-          <option value="ビスケット">
-          <option value="ドライフルーツ">
+          <% FavoriteTreatDog.all.each do |treat| %>
+            <option value= <%= treat.name %> >
+          <% end %>
         </datalist>
       </div>
       <div class='my-10'>
         <%= f.label :favorite_toy, class: 'block mb-1' %>
         <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="dog-toy">
-          <option value="ボール">
-          <option value="ぬいぐるみ">
-          <option value="ロープ">
-          <option value="コング">
-          <option value="フリスビー">
-          <option value="デンタルトイ">
+          <% FavoriteToyDog.all.each do |toy| %>
+            <option value= <%= toy.name %> >
+          <% end %>
         </datalist>
       </div>
     <% elsif (profile_card.breed_id.present? && profile_card.breed_id >= 206) || cookies[:kind] == "2" %>
@@ -48,25 +39,18 @@
         <%= f.label :favorite_treat, class: 'block my-1' %>
         <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="cat-treat">
-          <option value="ちゅーる">
-          <option value="クリスピーキッス">
-          <option value="かつお節">
-          <option value="焼かつお">
-          <option value="にぼし">
-          <option value="かにかま">
-          <option value="ささみ">
-          <option value="ジャーキー">
+          <% FavoriteTreatCat.all.each do |treat| %>
+            <option value= <%= treat.name %> >
+          <% end %>
         </datalist>
       </div>
       <div class='my-10'>
         <%= f.label :favorite_toy, class: 'block mb-1' %>
         <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="cat-toy">
-          <option value="ねこじゃらし">
-          <option value="ぬいぐるみ">
-          <option value="ぽんぽん">
-          <option value="レーザーポインター">
-          <option value="トンネル">
+          <% FavoriteToyCat.all.each do |toy| %>
+            <option value= <%= toy.name %> >
+          <% end %>
         </datalist>
       </div>
     <% end %>
