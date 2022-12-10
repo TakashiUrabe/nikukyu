@@ -28,12 +28,9 @@
         <%= f.label :favorite_toy, class: 'block mb-1' %>
         <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
         <datalist id="dog-toy">
-          <option value="ボール">
-          <option value="ぬいぐるみ">
-          <option value="ロープ">
-          <option value="コング">
-          <option value="フリスビー">
-          <option value="デンタルトイ">
+          <% FavoriteToyDog.all.each do |toy| %>
+            <option value= <%= toy.name %> >
+          <% end %>
         </datalist>
       </div>
     <% elsif (profile_card.breed_id.present? && profile_card.breed_id >= 206) || cookies[:kind] == "2" %>

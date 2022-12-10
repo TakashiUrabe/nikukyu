@@ -258,3 +258,12 @@ Breed.create(name: "マンチカール", kind: "cat")
 Breed.create(name: "メインクーン", kind: "cat")
 Breed.create(name: "ラガマフィン", kind: "cat")
 Breed.create(name: "ラパーマ", kind: "cat")
+
+
+FavoriteToyDog.create(name: "ボール")
+FavoriteToyDog.create(name: "ぬいぐるみ")
+FavoriteToyDog.create(name: "ロープ")
+FavoriteToyDog.create(name: "コング")
+FavoriteToyDog.create(name: "フリスビー")
+FavoriteToyDog.create(name: "デンタルトイ")
+
