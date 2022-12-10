@@ -267,3 +267,13 @@ FavoriteToyDog.create(name: "コング")
 FavoriteToyDog.create(name: "フリスビー")
 FavoriteToyDog.create(name: "デンタルトイ")
 
+
+FavoriteTreatDog.create(name: "ちゅーる")
+FavoriteTreatDog.create(name: "歯磨きガム")
+FavoriteTreatDog.create(name: "にぼし")
+FavoriteTreatDog.create(name: "おいも")
+FavoriteTreatDog.create(name: "ジャーキー")
+FavoriteTreatDog.create(name: "チーズ")
+FavoriteTreatDog.create(name: "ささみ")
+FavoriteTreatDog.create(name: "ビスケット")
+FavoriteTreatDog.create(name: "ドライフルーツ")
