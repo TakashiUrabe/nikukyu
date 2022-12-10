@@ -1,41 +1,30 @@
 class DownloadsController < ApplicationController
-  before_action :set_download_card, only: %i[download_a download_b download_c download_d]
-
-  def download_a
-    image = @profile_card.profile_card_data_a
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
-    @profile_card.card_type = 'A'
-    @profile_card.save
-  end
-
-  def download_b
-    image = @profile_card.profile_card_data_b
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
-    @profile_card.card_type = 'B'
-    @profile_card.save
-  end
-
-  def download_c
-    image = @profile_card.profile_card_data_c
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
-    @profile_card.card_type = 'C'
-    @profile_card.save
-  end
-
-  def download_d
-    image = @profile_card.profile_card_data_d
-    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
-    @profile_card.card_type = 'D'
-    @profile_card.save
+  def download
+    set_download_card
+    set_card_type
+    send_image
   end
 
   private
 
   def download_params
-    params.permit(:id)
+    params.permit(:id, :card_type)
   end
 
   def set_download_card
     @profile_card = ProfileCard.find(download_params[:id])
+  end
+
+  def send_image
+    image = @profile_card.send("profile_card_data_#{@profile_card.card_type.downcase}")
+    send_data(image.read, filename: "#{@profile_card.name}ちゃんのプロフィールカード.png")
+  end
+
+  def set_card_type
+    @profile_card.card_type = 'A' if params[:card_type] == '1'
+    @profile_card.card_type = 'B' if params[:card_type] == '2'
+    @profile_card.card_type = 'C' if params[:card_type] == '3'
+    @profile_card.card_type = 'D' if params[:card_type] == '4'
+    @profile_card.save
   end
 end
