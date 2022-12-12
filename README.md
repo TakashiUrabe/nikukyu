@@ -60,7 +60,7 @@ API<br>
 　README〜ER図作成：9/21〆切<br>
 　メイン機能実装：10/1 - 11/27<br>
 　β版をRUNTEQ内リリース（MVP）：11/27<br>
-　本番リリース：12/11<br>
+　本番リリース：12/<br>
 
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/33b677a73fc9a1158d76dc490192f2ef.png)](https://gyazo.com/33b677a73fc9a1158d76dc490192f2ef)
