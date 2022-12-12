@@ -15,7 +15,6 @@ gem 'bootsnap', require: false
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'annotate'
 gem 'carrierwave'
 gem 'config'
 gem 'dotenv-rails'
@@ -24,8 +23,6 @@ gem 'fog-aws'
 gem 'high_voltage'
 gem 'kaminari'
 gem 'meta-tags'
-gem 'pry-rails'
-gem 'pycall'
 gem 'rails-i18n'
 gem 'rmagick'
 gem 'sorcery'
@@ -34,7 +31,6 @@ group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'webdrivers'
 end
@@ -42,12 +38,10 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'bullet'
   gem 'letter_opener_web'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'solargraph', require: false
   gem 'web-console'
 end
