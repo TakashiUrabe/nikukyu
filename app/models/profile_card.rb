@@ -15,10 +15,12 @@ class ProfileCard < ApplicationRecord
   mount_uploader :profile_card_data_b, ProfileCardDataUploader
   mount_uploader :profile_card_data_c, ProfileCardDataUploader
   mount_uploader :profile_card_data_d, ProfileCardDataUploader
+  mount_uploader :profile_card_data_e, ProfileCardDataUploader
+  mount_uploader :profile_card_data_f, ProfileCardDataUploader
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5, typeF: 6, typeG: 7, typeH: 8, typeI: 9, typeJ: 10 }
-  enum card_type: { hide: 1, A: 2, B: 3, C: 4, D: 5 }
+  enum card_type: { hide: 1, A: 2, B: 3, C: 4, D: 5, E: 6, F: 7 }
 
   def user_id_setting(id)
     self.user_id = id
@@ -87,10 +89,14 @@ class ProfileCard < ApplicationRecord
     create_profile_card_b(self)
     create_profile_card_c(self)
     create_profile_card_d(self)
+    create_profile_card_e(self)
+    create_profile_card_f(self)
     self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg', 'r')
     self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg', 'r')
     self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
     self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
+    self.profile_card_data_e = File.open('./app/assets/images/profile_card_data_e.jpg', 'r')
+    self.profile_card_data_f = File.open('./app/assets/images/profile_card_data_f.jpg', 'r')
     save
   end
 
@@ -253,5 +259,85 @@ class ProfileCard < ApplicationRecord
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_d.jpg') # save to file
+  end
+
+  def create_profile_card_e(profile_card)
+    base_img = ImageList.new('./app/assets/images/base_img_e.jpg')
+
+    draw = Draw.new
+    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
+    draw.fill      = '#3d3b3e'
+    draw.stroke    = 'transparent'
+    draw.pointsize = 40
+    draw.gravity   = CenterGravity
+    draw.annotate(base_img, 0, 0, -20, -150, profile_card.personality_i18n)
+    draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
+    draw.pointsize = 30
+    draw.annotate(base_img, 0, 0, -20, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
+    draw.annotate(base_img, 0, 0, -20, 50, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
+
+    draw.font = 'app/assets/fonts/keifont.ttf'
+    draw.pointsize = 50
+    draw.annotate(base_img, 0, 0, -20, -75, profile_card.name)
+
+    # ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = 'white'
+    idr.ellipse(profile_face_image.columns / 2, profile_face_image.rows / 2,
+                profile_face_image.columns / 2, profile_face_image.rows / 2, 0, 360)
+    idr.draw(img2)
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3, 1000, 120, OverCompositeOp)
+    # ここまで
+
+    base_img.write('./app/assets/images/profile_card_data_e.jpg') # save to file
+  end
+
+  def create_profile_card_f(profile_card)
+    base_img = ImageList.new('./app/assets/images/base_img_f.jpg')
+
+    draw = Draw.new
+    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
+    draw.fill      = '#3d3b3e'
+    draw.stroke    = 'transparent'
+    draw.pointsize = 40
+    draw.gravity   = CenterGravity
+    draw.annotate(base_img, 0, 0, -20, -150, profile_card.personality_i18n)
+    draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
+    draw.pointsize = 30
+    draw.annotate(base_img, 0, 0, -20, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
+    draw.annotate(base_img, 0, 0, -20, 50, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
+
+    draw.font = 'app/assets/fonts/keifont.ttf'
+    draw.pointsize = 50
+    draw.annotate(base_img, 0, 0, -20, -75, profile_card.name)
+
+    # ここからが顔画像の処理
+    profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
+    img2 = Magick::Image.new(profile_face_image.columns, profile_face_image.rows)
+    img2 = img2.matte_reset!
+
+    idr = Draw.new
+    idr.fill = 'white'
+    idr.ellipse(profile_face_image.columns / 2, profile_face_image.rows / 2,
+                profile_face_image.columns / 2, profile_face_image.rows / 2, 0, 360)
+    idr.draw(img2)
+
+    img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
+
+    base_img.composite!(img3, 1000, 120, OverCompositeOp)
+    # ここまで
+
+    base_img.write('./app/assets/images/profile_card_data_f.jpg') # save to file
   end
 end

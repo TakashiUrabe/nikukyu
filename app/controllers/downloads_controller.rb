@@ -25,6 +25,8 @@ class DownloadsController < ApplicationController
     @profile_card.card_type = 'B' if params[:card_type] == '2'
     @profile_card.card_type = 'C' if params[:card_type] == '3'
     @profile_card.card_type = 'D' if params[:card_type] == '4'
+    @profile_card.card_type = 'E' if params[:card_type] == '5'
+    @profile_card.card_type = 'F' if params[:card_type] == '6'
     @profile_card.save
   end
 end

@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_profile_card, only: %i[tweet_a tweet_b tweet_c tweet_d]
+  before_action :set_profile_card
 
   def tweet_a; end
 
@@ -8,4 +8,8 @@ class TweetsController < ApplicationController
   def tweet_c; end
 
   def tweet_d; end
+
+  def tweet_e; end
+
+  def tweet_f; end
 end
