@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get :tweet_b, to: 'tweets#tweet_b'
       get :tweet_c, to: 'tweets#tweet_c'
       get :tweet_d, to: 'tweets#tweet_d'
+      get :tweet_e, to: 'tweets#tweet_e'
+      get :tweet_f, to: 'tweets#tweet_f'
     end
   end
   resource :my_pages, only: %i[show]
