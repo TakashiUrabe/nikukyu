@@ -270,17 +270,17 @@ class ProfileCard < ApplicationRecord
     draw.stroke    = 'transparent'
     draw.pointsize = 40
     draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, -20, -150, profile_card.personality_i18n)
+    draw.annotate(base_img, 0, 0, -20, -55, profile_card.personality_i18n)
     draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, -20, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
-    draw.annotate(base_img, 0, 0, -20, 50, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
-    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
+    draw.annotate(base_img, 0, 0, -20, 55, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, -20, 105, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, -20, 155, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
-    draw.annotate(base_img, 0, 0, -20, -75, profile_card.name)
+    draw.annotate(base_img, 0, 0, -20, -150, profile_card.name)
 
     # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
@@ -295,14 +295,14 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3, 1000, 120, OverCompositeOp)
+    base_img.composite!(img3, 1000, 180, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_e.jpg') # save to file
   end
 
   def create_profile_card_f(profile_card)
-    base_img = ImageList.new('./app/assets/images/base_img_f.jpg')
+    base_img = ImageList.new('./app/assets/images/base_img_f.png')
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
@@ -310,17 +310,17 @@ class ProfileCard < ApplicationRecord
     draw.stroke    = 'transparent'
     draw.pointsize = 40
     draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, -20, -150, profile_card.personality_i18n)
+    draw.annotate(base_img, 0, 0, 10, -115, profile_card.personality_i18n)
     draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
     draw.pointsize = 30
-    draw.annotate(base_img, 0, 0, -20, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
-    draw.annotate(base_img, 0, 0, -20, 50, "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, -20, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
-    draw.annotate(base_img, 0, 0, -20, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
+    draw.annotate(base_img, 0, 0, 10, 5, "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
+    draw.annotate(base_img, 0, 0, 10, 50, "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, 10, 95, "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, 10, 140, "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
     draw.pointsize = 50
-    draw.annotate(base_img, 0, 0, -20, -75, profile_card.name)
+    draw.annotate(base_img, 0, 0, 10, -55, profile_card.name)
 
     # ここからが顔画像の処理
     profile_face_image = Magick::Image.read(profile_card.face_image.url).first.resize_to_fill(300, 300)
@@ -335,7 +335,7 @@ class ProfileCard < ApplicationRecord
 
     img3 = profile_face_image.composite(img2, 0, 0, CopyAlphaCompositeOp)
 
-    base_img.composite!(img3, 1000, 120, OverCompositeOp)
+    base_img.composite!(img3, 1050, 120, OverCompositeOp)
     # ここまで
 
     base_img.write('./app/assets/images/profile_card_data_f.jpg') # save to file
