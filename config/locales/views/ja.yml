@@ -49,6 +49,7 @@ ja:
       created_profile_card_description_html: '<p>よかったらTwitterヘッダーとして使ってください</p><br><p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>最後に「カードを保存」したカードが「みんなのカード」に載ります</p>'
       save_card: 'カードを保存'
       share_card: 'カードをシェア'
+      limited: '期間限定'
     form_edit:
       make_card_this_content: 'この内容でカードを作る'
       favorite_treat_toy_description_html: '<p>おやつとおもちゃの選択肢を選び直すときは文字を消してから選んでください</p><br><p>選択肢以外も自由に入力できます</p><br><p>全角10文字までがおすすめです</p>'
