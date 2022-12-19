@@ -87,14 +87,16 @@ class ProfileCard < ApplicationRecord
   def create_profile_card
     create_profile_card_a(self)
     create_profile_card_b(self)
-    create_profile_card_c(self)
-    create_profile_card_d(self)
+    # 期間限定カードを終了する時にコメントアウトを解除
+    # create_profile_card_c(self)
+    # create_profile_card_d(self)
     create_profile_card_e(self)
     create_profile_card_f(self)
     self.profile_card_data_a = File.open('./app/assets/images/profile_card_data_a.jpg', 'r')
     self.profile_card_data_b = File.open('./app/assets/images/profile_card_data_b.jpg', 'r')
-    self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
-    self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
+    # 期間限定カードを終了する時にコメントアウトを解除
+    # self.profile_card_data_c = File.open('./app/assets/images/profile_card_data_c.jpg', 'r')
+    # self.profile_card_data_d = File.open('./app/assets/images/profile_card_data_d.jpg', 'r')
     self.profile_card_data_e = File.open('./app/assets/images/profile_card_data_e.jpg', 'r')
     self.profile_card_data_f = File.open('./app/assets/images/profile_card_data_f.jpg', 'r')
     save
