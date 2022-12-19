@@ -77,10 +77,15 @@
     <div class='py-10'>
       <% unless logged_in?  %>
         <%= render 'users/form', user:@user %>
+        <%
+=begin%>
+ 期間限定カードの宣伝を追加する時に使用
         <p><%= t('defaults.to_be_added') %></p>
         <div class='flex'>
           <%= image_tag 'christmas_sample1.png' %>
         </div>
+<%
+=end%>
       <% end %>
     </div>
   <% end %>
