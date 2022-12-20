@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
+  #サイトマップ
+  get '/sitemap', to: redirect("https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/sitemaps/sitemap.xml.gz")
+
   #プロフィールカード
   get 'result/:id', to: 'results#result'
   resources :profile_cards, only: %i[new index create edit update] do
