@@ -26,6 +26,8 @@ gem 'meta-tags'
 gem 'rails-i18n'
 gem 'rmagick'
 gem 'sorcery'
+gem 'sitemap_generator'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'capybara'

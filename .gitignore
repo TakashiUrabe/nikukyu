@@ -32,7 +32,7 @@
 
 # Ignore vendor
 /public/uploads
-
+public/sitemap.xml.gz
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /app/assets/images/sample
