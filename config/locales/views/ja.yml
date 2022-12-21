@@ -91,3 +91,6 @@ ja:
       to_top_page: 'トップページへ'
       create_card: 'カードをつくる'
       share_result: '結果をシェア'
+  pages:
+    privacy_policy:
+      title: 'プライバシーポリシー'
