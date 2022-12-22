@@ -17,8 +17,7 @@ class ProfileCardsController < ApplicationController
                       current_user.profile_cards.new(profile_card_params)
                     end
     if @profile_card.save
-      cookies[:kind] = params[:profile_card][:kind]
-      cookies[:nikukyu_id] = @profile_card.id if current_user.nil?
+      set_cookies
       @profile_card.image_recognition(@profile_card.pad_image.url, cookies[:kind])
       redirect_to controller: :results, action: :result, id: @profile_card.id
     else
@@ -29,7 +28,7 @@ class ProfileCardsController < ApplicationController
 
   def edit
     @user = User.new
-    unless @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
+    unless own_card?
       flash[:notice] = t('defaults.message.not_authorized')
       redirect_to root_path
     end
@@ -50,5 +49,14 @@ class ProfileCardsController < ApplicationController
 
   def profile_card_params
     params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy)
+  end
+
+  def set_cookies
+    cookies[:kind] = params[:profile_card][:kind]
+    cookies[:nikukyu_id] = @profile_card.id if current_user.nil?
+  end
+
+  def own_card?
+    @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id]
   end
 end
