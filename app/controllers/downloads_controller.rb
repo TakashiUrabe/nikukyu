@@ -1,19 +1,12 @@
 class DownloadsController < ApplicationController
+  before_action :set_profile_card
+
   def download
-    set_download_card
     set_card_type
     send_image
   end
 
   private
-
-  def download_params
-    params.permit(:id, :card_type)
-  end
-
-  def set_download_card
-    @profile_card = ProfileCard.find(download_params[:id])
-  end
 
   def send_image
     image = @profile_card.send("profile_card_data_#{@profile_card.card_type.downcase}")
