@@ -20,12 +20,7 @@ Rails.application.routes.draw do
   resources :profile_cards, only: %i[new index create edit update] do
     member do
       get 'download/:card_type', to: 'downloads#download'
-      get :tweet_a, to: 'tweets#tweet_a'
-      get :tweet_b, to: 'tweets#tweet_b'
-      get :tweet_c, to: 'tweets#tweet_c'
-      get :tweet_d, to: 'tweets#tweet_d'
-      get :tweet_e, to: 'tweets#tweet_e'
-      get :tweet_f, to: 'tweets#tweet_f'
+      get 'tweet/:card_type', to: 'tweets#tweet'
     end
   end
   resource :my_pages, only: %i[show]
