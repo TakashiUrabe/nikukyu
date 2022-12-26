@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       auto_login(@user)
       find_profile_card_and_set_id
+      flash[:success] = t('.success')
     else
       flash.now[:alert] = t('.fail')
       render new_user_path, status: :unprocessable_entity

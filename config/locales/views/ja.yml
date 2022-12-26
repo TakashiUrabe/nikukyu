@@ -102,5 +102,5 @@ ja:
   oauths:
     callback:
       success_register: 'Twitterアカウントでのアカウント作成に成功しました'
-      success_login: 'Twitterアカウントでのログインに成功しました'
+      success_login: 'Twitterアカウントでログインができました'
       fail_login: 'Twitterアカウントでログインに失敗しました'
