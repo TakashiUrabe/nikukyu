@@ -1,6 +1,8 @@
 ja:
   defaults:
     login: 'ログイン'
+    twitter_login: 'ツイッターでログイン'
+    twitter_register: 'ツイッターで登録'
     register: '登録'
     logout: 'ログアウト'
     terms_of_service: '利用規約'
@@ -23,6 +25,7 @@ ja:
     easy_to_train: 'しつけやす度'
     friendly: 'フレンドリー度'
     selfish: 'わがまま度'
+    or: 'または'
 
 
     message:
@@ -96,3 +99,8 @@ ja:
       title: 'プライバシーポリシー'
     terms_of_service:
       title: '利用規約'
+  oauths:
+    callback:
+      success_register: 'Twitterアカウントでのアカウント作成に成功しました'
+      success_login: 'Twitterアカウントでログインができました'
+      fail_login: 'Twitterアカウントでログインに失敗しました'
