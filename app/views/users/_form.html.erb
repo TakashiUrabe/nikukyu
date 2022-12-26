@@ -20,3 +20,7 @@
     <%= f.submit t('defaults.register'), class: 'btn btn-primary', id: 'register' %>
   </div>
 <% end %>
+<div class='text-center my-20'>
+  <p class='my-5'><%= t('defaults.or') %></p>
+  <%= link_to t('defaults.twitter_register'),auth_at_provider_path(provider: :twitter), class:'btn bg-blue-400 text-white mx-2' %>
+</div>

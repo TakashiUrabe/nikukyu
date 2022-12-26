@@ -1,3 +1,5 @@
 default_url_options:
   protcol: 'https'
   host: 'www.nikukyu-shindan.com'
+sorcery:
+  callback_url: 'https://www.nikukyu-shindan.com/oauth/callback?provider=twitter'
