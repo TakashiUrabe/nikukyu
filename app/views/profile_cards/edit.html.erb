@@ -48,7 +48,10 @@
         </div>
       </div>
     <% end %>
-    <% if @profile_card.profile_card_data_e.present? %>
+    <%
+    # 期間限定カード用
+=begin%>
+ <% if @profile_card.profile_card_data_e.present? %>
       <div class='text-sm mb-20 border-dotted border-2 border-yellow-700 rounded-box place-items-center p-1'>
         <h1 class="text-sm text-yellow-900 my-5 font-zenmaru text-center"><%= t('.limited') %></h1>
         <div class="mb-20">
@@ -71,6 +74,8 @@
         </div>
       </div>
     <% end %>
+<%
+=end%>
     <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
       <%= t('defaults.twitter_share_description_html') %>
     </div>
