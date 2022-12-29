@@ -10,72 +10,23 @@
         <%= t('.created_profile_card_description_html') %>
       </div>
     </div>
-    <div class="mb-20">
-      <%= image_tag @profile_card.profile_card_data_a.to_s %>
-      <div class="flex my-3 justify-center">
-        <div class = 'btn btn-primary mx-2'>
-          <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 1 %>
-        </div>
-        <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/a/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-      </div>
-    </div>
-    <div class="mb-20">
-      <%= image_tag @profile_card.profile_card_data_b.to_s %>
-      <div class="flex my-3 justify-center">
-        <div class = 'btn btn-primary mx-2'>
-          <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 2 %>
-        </div>
-        <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/b/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-      </div>
-    </div>
-    <% if @profile_card.profile_card_data_c.present? %>
-      <div class="mb-20">
-        <%= image_tag @profile_card.profile_card_data_c.to_s %>
-        <div class="flex my-3 justify-center">
-          <div class = 'btn btn-primary mx-2'>
-            <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 3 %>
-          </div>
-          <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/c/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-        </div>
-      </div>
-      <div class="mb-20">
-        <%= image_tag @profile_card.profile_card_data_d.to_s %>
-        <div class="flex my-3 justify-center">
-          <div class = 'btn btn-primary mx-2'>
-            <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 4 %>
-          </div>
-          <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/d/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-        </div>
-      </div>
-    <% end %>
-    <%
-    # 期間限定カード用
-=begin%>
- <% if @profile_card.profile_card_data_e.present? %>
-      <div class='text-sm mb-20 border-dotted border-2 border-yellow-700 rounded-box place-items-center p-1'>
-        <h1 class="text-sm text-yellow-900 my-5 font-zenmaru text-center"><%= t('.limited') %></h1>
+    <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d] %>
+    <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s] %>
+    <% type_numbers = [1,2,3,4] %>
+    <% types = ['a', 'b', 'c', 'd'] %>
+    <% profile_card_datas.zip(profile_card_data_to_ss,type_numbers, types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
+      <% if profile_card_data.present? %>
         <div class="mb-20">
-          <%= image_tag @profile_card.profile_card_data_e.to_s %>
+          <%= image_tag profile_card_data_to_s %>
           <div class="flex my-3 justify-center">
             <div class = 'btn btn-primary mx-2'>
-              <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 5 %>
+              <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: type_number %>
             </div>
-            <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/e/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+            <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/#{type}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
           </div>
         </div>
-        <div class="mb-20">
-          <%= image_tag @profile_card.profile_card_data_f.to_s %>
-          <div class="flex my-3 justify-center">
-            <div class = 'btn btn-primary mx-2'>
-              <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: 6 %>
-            </div>
-            <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/f/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-<%
-=end%>
+      <% end %>
+    <% } %>
     <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
       <%= t('defaults.twitter_share_description_html') %>
     </div>

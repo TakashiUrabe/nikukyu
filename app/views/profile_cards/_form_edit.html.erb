@@ -1,59 +1,45 @@
 <div class='pb-10'>
   <%= form_with model:profile_card, local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    <% if (profile_card.breed_id.present? && profile_card.breed_id <= 205) || cookies[:kind] == "1" %>
-      <div class='my-10'>
-        <%= f.label :breed_id,"犬種", class:'block mb-1' %>
-        <%= f.select :breed_id,  Breed.dog.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
-      </div>
-      <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
-        <%= t('.favorite_treat_toy_description_html') %>
-      </div>
-      <div class='mt-5 mb-10'>
-        <%= f.label :favorite_treat, class: 'block mb-1' %>
-        <%= f.text_field :favorite_treat, list: "dog-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
-        <datalist id="dog-treat">
-          <% FavoriteTreatDog.all.each do |treat| %>
-            <option value= <%= treat.name %> >
-          <% end %>
-        </datalist>
-      </div>
-      <div class='my-10'>
-        <%= f.label :favorite_toy, class: 'block mb-1' %>
-        <%= f.text_field :favorite_toy, list: "dog-toy",  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
-        <datalist id="dog-toy">
-          <% FavoriteToyDog.all.each do |toy| %>
-            <option value= <%= toy.name %> >
-          <% end %>
-        </datalist>
-      </div>
-    <% elsif (profile_card.breed_id.present? && profile_card.breed_id >= 206) || cookies[:kind] == "2" %>
-      <div class='my-10'>
-        <%= f.label :breed_id, "猫種", class: 'block mb-1' %>
-        <%= f.select :breed_id,  Breed.cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded border border-gray-200 p-2' %>
-      </div>
-      <div class='text-sm mb-5 grid card bg-base-200 p-2'>
-        <%= t('.favorite_treat_toy_description_html') %>
-      </div>
-      <div class='mb-10'>
-        <%= f.label :favorite_treat, class: 'block my-1' %>
-        <%= f.text_field :favorite_treat, list: "cat-treat", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
-        <datalist id="cat-treat">
-          <% FavoriteTreatCat.all.each do |treat| %>
-            <option value= <%= treat.name %> >
-          <% end %>
-        </datalist>
-      </div>
-      <div class='my-10'>
-        <%= f.label :favorite_toy, class: 'block mb-1' %>
-        <%= f.text_field :favorite_toy, list: "cat-toy", autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
-        <datalist id="cat-toy">
-          <% FavoriteToyCat.all.each do |toy| %>
-            <option value= <%= toy.name %> >
-          <% end %>
-        </datalist>
-      </div>
-    <% end %>
+
+    <% breed_idnos = [profile_card.breed_id.present? && profile_card.breed_id<=205, profile_card.breed_id.present? && profile_card.breed_id>=206] %>
+    <% nos = ['1', '2'] %>
+    <% dog_cat_kinds = ['犬種', '猫種'] %>
+    <% dog_cats = [Breed.dog, Breed.cat] %>
+    <% treats = ['dog_treat', 'cat_treat'] %>
+    <% f_treats = [FavoriteTreatDog, FavoriteTreatCat] %>
+    <% toys = ['dog-toy', 'cat_toy']%>
+    <% f_toys = [FavoriteToyDog, FavoriteToyCat]%>
+
+    <% breed_idnos.zip(nos, dog_cat_kinds, dog_cats, treats, f_treats, toys, f_toys).each{|breed_idno, no, dog_cat_kind, dog_cat, treat, f_treat, toy, f_toy| %>
+      <% if (breed_idno) || cookies[:kind] == no %>
+        <div class='my-10'>
+          <%= f.label :breed_id, dog_cat_kind, class:'block mb-1' %>
+          <%= f.select :breed_id, dog_cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
+        </div>
+        <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
+          <%= t('.favorite_treat_toy_description_html') %>
+        </div>
+        <div class='mt-5 mb-10'>
+          <%= f.label :favorite_treat, class: 'block mb-1' %>
+          <%= f.text_field :favorite_treat, list: treat, autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
+          <datalist id= <%= treat %> >
+            <% f_treat.all.each do |treat| %>
+              <option value= <%= treat.name %> >
+            <% end %>
+          </datalist>
+        </div>
+        <div class='my-10'>
+          <%= f.label :favorite_toy, class: 'block mb-1' %>
+          <%= f.text_field :favorite_toy, list: toy,  autocomplete: "off", class: 'w-full rounded border border-gray-200 p-2' %>
+          <datalist id= <%= toy %> >
+            <% f_toy.all.each do |toy| %>
+              <option value= <%= toy.name %> >
+            <% end %>
+          </datalist>
+        </div>
+      <% end %>
+    <% } %>
     <div class='my-10'>
       <%= f.label :gender, class: 'block mb-1' %>
       <%= f.select :gender, ProfileCard.genders.keys.map{|k|[I18n.t("enums.profile_card.gender.#{k}"),k]}, { include_blank: '選択してください' }, class: 'w-full rounded border border-gray-200 p-2' %>
