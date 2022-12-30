@@ -2,11 +2,10 @@ class TweetsController < ApplicationController
   before_action :set_profile_card
 
   def tweet
-    render 'tweet_a' if params[:card_type] == 'a'
-    render 'tweet_b' if params[:card_type] == 'b'
-    render 'tweet_c' if params[:card_type] == 'c'
-    render 'tweet_d' if params[:card_type] == 'd'
-    render 'tweet_e' if params[:card_type] == 'e'
-    render 'tweet_f' if params[:card_type] == 'f'
+    card_type = { 'tweet_a': 'a', 'tweet_b': 'b', 'tweet_c': 'c', 'tweet_d': 'd', 'tweet_e': 'e', 'tweet_f': 'f' }
+
+    card_type.each  do |key, value|
+      render key if params[:card_type] == value
+    end
   end
 end
