@@ -4,12 +4,10 @@
       <div>
         <% @profile_cards.each do |profile_card| %>
           <div class='py-5'>
-            <%= image_tag profile_card.profile_card_data_a.to_s if profile_card.card_type == "A" %>
-            <%= image_tag profile_card.profile_card_data_b.to_s if profile_card.card_type == "B" %>
-            <%= image_tag profile_card.profile_card_data_c.to_s if profile_card.card_type == "C" %>
-            <%= image_tag profile_card.profile_card_data_d.to_s if profile_card.card_type == "D" %>
-            <%= image_tag profile_card.profile_card_data_e.to_s if profile_card.card_type == "E" %>
-            <%= image_tag profile_card.profile_card_data_f.to_s if profile_card.card_type == "F" %>
+            <% card_type = { 'A'=> profile_card.profile_card_data_a.to_s, 'B'=> profile_card.profile_card_data_b.to_s, 'C'=> profile_card.profile_card_data_c.to_s, 'D'=> profile_card.profile_card_data_d.to_s, 'E'=> profile_card.profile_card_data_e.to_s, 'F'=> profile_card.profile_card_data_f.to_s } %>
+            <% card_type.each do |key, value| %>
+              <%= image_tag value if profile_card.card_type == key %>
+            <% end %>
           </div>
         <% end %>
       </div>
