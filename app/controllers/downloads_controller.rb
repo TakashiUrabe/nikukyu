@@ -14,12 +14,10 @@ class DownloadsController < ApplicationController
   end
 
   def set_card_type
-    @profile_card.card_type = 'A' if params[:card_type] == '1'
-    @profile_card.card_type = 'B' if params[:card_type] == '2'
-    @profile_card.card_type = 'C' if params[:card_type] == '3'
-    @profile_card.card_type = 'D' if params[:card_type] == '4'
-    @profile_card.card_type = 'E' if params[:card_type] == '5'
-    @profile_card.card_type = 'F' if params[:card_type] == '6'
+    card_type = { 'A': '1', 'B': '2', 'C': '3', 'D': '4', 'E': '5', 'F': '6' }
+    card_type.each  do |key, value|
+      @profile_card.card_type = key if params[:card_type] == value
+    end
     @profile_card.save
   end
 end
