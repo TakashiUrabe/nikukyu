@@ -28,10 +28,10 @@ class ProfileCardsController < ApplicationController
 
   def edit
     @user = User.new
-    unless own_card?
-      flash[:notice] = t('defaults.message.not_authorized')
-      redirect_to root_path
-    end
+    return if own_card?
+
+    flash[:notice] = t('defaults.message.not_authorized')
+    redirect_to root_path
   end
 
   def update
