@@ -57,10 +57,23 @@
       <%= f.hidden_field :face_image_cache %>
     </div>
     <div class='text-sm mb-5'>
-      <%= t('.face_image_description_html') %>
+      <%= t('.face_image_description') %>
+    </div>
+    <div class='py-5'>
+      <p>背景を選択してください</p>
+      <% base_imgs={'A': 'base_img_a.png', 'B': 'base_img_b.png', 'C': 'base_img_c.png','D': 'base_img_d.jpeg'}%>
+      <% base_imgs.each do |key,value| %>
+        <div class='flex my-3'>
+          <%= f.radio_button :card_type, key %>
+          <%= image_tag value %>
+        </div>
+      <% end %>
     </div>
     <div class='my-5 text-center'>
       <%= f.submit t('.make_card_this_content'), class:'btn btn-primary' %>
+    </div>
+    <div class='text-sm mb-5 text-center'>
+      <%= t('.create_card_description') %>
     </div>
   <% end %>
 </div>

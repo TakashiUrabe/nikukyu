@@ -2,21 +2,44 @@ module CreateProfileCard
   require 'rmagick'
   include Magick
 
-  def create_profile_card
+  def create_profile_card(type)
     hash_a = {'base_img_url': './app/assets/images/base_img_a.png', 'color': '#3d3b3e', 'personality_position': [-200,-85], 'birthday_position': [-200,-35], 'breed_position': [-200,10], 'treat_position': [-200,55], 'toy_position': [-200,100], 'name_color': '#3d3b3e', 'name_position': [-200,-150], 'face_position': [900,100], 'write_url': './app/assets/images/profile_card_data_a.jpg'}
     hash_b = {'base_img_url': './app/assets/images/base_img_b.png', 'color': '#3d3b3e', 'personality_position': [-100,-90], 'birthday_position': [-100,-40], 'breed_position': [-100,5], 'treat_position': [-100,50], 'toy_position': [-100,95], 'name_color': '#3d3b3e', 'name_position': [-100,-150], 'face_position': [980,120], 'write_url': './app/assets/images/profile_card_data_b.jpg'}
     hash_c = {'base_img_url': './app/assets/images/base_img_c.png', 'color': 'white', 'personality_position': [-270,-60], 'birthday_position': [-270,-10], 'breed_position': [-270,35], 'treat_position': [-270,80], 'toy_position': [-270,125], 'name_color': '#d8b469', 'name_position': [-270,-140], 'face_position': [820,100], 'write_url': './app/assets/images/profile_card_data_c.jpg'}
     hash_d = {'base_img_url': './app/assets/images/base_img_d.jpeg', 'color': '#3d3b3e', 'personality_position': [-20,-150], 'birthday_position': [-20,5], 'breed_position': [-20,50], 'treat_position': [-20,95], 'toy_position': [-20,140], 'name_color': '#3d3b3e', 'name_position': [-20,-75], 'face_position': [1000,120], 'write_url': './app/assets/images/profile_card_data_d.jpg'}
 
-    [hash_a, hash_b, hash_c, hash_d].each do |hash_each|
-      create_profile_card_data(self,hash_each)
-    end
+    # hash_alphabet_a = {'alphabet': 'A', 'hash': hash_a, 'profile_card_data_alphabet': self.profile_card_data_a, 'url_alphabet': hash_a[:write_url]}
+    # hash_alphabet_b = {'alphabet': 'B', 'hash': hash_b, 'profile_card_data_alphabet': self.profile_card_data_b, 'url_alphabet': hash_b[:write_url]}
+    # hash_alphabet_c = {'alphabet': 'C', 'hash': hash_c, 'profile_card_data_alphabet': self.profile_card_data_c, 'url_alphabet': hash_c[:write_url]}
+    # hash_alphabet_d = {'alphabet': 'D', 'hash': hash_d, 'profile_card_data_alphabet': self.profile_card_data_d, 'url_alphabet': hash_d[:write_url]}
+    # [hash_alphabet_a, hash_alphabet_b, hash_alphabet_c, hash_alphabet_d].each do |hash_each|
+    #   if type == hash_each[:alphabet]
+    #     create_profile_card_data(self,hash_each[:hash])
+    #     hash_each[:profile_card_data_alphabet] = File.open(hash_each[:url_alphabet], 'r')
+    #   end
+    #   save
+    # end
 
-    self.profile_card_data_a = File.open(hash_a[:write_url], 'r')
-    self.profile_card_data_b = File.open(hash_b[:write_url], 'r')
-    self.profile_card_data_c = File.open(hash_c[:write_url], 'r')
-    self.profile_card_data_d = File.open(hash_d[:write_url], 'r')
-    save
+    if type == "A"
+      create_profile_card_data(self,hash_a)
+      self.profile_card_data_a = File.open(hash_a[:write_url], 'r')
+      save
+    end
+    if type == "B"
+      create_profile_card_data(self,hash_b)
+      self.profile_card_data_b = File.open(hash_b[:write_url], 'r')
+      save
+    end
+    if type == "C"
+      create_profile_card_data(self,hash_c)
+      self.profile_card_data_c = File.open(hash_c[:write_url], 'r')
+      save
+    end
+    if type == "D"
+      create_profile_card_data(self,hash_d)
+      self.profile_card_data_d = File.open(hash_d[:write_url], 'r')
+      save
+    end
   end
 
   def create_profile_card_data(profile_card, hash)
