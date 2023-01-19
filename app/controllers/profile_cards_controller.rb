@@ -37,7 +37,7 @@ class ProfileCardsController < ApplicationController
   def update
     if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
-      @profile_card.create_profile_card
+      @profile_card.create_profile_card(params[:profile_card][:card_type])
       redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
     else
       flash.now[:danger] = t('defaults.message.not_updated')
@@ -48,7 +48,7 @@ class ProfileCardsController < ApplicationController
   private
 
   def profile_card_params
-    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy)
+    params.require(:profile_card).permit(:breed_id, :name, :gender, :birthday, :face_image, :face_image_cache, :pad_image, :pad_image_cache, :favorite_treat, :favorite_toy, :card_type)
   end
 
   def set_cookies
