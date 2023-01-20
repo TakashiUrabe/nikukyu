@@ -28,6 +28,7 @@ gem 'rmagick'
 gem 'sorcery'
 gem 'sitemap_generator'
 gem 'aws-sdk'
+gem 'httpclient'
 
 group :development, :test do
   gem 'capybara'
