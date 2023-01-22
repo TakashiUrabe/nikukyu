@@ -1,6 +1,7 @@
 class ProfileCard < ApplicationRecord
   include ImageRecognition
   include CreateProfileCard
+  include RemoveBackground
 
   belongs_to :user, optional: true
   belongs_to :breed, optional: true
