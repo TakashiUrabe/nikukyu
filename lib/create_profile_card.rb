@@ -46,7 +46,7 @@ module CreateProfileCard
     end
     if type == "G"
       instagram_create_profile_card_data(self,hash_g)
-      self.instagram_profile_card_data_g = File.open(hash_g[:write_url], 'r')
+      self.profile_card_data_g = File.open(hash_g[:write_url], 'r')
       save
     end
   end

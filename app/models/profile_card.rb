@@ -17,12 +17,12 @@ class ProfileCard < ApplicationRecord
   mount_uploader :profile_card_data_d, ProfileCardDataUploader
   mount_uploader :profile_card_data_e, ProfileCardDataUploader
   mount_uploader :profile_card_data_f, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_g, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_h, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_i, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_j, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_k, ProfileCardDataUploader
-  mount_uploader :instagram_profile_card_data_l, ProfileCardDataUploader
+  mount_uploader :profile_card_data_g, ProfileCardDataUploader
+  mount_uploader :profile_card_data_h, ProfileCardDataUploader
+  mount_uploader :profile_card_data_i, ProfileCardDataUploader
+  mount_uploader :profile_card_data_j, ProfileCardDataUploader
+  mount_uploader :profile_card_data_k, ProfileCardDataUploader
+  mount_uploader :profile_card_data_l, ProfileCardDataUploader
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5, typeF: 6, typeG: 7, typeH: 8, typeI: 9, typeJ: 10 }

@@ -27,8 +27,8 @@
         </div>
       <% end %>
     <% } %>
-    <% instagram_profile_card_datas = [@profile_card.instagram_profile_card_data_g] %>
-    <% instagram_profile_card_data_to_ss = [@profile_card.instagram_profile_card_data_g.to_s] %>
+    <% instagram_profile_card_datas = [@profile_card.profile_card_data_g] %>
+    <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s] %>
     <% instagram_type_numbers = [7] %>
     <% instagram_types = ['g'] %>
     <% instagram_profile_card_datas.zip(instagram_profile_card_data_to_ss, instagram_type_numbers, instagram_types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
