@@ -60,8 +60,8 @@
       <%= t('.face_image_description') %>
     </div>
     <div class='py-5'>
-      <p>背景を選択してください</p>
-      <% base_imgs={'A': 'base_img_a.png', 'B': 'base_img_b.png', 'C': 'base_img_c.png','D': 'base_img_d.jpeg'}%>
+      <p>見本から作りたいカード背景を選択してください</p>
+      <% base_imgs={'A': 'sample_profile_card_data_a.jpg', 'B': 'sample_profile_card_data_b.jpg', 'C': 'sample_profile_card_data_c.jpg','D': 'sample_profile_card_data_d.jpg'}%>
       <% base_imgs.each do |key,value| %>
         <div class='flex my-3'>
           <%= f.radio_button :card_type, key %>
