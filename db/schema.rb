@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_013315) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_22_030949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_013315) do
     t.string "profile_card_data_d"
     t.string "profile_card_data_e"
     t.string "profile_card_data_f"
+    t.string "instagram_profile_card_data_g"
+    t.string "instagram_profile_card_data_h"
+    t.string "instagram_profile_card_data_i"
+    t.string "instagram_profile_card_data_j"
+    t.string "instagram_profile_card_data_k"
+    t.string "instagram_profile_card_data_l"
     t.index ["breed_id"], name: "index_profile_cards_on_breed_id"
     t.index ["user_id"], name: "index_profile_cards_on_user_id"
   end
