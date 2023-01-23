@@ -27,16 +27,16 @@
         </div>
       <% end %>
     <% } %>
-    <% instagram_profile_card_datas = [@profile_card.profile_card_data_g] %>
-    <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s] %>
-    <% instagram_type_numbers = [7] %>
-    <% instagram_types = ['g'] %>
+    <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h] %>
+    <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s] %>
+    <% instagram_type_numbers = [7, 8] %>
+    <% instagram_types = ['g', 'h'] %>
     <% instagram_profile_card_datas.zip(instagram_profile_card_data_to_ss, instagram_type_numbers, instagram_types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
       <% if profile_card_data.present? %>
-        <div class="mb-20">
-          <%= image_tag profile_card_data_to_s, width: '250' %>
-          <div class="flex my-3 justify-center">
-            <div class = 'btn btn-primary mx-2'>
+        <div class="mb-20 w-1/2">
+          <%= image_tag profile_card_data_to_s %>
+          <div class="text-center">
+            <div class = 'btn btn-primary my-2'>
               <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: type_number %>
             </div>
             <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/#{type}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>

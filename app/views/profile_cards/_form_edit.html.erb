@@ -68,13 +68,15 @@
           <%= image_tag value %>
         </div>
       <% end %>
-      <% insta_base_imgs={'G': 'base_img_g.png'} %>
-      <% insta_base_imgs.each do |key,value| %>
-        <div class='flex my-3'>
-          <%= f.radio_button :card_type, key %>
-          <%= image_tag value, width: '250' %>
-        </div>
-      <% end %>
+      <div class='flex my-3'>
+        <% insta_base_imgs={'G': 'base_img_g.png', 'H': 'base_img_h.png'} %>
+        <% insta_base_imgs.each do |key,value| %>
+          <div class='w-1/2 p-2'>
+            <%= f.radio_button :card_type, key %>
+            <%= image_tag value %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class='my-5 text-center'>
       <%= f.submit t('.make_card_this_content'), class:'btn btn-primary' %>
