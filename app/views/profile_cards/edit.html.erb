@@ -27,10 +27,10 @@
         </div>
       <% end %>
     <% } %>
-    <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h] %>
-    <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s] %>
-    <% instagram_type_numbers = [7, 8] %>
-    <% instagram_types = ['g', 'h'] %>
+    <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h, @profile_card.profile_card_data_i, @profile_card.profile_card_data_j] %>
+    <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s,@profile_card.profile_card_data_i.to_s,@profile_card.profile_card_data_j.to_s] %>
+    <% instagram_type_numbers = [7, 8, 9, 10] %>
+    <% instagram_types = ['g', 'h', 'i', 'j'] %>
     <% instagram_profile_card_datas.zip(instagram_profile_card_data_to_ss, instagram_type_numbers, instagram_types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
       <% if profile_card_data.present? %>
         <div class="mb-20 w-1/2">

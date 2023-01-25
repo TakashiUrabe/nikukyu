@@ -69,21 +69,30 @@
         </div>
       <% end %>
       <div class='flex my-3'>
-        <% insta_base_img_g={'value': 'G', 'id': 'profile_card_card_type_g', 'base': 'base_img_g.png',} %>
-        <% insta_base_img_h={'value': 'H', 'id': 'profile_card_card_type_h', 'base': 'base_img_h.png',} %>
+        <% insta_base_img_g={'value': 'G', 'id': 'card_type_g', 'base': 'base_img_g.png',} %>
+        <% insta_base_img_h={'value': 'H', 'id': 'card_type_h', 'base': 'base_img_h.png',} %>
         <% insta_base_imgs=[insta_base_img_g, insta_base_img_h] %>
-        <%
-=begin%>
- <% insta_base_imgs.each do |insta_base_img| %>
-          <div class='w-1/2 p-2'>
-            <%= f.radio_button :card_type, insta_base_img[:value], class: 'hidden' %>
-            <label for= insta_base_img[:id]>
+        <% insta_base_imgs.each do |insta_base_img| %>
+          <div class='w-1/2 p-2 image_border'>
+            <%= f.radio_button :card_type, insta_base_img[:value] %>
+            <%= f.label insta_base_img[:id] do %>
               <%= image_tag insta_base_img[:base] %>
-            </label>
+            <% end %>
           </div>
         <% end %>
-<%
-=end%>
+      </div>
+      <div class='flex my-3'>
+        <% insta_base_img_i={'value': 'I', 'id': 'card_type_i', 'base': 'base_img_i.png',} %>
+        <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'base_img_j.png',} %>
+        <% insta_base_imgs=[insta_base_img_i, insta_base_img_j] %>
+        <% insta_base_imgs.each do |insta_base_img| %>
+          <div class='w-1/2 p-2 image_border'>
+            <%= f.radio_button :card_type, insta_base_img[:value] %>
+            <%= f.label insta_base_img[:id] do %>
+              <%= image_tag insta_base_img[:base] %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class='my-5 text-center'>
