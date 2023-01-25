@@ -7,3 +7,14 @@
 .icon-text {
   @apply text-xs;
 }
+
+label img {
+  margin: 3px;
+  padding: 8px;
+}
+.selection-group input[type="radio"]:checked + label img {
+margin: 5px; /* ラベル外側の余白を指定する */
+cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+border: 2px solid #7c4414;/* ボックスの境界線を実線で指定する */
+border-radius: 5px; /* 角丸を指定する */
+}
