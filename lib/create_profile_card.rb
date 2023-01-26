@@ -11,6 +11,8 @@ module CreateProfileCard
 
     hash_d = {'base_img_url': './app/assets/images/base_img_d.jpg', 'color': '#3d3b3e', 'personality_position': [-20,-150], 'birthday_position': [-20,5], 'breed_position': [-20,50], 'treat_position': [-20,95], 'toy_position': [-20,140], 'name_color': '#3d3b3e', 'name_position': [-20,-75], 'face_position': [1000,120], 'write_url': './app/assets/images/profile_card_data_d.jpg'}
 
+    hash_e = {'base_img_url': './app/assets/images/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/profile_card_data_e.jpg'}
+
     hash_g = {'base_img_url': './app/assets/images/base_img_g.png', 'color': '#3d3b3e', 'personality_position': [60,580], 'birthday_position': [60,640], 'breed_position': [60,685], 'treat_position': [60,730], 'toy_position': [60,775], 'name_color': '#3d3b3e', 'name_position': [200,-710], 'face_position': [0,320], 'write_url': './app/assets/images/profile_card_data_g.jpg'}
 
     hash_h = {'base_img_url': './app/assets/images/base_img_h.png', 'color': '#3d3b3e', 'personality_position': [0,-650], 'birthday_position': [0,-590], 'breed_position': [0,-535], 'treat_position': [0,-480], 'toy_position': [0,-425], 'name_color': '#3d3b3e', 'name_position': [0,-720], 'face_position': [0,600], 'write_url': './app/assets/images/profile_card_data_h.jpg'}
@@ -49,6 +51,11 @@ module CreateProfileCard
     if type == "D"
       create_profile_card_data(self,hash_d)
       self.profile_card_data_d = File.open(hash_d[:write_url], 'r')
+      save
+    end
+    if type == "E"
+      create_profile_card_data_e(self,hash_e)
+      self.profile_card_data_e = File.open(hash_e[:write_url], 'r')
       save
     end
     if type == "G"
@@ -110,6 +117,39 @@ module CreateProfileCard
 
     base_img.composite!(img3, hash[:face_position][0], hash[:face_position][1], OverCompositeOp)
     # ここまで
+
+    base_img.write(hash[:write_url])
+  end
+
+  def create_profile_card_data_e(profile_card, hash)
+    base_img = ImageList.new(hash[:base_img_url])
+
+    # ここからが顔画像の処理
+    profile_face_image = Magick::Image.read('app/assets/images/remove_bg.png').first.resize_to_fill(500, 500)
+    base_img.composite!(profile_face_image, hash[:face_position][0], hash[:face_position][1], OverCompositeOp)
+    # ここまで
+
+    base_img_sticker = ImageList.new('app/assets/images/base_img_e_sticker.png')
+    base_img.composite!(base_img_sticker, 0, 0, OverCompositeOp)
+
+    draw = Draw.new
+    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
+    draw.fill      = hash[:color]
+    draw.stroke    = 'transparent'
+    draw.pointsize = 40
+    draw.gravity   = CenterGravity
+    draw.annotate(base_img, 0, 0, hash[:personality_position][0], hash[:personality_position][1], profile_card.personality_i18n)
+    draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
+    draw.pointsize = 30
+    draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
+    draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
+
+    draw.font = 'app/assets/fonts/keifont.ttf'
+    draw.pointsize = 50
+    draw.fill = hash[:name_color]
+    draw.annotate(base_img, 0, 0, hash[:name_position][0], hash[:name_position][1], profile_card.name)
 
     base_img.write(hash[:write_url])
   end
