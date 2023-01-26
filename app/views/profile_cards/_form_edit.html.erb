@@ -70,14 +70,14 @@
           </div>
         </div>
         <div data-tabs-target="content">
-          <% base_img_a={'value': 'A', 'id': 'card_type_a', 'base': 'sample_profile_card_data_a.jpg',} %>
-          <% base_img_b={'value': 'B', 'id': 'card_type_b', 'base': 'sample_profile_card_data_b.jpg',} %>
-          <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_profile_card_data_c.jpg',} %>
-          <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_profile_card_data_d.jpg',} %>
+          <% base_img_a={'value': 'A', 'id': 'card_type_a', 'base': 'sample_profile_card_data_a.jpg', 'check': true} %>
+          <% base_img_b={'value': 'B', 'id': 'card_type_b', 'base': 'sample_profile_card_data_b.jpg', 'check': ''} %>
+          <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_profile_card_data_c.jpg', 'check': ''} %>
+          <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_profile_card_data_d.jpg', 'check': ''} %>
           <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d]%>
           <% base_imgs.each do |base_img| %>
             <div class='flex my-3'>
-              <%= f.radio_button :card_type, base_img[:value], class: 'hidden' %>
+              <%= f.radio_button :card_type, base_img[:value], class: 'hidden', checked: base_img[:check] %>
               <%= f.label base_img[:id] do %>
                 <%= image_tag base_img[:base] %>
               <% end %>
