@@ -27,33 +27,14 @@
         </div>
       <% end %>
     <% } %>
-    <div class='flex my-3'>
-      <% instagram_profile_card_datas_g_h = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h] %>
-      <% instagram_profile_card_data_to_ss_g_h = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s] %>
-      <% instagram_type_numbers_g_h = [7, 8] %>
-      <% instagram_types_g_h = ['g', 'h'] %>
+    <div class='flex my-3 justify-center flex flex-wrap'>
+      <% instagram_profile_card_datas_g_h = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h, @profile_card.profile_card_data_i, @profile_card.profile_card_data_j] %>
+      <% instagram_profile_card_data_to_ss_g_h = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s, @profile_card.profile_card_data_i.to_s,@profile_card.profile_card_data_j.to_s] %>
+      <% instagram_type_numbers_g_h = [7, 8, 9, 10] %>
+      <% instagram_types_g_h = ['g', 'h', 'i', 'j'] %>
       <% instagram_profile_card_datas_g_h.zip(instagram_profile_card_data_to_ss_g_h, instagram_type_numbers_g_h, instagram_types_g_h).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
         <% if profile_card_data.present? %>
-          <div class="mb-20 p-2 w-1/2">
-            <%= image_tag profile_card_data_to_s %>
-            <div class="text-center">
-              <div class = 'btn btn-primary my-2'>
-                <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: type_number %>
-              </div>
-              <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/#{type}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
-            </div>
-          </div>
-        <% end %>
-      <% } %>
-    </div>
-    <div class='flex'>
-      <% instagram_profile_card_datas_i_j = [@profile_card.profile_card_data_i, @profile_card.profile_card_data_j] %>
-      <% instagram_profile_card_data_to_ss_i_j = [@profile_card.profile_card_data_i.to_s,@profile_card.profile_card_data_j.to_s] %>
-      <% instagram_type_numbers_i_j = [9, 10] %>
-      <% instagram_types_i_j = ['i', 'j'] %>
-      <% instagram_profile_card_datas_i_j.zip(instagram_profile_card_data_to_ss_i_j, instagram_type_numbers_i_j, instagram_types_i_j).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
-        <% if profile_card_data.present? %>
-          <div class="mb-20 p-2 w-1/2">
+          <div class='my-2 p-1 w-1/2'>
             <%= image_tag profile_card_data_to_s %>
             <div class="text-center">
               <div class = 'btn btn-primary my-2'>
