@@ -59,46 +59,64 @@
     <div class='text-sm mb-5'>
       <%= t('.face_image_description') %>
     </div>
-    <div class='py-5 selection-group'>
-      <p>見本から作りたいカード背景をタップして選択してください</p>
-      <% base_img_a={'value': 'A', 'id': 'card_type_a', 'base': 'sample_profile_card_data_a.jpg',} %>
-      <% base_img_b={'value': 'B', 'id': 'card_type_b', 'base': 'sample_profile_card_data_b.jpg',} %>
-      <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_profile_card_data_c.jpg',} %>
-      <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_profile_card_data_d.jpg',} %>
-      <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d]%>
-      <% base_imgs.each do |base_img| %>
-        <div class='flex my-3'>
-          <%= f.radio_button :card_type, base_img[:value], class: 'hidden' %>
-          <%= f.label base_img[:id] do %>
-            <%= image_tag base_img[:base] %>
+    <div class='selection-group'>
+      <p>作りたいカードの種類と背景を下の見本から選んでタップしてください。</p>
+      <div data-controller="tabs">
+        <div class="justify-between">
+          <div class="tabs tabs-boxed w-full">
+            <a class="tab tab-active" data-tabs-target="menu" data-action="tabs#menuClick">Twitterヘッダー</a>
+            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Instagramストーリー投稿</a>
+            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Wallpaper</a>
+          </div>
+        </div>
+        <div data-tabs-target="content">
+          <% base_img_a={'value': 'A', 'id': 'card_type_a', 'base': 'sample_profile_card_data_a.jpg',} %>
+          <% base_img_b={'value': 'B', 'id': 'card_type_b', 'base': 'sample_profile_card_data_b.jpg',} %>
+          <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_profile_card_data_c.jpg',} %>
+          <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_profile_card_data_d.jpg',} %>
+          <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d]%>
+          <% base_imgs.each do |base_img| %>
+            <div class='flex my-3'>
+              <%= f.radio_button :card_type, base_img[:value], class: 'hidden' %>
+              <%= f.label base_img[:id] do %>
+                <%= image_tag base_img[:base] %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-      <% end %>
-      <div class='flex my-3'>
-        <% insta_base_img_g={'value': 'G', 'id': 'card_type_g', 'base': 'base_img_g.png',} %>
-        <% insta_base_img_h={'value': 'H', 'id': 'card_type_h', 'base': 'base_img_h.png',} %>
-        <% insta_base_imgs_g_h=[insta_base_img_g, insta_base_img_h] %>
-        <% insta_base_imgs_g_h.each do |insta_base_img| %>
-          <div class='w-1/2 p-2'>
-            <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
-            <%= f.label insta_base_img[:id] do %>
-              <%= image_tag insta_base_img[:base] %>
-            <% end %>
+        <div class="hidden" data-tabs-target="content">
+        <div class='flex my-3'>
+          <% insta_base_img_g={'value': 'G', 'id': 'card_type_g', 'base': 'base_img_g.png',} %>
+          <% insta_base_img_h={'value': 'H', 'id': 'card_type_h', 'base': 'base_img_h.png',} %>
+          <% insta_base_imgs_g_h=[insta_base_img_g, insta_base_img_h] %>
+          <% insta_base_imgs_g_h.each do |insta_base_img| %>
+            <div class='w-1/2 p-2'>
+              <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
+              <%= f.label insta_base_img[:id] do %>
+                <%= image_tag insta_base_img[:base] %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class='flex my-3'>
+          <% insta_base_img_i={'value': 'I', 'id': 'card_type_i', 'base': 'base_img_i.png',} %>
+          <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'base_img_j.png',} %>
+          <% insta_base_imgs_i_j=[insta_base_img_i, insta_base_img_j] %>
+          <% insta_base_imgs_i_j.each do |insta_base_img| %>
+            <div class='w-1/2 p-2 image_border'>
+              <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
+              <%= f.label insta_base_img[:id] do %>
+                <%= image_tag insta_base_img[:base] %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        </div>
+        <div class="hidden" data-tabs-target="content">
+          <div class='py-3'>
+            <%= image_tag "base_img_c.png", class: "w-full" %>
           </div>
-        <% end %>
-      </div>
-      <div class='flex my-3'>
-        <% insta_base_img_i={'value': 'I', 'id': 'card_type_i', 'base': 'base_img_i.png',} %>
-        <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'base_img_j.png',} %>
-        <% insta_base_imgs_i_j=[insta_base_img_i, insta_base_img_j] %>
-        <% insta_base_imgs_i_j.each do |insta_base_img| %>
-          <div class='w-1/2 p-2 image_border'>
-            <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
-            <%= f.label insta_base_img[:id] do %>
-              <%= image_tag insta_base_img[:base] %>
-            <% end %>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
     <div class='my-5 text-center'>
