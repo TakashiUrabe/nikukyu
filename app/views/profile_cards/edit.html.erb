@@ -10,10 +10,10 @@
         <%= t('.created_profile_card_description_html') %>
       </div>
     </div>
-    <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d] %>
-    <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s] %>
-    <% type_numbers = [1,2,3,4] %>
-    <% types = ['a', 'b', 'c', 'd'] %>
+    <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d, @profile_card.profile_card_data_e] %>
+    <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s, @profile_card.profile_card_data_e.to_s] %>
+    <% type_numbers = [1, 2, 3, 4, 5] %>
+    <% types = ['a', 'b', 'c', 'd', 'e'] %>
     <% profile_card_datas.zip(profile_card_data_to_ss,type_numbers, types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
       <% if profile_card_data.present? %>
         <div class="mb-20">
