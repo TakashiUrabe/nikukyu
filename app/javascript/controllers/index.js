@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import PreviewImageController from "./preview_image_controller"
 application.register("preview-image", PreviewImageController)
+
+import TabsController from "./tabs_controller"
+application.register("tabs", TabsController)
