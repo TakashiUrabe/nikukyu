@@ -65,7 +65,7 @@
         <div class="justify-between">
           <div class="tabs tabs-boxed w-full">
             <a class="tab tab-active" data-tabs-target="menu" data-action="tabs#menuClick">Twitterヘッダー</a>
-            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Instagramストーリー投稿</a>
+            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Instagramストーリー</a>
             <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Wallpaper</a>
           </div>
         </div>
@@ -91,7 +91,8 @@
             <% insta_base_img_h={'value': 'H', 'id': 'card_type_h', 'base': 'base_img_h.png',} %>
             <% insta_base_img_i={'value': 'I', 'id': 'card_type_i', 'base': 'base_img_i.png',} %>
             <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'base_img_j.png',} %>
-            <% insta_base_imgs_g_h=[insta_base_img_g, insta_base_img_h, insta_base_img_i, insta_base_img_j] %>
+            <% insta_base_img_k={'value': 'K', 'id': 'card_type_k', 'base': 'base_img_k.png',} %>
+            <% insta_base_imgs_g_h=[insta_base_img_g, insta_base_img_h, insta_base_img_i, insta_base_img_j, insta_base_img_k] %>
             <% insta_base_imgs_g_h.each do |insta_base_img| %>
               <div class='w-1/2 p-2'>
                 <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>

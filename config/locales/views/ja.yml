@@ -40,16 +40,16 @@ ja:
 
   welcome_pages:
     top_page_partial:
-      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とTwitterヘッダーができます！'
+      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とTwitterヘッダー、Instagramストーリーに使えるプロフィールカードができます！'
   profile_cards:
     new:
       title: 'にくきゅう診断をしてみよう'
     index:
       title: 'みんなのカード'
     edit:
-      title_html: '診断結果から<br>Twitterヘッダーにも使える<br>プロフィールカードを作成しよう！'
+      title_html: '診断結果から<br>プロフィールカードを作成しよう！'
       created_profile_card: '作成したプロフィールカード'
-      created_profile_card_description_html: '<p>よかったらTwitterヘッダーとして使ってください</p><br><p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>最後に作ったカードが「みんなのカード」に載ります</p>'
+      created_profile_card_description_html: '<p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>カードは何枚でも繰り返し作ることができます</p><br><p>最後に作ったカードが「みんなのカード」に載ります</p>'
       save_card: 'カードを保存'
       share_card: 'カードをシェア'
       limited: '期間限定'

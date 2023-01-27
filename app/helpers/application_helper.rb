@@ -16,7 +16,7 @@ module ApplicationHelper
       og: {
         site_name: 'にくきゅう診断',
         title: '実はうちの犬猫の性格は〇〇だった！気になったあなたはクリックして診断しよう！！',
-        description: '「にくきゅう診断」は、犬猫のにくきゅうの写真から性格診断をして、その結果からTwitterヘッダーに設定できるプロフィールカードを作れるサービス。世界にひとつだけのプロフィールカードを作ろう!',
+        description: '「にくきゅう診断」は、犬猫のにくきゅうの写真から性格診断をして、その結果からTwitterヘッダーやInstagramストーリーに使えるプロフィールカードを作れるサービス。世界にひとつだけのプロフィールカードを作ろう!',
         type: 'website',
         url: 'https://www.nikukyu-shindan.com',
         image: image_url('ogp.png'),

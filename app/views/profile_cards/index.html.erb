@@ -1,16 +1,20 @@
 <div class="max-w-lg pb-20">
     <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold"><%= t('.title') %></h1>
     <%= turbo_frame_tag "image-list" do %>
-      <div>
-        <% @profile_cards.each do |profile_card| %>
-          <div class='py-5'>
-            <% card_type = { 'A'=> profile_card.profile_card_data_a.to_s, 'B'=> profile_card.profile_card_data_b.to_s, 'C'=> profile_card.profile_card_data_c.to_s, 'D'=> profile_card.profile_card_data_d.to_s, 'E'=> profile_card.profile_card_data_e.to_s, 'F'=> profile_card.profile_card_data_f.to_s } %>
-            <% card_type.each do |key, value| %>
-              <%= image_tag value if profile_card.card_type == key %>
-            <% end %>
+      <% @profile_cards.each do |profile_card| %>
+        <div class='py-5'>
+          <% card_type_a_f = { 'A'=> profile_card.profile_card_data_a.to_s, 'B'=> profile_card.profile_card_data_b.to_s, 'C'=> profile_card.profile_card_data_c.to_s, 'D'=> profile_card.profile_card_data_d.to_s, 'E'=> profile_card.profile_card_data_e.to_s, 'F'=> profile_card.profile_card_data_f.to_s } %>
+          <% card_type_a_f.each do |key, value| %>
+            <%= image_tag value if profile_card.card_type == key %>
+          <% end %>
+          <div class='w-1/2 mx-auto'>
+          <% card_type_g_l = { 'G'=> profile_card.profile_card_data_g.to_s, 'H'=> profile_card.profile_card_data_h.to_s, 'I'=> profile_card.profile_card_data_i.to_s, 'J'=> profile_card.profile_card_data_j.to_s, 'K'=> profile_card.profile_card_data_k.to_s, 'L'=> profile_card.profile_card_data_l.to_s } %>
+          <% card_type_g_l.each do |key, value| %>
+            <%= image_tag value if profile_card.card_type == key %>
+          <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <%= paginate(@profile_cards) %>
     <% end %>
   </div>
