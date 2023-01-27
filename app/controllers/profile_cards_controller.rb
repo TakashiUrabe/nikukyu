@@ -37,7 +37,7 @@ class ProfileCardsController < ApplicationController
   def update
     if @profile_card.update(profile_card_params) && @profile_card.face_image.url != 'face_image_sample.png'
       cookies.delete :kind
-      @profile_card.remove_background(@profile_card.face_image.url) if params[:profile_card][:card_type] > 'D'
+      @profile_card.remove_background(@profile_card.face_image.url) if params[:profile_card][:card_type] == 'E'||'H'||'I'||'J'
       @profile_card.create_profile_card(params[:profile_card][:card_type])
       redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
     else
