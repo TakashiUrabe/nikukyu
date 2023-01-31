@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_22_090011) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_143330) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,6 +85,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_090011) do
     t.string "profile_card_data_j"
     t.string "profile_card_data_k"
     t.string "profile_card_data_l"
+    t.string "profile_card_data_m"
+    t.string "profile_card_data_n"
+    t.string "profile_card_data_o"
+    t.string "profile_card_data_p"
+    t.string "profile_card_data_q"
+    t.string "profile_card_data_r"
     t.index ["breed_id"], name: "index_profile_cards_on_breed_id"
     t.index ["user_id"], name: "index_profile_cards_on_user_id"
   end

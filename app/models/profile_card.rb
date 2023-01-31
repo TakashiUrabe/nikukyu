@@ -23,10 +23,16 @@ class ProfileCard < ApplicationRecord
   mount_uploader :profile_card_data_j, ProfileCardDataUploader
   mount_uploader :profile_card_data_k, ProfileCardDataUploader
   mount_uploader :profile_card_data_l, ProfileCardDataUploader
+  mount_uploader :profile_card_data_m, ProfileCardDataUploader
+  mount_uploader :profile_card_data_n, ProfileCardDataUploader
+  mount_uploader :profile_card_data_o, ProfileCardDataUploader
+  mount_uploader :profile_card_data_p, ProfileCardDataUploader
+  mount_uploader :profile_card_data_q, ProfileCardDataUploader
+  mount_uploader :profile_card_data_r, ProfileCardDataUploader
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5, typeF: 6, typeG: 7, typeH: 8, typeI: 9, typeJ: 10 }
-  enum card_type: { hide: 1, A: 2, B: 3, C: 4, D: 5, E: 6, F: 7, G: 8, H: 9, I: 10, J: 11, K: 12, L: 13 }
+  enum card_type: { hide: 1, A: 2, B: 3, C: 4, D: 5, E: 6, F: 7, G: 8, H: 9, I: 10, J: 11, K: 12, L: 13, M: 14, N: 15, O: 16, P: 17, Q: 18, R: 19 }
 
   def user_id_setting(id)
     self.user_id = id
