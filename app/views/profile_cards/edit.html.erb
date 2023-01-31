@@ -10,10 +10,11 @@
         <%= t('.created_profile_card_description_html') %>
       </div>
     </div>
-    <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d, @profile_card.profile_card_data_e] %>
-    <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s, @profile_card.profile_card_data_e.to_s] %>
-    <% type_numbers = [1, 2, 3, 4, 5] %>
-    <% types = ['a', 'b', 'c', 'd', 'e'] %>
+    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold">Twitterヘッダー</h1>
+    <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d, @profile_card.profile_card_data_e, @profile_card.profile_card_data_f] %>
+    <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s, @profile_card.profile_card_data_e.to_s, @profile_card.profile_card_data_f.to_s] %>
+    <% type_numbers = [1, 2, 3, 4, 5, 6] %>
+    <% types = ['a', 'b', 'c', 'd', 'e', 'f'] %>
     <% profile_card_datas.zip(profile_card_data_to_ss,type_numbers, types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
       <% if profile_card_data.present? %>
         <div class="mb-10">
@@ -27,11 +28,32 @@
         </div>
       <% end %>
     <% } %>
+    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">Instagramストーリー</h1>
     <div class='flex my-3 justify-center flex flex-wrap'>
-      <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h, @profile_card.profile_card_data_i, @profile_card.profile_card_data_j, @profile_card.profile_card_data_k] %>
-      <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s, @profile_card.profile_card_data_i.to_s, @profile_card.profile_card_data_j.to_s, @profile_card.profile_card_data_k.to_s] %>
-      <% instagram_type_numbers = [7, 8, 9, 10, 11] %>
-      <% instagram_types = ['g', 'h', 'i', 'j', 'k'] %>
+      <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h, @profile_card.profile_card_data_i, @profile_card.profile_card_data_j, @profile_card.profile_card_data_k, @profile_card.profile_card_data_l] %>
+      <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s, @profile_card.profile_card_data_i.to_s, @profile_card.profile_card_data_j.to_s, @profile_card.profile_card_data_k.to_s, @profile_card.profile_card_data_l.to_s] %>
+      <% instagram_type_numbers = [7, 8, 9, 10, 11, 12] %>
+      <% instagram_types = ['g', 'h', 'i', 'j', 'k', 'l'] %>
+      <% instagram_profile_card_datas.zip(instagram_profile_card_data_to_ss, instagram_type_numbers, instagram_types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
+        <% if profile_card_data.present? %>
+          <div class='my-2 p-1 w-1/2'>
+            <%= image_tag profile_card_data_to_s %>
+            <div class="text-center">
+              <div class = 'btn btn-primary my-2'>
+                <%= link_to t('.save_card'), controller: 'downloads', action: 'download', id:@profile_card, card_type: type_number %>
+              </div>
+              <%= link_to t('.share_card'), "https://twitter.com/share?url=https://www.nikukyu-shindan.com/profile_cards/#{@profile_card.id}/tweet/#{type}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white mx-2' %>
+            </div>
+          </div>
+        <% end %>
+      <% } %>
+    </div>
+    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">iPhone壁紙</h1>
+    <div class='flex my-3 justify-center flex flex-wrap'>
+      <% instagram_profile_card_datas = [@profile_card.profile_card_data_m, @profile_card.profile_card_data_n, @profile_card.profile_card_data_o, @profile_card.profile_card_data_p, @profile_card.profile_card_data_q, @profile_card.profile_card_data_r] %>
+      <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_m.to_s, @profile_card.profile_card_data_n.to_s, @profile_card.profile_card_data_o.to_s, @profile_card.profile_card_data_p.to_s, @profile_card.profile_card_data_q.to_s, @profile_card.profile_card_data_r.to_s] %>
+      <% instagram_type_numbers = [13, 14, 15, 16, 17, 18] %>
+      <% instagram_types = ['m', 'n', 'o', 'p', 'q', 'r'] %>
       <% instagram_profile_card_datas.zip(instagram_profile_card_data_to_ss, instagram_type_numbers, instagram_types).each{|profile_card_data, profile_card_data_to_s, type_number, type| %>
         <% if profile_card_data.present? %>
           <div class='my-2 p-1 w-1/2'>
