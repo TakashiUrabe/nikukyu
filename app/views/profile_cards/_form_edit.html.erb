@@ -1,5 +1,5 @@
 <div class='pb-10'>
-  <%= form_with model:profile_card, local: true do |f| %>
+  <%= form_with model:profile_card, data: { turbo: false }, local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <% breed_idnos = [profile_card.breed_id.present? && profile_card.breed_id<=205, profile_card.breed_id.present? && profile_card.breed_id>=206] %>

@@ -4,7 +4,7 @@
     <%= render 'form_edit', {profile_card: @profile_card} %>
   </div>
   <% if @profile_card.card_type.present? %>
-    <div class='py-10'>
+    <div class='py-10' id='target'>
       <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold"><%= t('.created_profile_card') %></h1>
       <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
         <%= t('.created_profile_card_description_html') %>
