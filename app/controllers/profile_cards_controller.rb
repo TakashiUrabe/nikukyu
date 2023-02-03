@@ -39,7 +39,7 @@ class ProfileCardsController < ApplicationController
       cookies.delete :kind
       @profile_card.remove_background(@profile_card.face_image.url) if params[:profile_card][:face_image].present?
       @profile_card.create_profile_card(params[:profile_card][:card_type])
-      redirect_to edit_profile_card_path(@profile_card), success: t('defaults.message.updated')
+      redirect_to edit_profile_card_path(@profile_card, anchor: 'target'), success: t('defaults.message.updated'), allow_other_host: true
     else
       flash.now[:danger] = t('defaults.message.not_updated')
       render :edit, status: :unprocessable_entity
