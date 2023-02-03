@@ -157,7 +157,7 @@ module CreateProfileCard
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -206,7 +206,7 @@ module CreateProfileCard
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -236,7 +236,7 @@ module CreateProfileCard
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -261,7 +261,7 @@ module CreateProfileCard
     draw.pointsize = 30
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -291,7 +291,7 @@ module CreateProfileCard
     draw.pointsize = 35
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}  #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -322,7 +322,7 @@ module CreateProfileCard
     draw.pointsize = 40
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}  #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     # ここからが顔画像の処理
@@ -356,7 +356,7 @@ module CreateProfileCard
     draw.pointsize = 40
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday} #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     # ここからが顔画像の処理
@@ -393,7 +393,7 @@ module CreateProfileCard
     draw.pointsize = 35
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}  #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     draw.font = 'app/assets/fonts/keifont.ttf'
@@ -423,7 +423,7 @@ module CreateProfileCard
     draw.pointsize = 40
     draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday} #{profile_card.gender_i18n}")
     draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きな食べ物：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
+    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
     draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
 
     # ここからが顔画像の処理

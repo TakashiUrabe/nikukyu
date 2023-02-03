@@ -9,7 +9,6 @@ module RemoveBackground
     response = client.post("https://ja.clippingmagic.com/api/v1/images", {
       "image.url" => file,
       "format" => "result",
-      "test" => "true"
     })
 
     if response.status == 200 then
