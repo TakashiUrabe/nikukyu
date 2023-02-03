@@ -10,7 +10,9 @@
         <%= t('.created_profile_card_description_html') %>
       </div>
     </div>
-    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold">Twitterヘッダー</h1>
+    <% if @profile_card.profile_card_data_a.present? || @profile_card.profile_card_data_b.present? || @profile_card.profile_card_data_c.present? || @profile_card.profile_card_data_d.present? || @profile_card.profile_card_data_e.present? || @profile_card.profile_card_data_f.present? %>
+      <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold">Twitterヘッダー</h1>
+    <% end %>
     <% profile_card_datas = [@profile_card.profile_card_data_a, @profile_card.profile_card_data_b, @profile_card.profile_card_data_c, @profile_card.profile_card_data_d, @profile_card.profile_card_data_e, @profile_card.profile_card_data_f] %>
     <% profile_card_data_to_ss = [@profile_card.profile_card_data_a.to_s, @profile_card.profile_card_data_b.to_s, @profile_card.profile_card_data_c.to_s, @profile_card.profile_card_data_d.to_s, @profile_card.profile_card_data_e.to_s, @profile_card.profile_card_data_f.to_s] %>
     <% type_numbers = [1, 2, 3, 4, 5, 6] %>
@@ -28,7 +30,9 @@
         </div>
       <% end %>
     <% } %>
-    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">Instagramストーリー</h1>
+    <% if @profile_card.profile_card_data_g.present? || @profile_card.profile_card_data_h.present? || @profile_card.profile_card_data_i.present? || @profile_card.profile_card_data_j.present? || @profile_card.profile_card_data_k.present? || @profile_card.profile_card_data_l.present? %>
+      <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">Instagramストーリー</h1>
+    <% end %>
     <div class='flex my-3 justify-center flex flex-wrap'>
       <% instagram_profile_card_datas = [@profile_card.profile_card_data_g, @profile_card.profile_card_data_h, @profile_card.profile_card_data_i, @profile_card.profile_card_data_j, @profile_card.profile_card_data_k, @profile_card.profile_card_data_l] %>
       <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_g.to_s, @profile_card.profile_card_data_h.to_s, @profile_card.profile_card_data_i.to_s, @profile_card.profile_card_data_j.to_s, @profile_card.profile_card_data_k.to_s, @profile_card.profile_card_data_l.to_s] %>
@@ -48,7 +52,9 @@
         <% end %>
       <% } %>
     </div>
-    <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">iPhone壁紙</h1>
+    <% if @profile_card.profile_card_data_m.present? || @profile_card.profile_card_data_n.present? || @profile_card.profile_card_data_o.present? || @profile_card.profile_card_data_p.present? || @profile_card.profile_card_data_q.present? || @profile_card.profile_card_data_r.present? %>
+      <h1 class="text-base text-yellow-900 font-zenmaru my-2 text-center font-bold pt-20">iPhone壁紙</h1>
+    <% end %>
     <div class='flex my-3 justify-center flex flex-wrap'>
       <% instagram_profile_card_datas = [@profile_card.profile_card_data_m, @profile_card.profile_card_data_n, @profile_card.profile_card_data_o, @profile_card.profile_card_data_p, @profile_card.profile_card_data_q, @profile_card.profile_card_data_r] %>
       <% instagram_profile_card_data_to_ss = [@profile_card.profile_card_data_m.to_s, @profile_card.profile_card_data_n.to_s, @profile_card.profile_card_data_o.to_s, @profile_card.profile_card_data_p.to_s, @profile_card.profile_card_data_q.to_s, @profile_card.profile_card_data_r.to_s] %>
