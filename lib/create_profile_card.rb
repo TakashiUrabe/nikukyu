@@ -13,7 +13,7 @@ module CreateProfileCard
 
     hash_e = {'base_img_url': './app/assets/images/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/profile_card_data_e.jpg'}
 
-    hash_f = {'base_img_url': './app/assets/images/base_img_f.png', 'color': '#3d3b3e', 'personality_position': [0,-170], 'birthday_position': [0,-60], 'breed_position': [0,-15], 'treat_position': [0,30], 'toy_position': [0,75], 'name_color': '#3d3b3e', 'name_position': [0,-110], 'face_position': [1000,25], 'write_url': './app/assets/images/profile_card_data_f.jpg'}
+    hash_f = {'base_img_url': './app/assets/images/base_img_f.png', 'color': '#3d3b3e', 'personality_position': [0,-120], 'birthday_position': [0,-10], 'breed_position': [0,35], 'treat_position': [0,80], 'toy_position': [0,125], 'name_color': '#3d3b3e', 'name_position': [0,-60], 'face_position': [1000,25], 'write_url': './app/assets/images/profile_card_data_f.jpg'}
 
     hash_g = {'base_img_url': './app/assets/images/base_img_g.png', 'color': '#3d3b3e', 'personality_position': [60,580], 'birthday_position': [60,640], 'breed_position': [60,685], 'treat_position': [60,730], 'toy_position': [60,775], 'name_color': '#3d3b3e', 'name_position': [200,-710], 'face_position': [0,320], 'write_url': './app/assets/images/profile_card_data_g.jpg'}
 
