@@ -75,8 +75,7 @@
           <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_profile_card_data_c.png', 'check': ''} %>
           <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_profile_card_data_d.png', 'check': ''} %>
           <% base_img_e={'value': 'E', 'id': 'card_type_e', 'base': 'sample_profile_card_data_e.png', 'check': ''} %>
-          <% base_img_f={'value': 'F', 'id': 'card_type_f', 'base': 'sample_profile_card_data_f.png', 'check': ''} %>
-          <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d, base_img_e, base_img_f]%>
+          <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d, base_img_e]%>
           <% base_imgs.each do |base_img| %>
             <div class='flex my-3'>
               <%= f.radio_button :card_type, base_img[:value], class: 'hidden', checked: base_img[:check] %>
@@ -85,6 +84,15 @@
               <% end %>
             </div>
           <% end %>
+          <div class="pt-5">
+            <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（2/11まで）</h1>
+          </div>
+          <div class='flex mb-3'>
+            <%= f.radio_button :card_type, 'F', class: 'hidden', checked: '' %>
+            <%= f.label 'card_type_f' do %>
+              <%= image_tag 'sample_profile_card_data_f.png' %>
+            <% end %>
+          </div>
         </div>
         <div class="hidden" data-tabs-target="content">
           <div class='flex my-3 justify-center flex flex-wrap'>
