@@ -50,7 +50,8 @@ ja:
       created_profile_card: "作成したプロフィールカード"
       created_profile_card_description_html: "<p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>カードは何枚でも繰り返し作ることができます</p><br><p>最後に作ったカードが「みんなのカード」に載ります</p>"
       save_card: "カードを保存"
-      share_card: "ツイッターでシェア"
+      line_share_card: "ラインシェア"
+      twitter_share_card: "ツイッターシェア"
       limited: "期間限定"
     form_edit:
       make_card_this_content: "この内容でカードを作る"
