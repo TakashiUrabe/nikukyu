@@ -67,7 +67,6 @@ module CreateProfileCard
       create_profile_card_data(self,hash_c)
       self.profile_card_data_c = File.open(hash_c[:write_url], 'r')
       self.twitter_share_profile_card_data_c = File.open(hash_c[:twitter_write_url], 'r')
-      binding.b
       save
     end
     if type == "D"
