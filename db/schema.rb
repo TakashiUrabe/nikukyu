@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_143330) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_05_011212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_143330) do
     t.string "profile_card_data_p"
     t.string "profile_card_data_q"
     t.string "profile_card_data_r"
+    t.string "twitter_share_profile_card_data_a"
+    t.string "twitter_share_profile_card_data_b"
+    t.string "twitter_share_profile_card_data_c"
+    t.string "twitter_share_profile_card_data_d"
+    t.string "twitter_share_profile_card_data_e"
+    t.string "twitter_share_profile_card_data_f"
     t.index ["breed_id"], name: "index_profile_cards_on_breed_id"
     t.index ["user_id"], name: "index_profile_cards_on_user_id"
   end
