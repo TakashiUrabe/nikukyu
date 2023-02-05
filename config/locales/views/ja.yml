@@ -27,6 +27,8 @@ ja:
     friendly: "フレンドリー度"
     selfish: "わがまま度"
     or: "または"
+    twitter_share: "ツイッターシェア"
+    line_share: "LINEシェア"
 
     message:
       not_tested: "にくきゅう診断ができませんでした"
@@ -96,7 +98,6 @@ ja:
     result:
       to_top_page: "トップページへ"
       create_card: "カードをつくる"
-      share_result: "結果をシェア"
   pages:
     privacy_policy:
       title: "プライバシーポリシー"
