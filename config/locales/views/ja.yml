@@ -42,7 +42,7 @@ ja:
 
   welcome_pages:
     top_page_partial:
-      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とプロフィールカード(Twitterヘッダー、Instagramストーリー、スマホの壁紙)ができます！'
+      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で「AI技術を用いた性格診断」と「プロフィールカード(Twitterヘッダー、Instagramストーリー、スマホの壁紙)」ができます！'
   profile_cards:
     new:
       title: "にくきゅう診断をしてみよう"
