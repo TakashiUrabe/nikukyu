@@ -29,6 +29,12 @@ class ProfileCard < ApplicationRecord
   mount_uploader :profile_card_data_p, ProfileCardDataUploader
   mount_uploader :profile_card_data_q, ProfileCardDataUploader
   mount_uploader :profile_card_data_r, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_a, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_b, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_c, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_d, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_e, ProfileCardDataUploader
+  mount_uploader :twitter_share_profile_card_data_f, ProfileCardDataUploader
 
   enum gender: { male: 1, female: 2 }
   enum personality: { typeA: 1, typeB: 2, typeC: 3, typeD: 4, typeE: 5, typeF: 6, typeG: 7, typeH: 8, typeI: 9, typeJ: 10 }

@@ -13,15 +13,16 @@
     <%= render'results/result/cat/result_j', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
   </div>
   <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
-    <div class="flex py-5 justify-center">
+    <div class="flex py-3 justify-center">
       <div class='mx-2'>
-        <%= link_to t('.share_result'), "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
-      </div>
-      <div class='mx-2'>
-        <%= link_to t('.create_card'), edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
+        <%= link_to t('defaults.line_share'), "http://line.me/R/msg/text/?#{@profile_card.name}ちゃんのにくきゅう診断の結果は#{@profile_card.personality_i18n}でした！%0a#{request.url}%0a", class:'btn bg-green-500 text-white m-1' %>
+        <%= link_to t('defaults.twitter_share'), "https://twitter.com/share?url=#{request.url}/&text=#{@profile_card.name}ちゃんの%20%23にくきゅう診断%20の結果は%0a%23#{@profile_card.personality_i18n}%20でした", title: 'Twitter', target: '_blank',class:'btn bg-blue-400 text-white' %>
       </div>
     </div>
-    <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
+    <div class='mx-2 text-center'>
+      <%= link_to t('.create_card'), edit_profile_card_path(@profile_card),class:'btn btn-primary' %>
+    </div>
+    <div class='text-sm m-5 grid card bg-base-200 rounded-box p-5'>
       <%= t('defaults.twitter_share_description_html') %>
     </div>
   <% else %>

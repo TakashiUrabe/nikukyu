@@ -3,17 +3,17 @@ module CreateProfileCard
   include Magick
 
   def create_profile_card(type)
-    hash_a = {'base_img_url': './app/assets/images/base_img_a.png', 'color': '#3d3b3e', 'personality_position': [-200,-85], 'birthday_position': [-200,-35], 'breed_position': [-200,10], 'treat_position': [-200,55], 'toy_position': [-200,100], 'name_color': '#3d3b3e', 'name_position': [-200,-150], 'face_position': [900,100], 'write_url': './app/assets/images/profile_card_data_a.jpg'}
+    hash_a = {'base_img_url': './app/assets/images/base_img_a.png', 'color': '#3d3b3e', 'personality_position': [-200,-85], 'birthday_position': [-200,-35], 'breed_position': [-200,10], 'treat_position': [-200,55], 'toy_position': [-200,100], 'name_color': '#3d3b3e', 'name_position': [-200,-150], 'face_position': [900,100], 'write_url': './app/assets/images/profile_card_data_a.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_a.jpg'}
 
-    hash_b = {'base_img_url': './app/assets/images/base_img_b.png', 'color': '#3d3b3e', 'personality_position': [-100,-90], 'birthday_position': [-100,-40], 'breed_position': [-100,5], 'treat_position': [-100,50], 'toy_position': [-100,95], 'name_color': '#3d3b3e', 'name_position': [-100,-150], 'face_position': [980,120], 'write_url': './app/assets/images/profile_card_data_b.jpg'}
+    hash_b = {'base_img_url': './app/assets/images/base_img_b.png', 'color': '#3d3b3e', 'personality_position': [-100,-90], 'birthday_position': [-100,-40], 'breed_position': [-100,5], 'treat_position': [-100,50], 'toy_position': [-100,95], 'name_color': '#3d3b3e', 'name_position': [-100,-150], 'face_position': [980,120], 'write_url': './app/assets/images/profile_card_data_b.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_b.jpg'}
 
-    hash_c = {'base_img_url': './app/assets/images/base_img_c.png', 'color': 'white', 'personality_position': [-270,-60], 'birthday_position': [-270,-10], 'breed_position': [-270,35], 'treat_position': [-270,80], 'toy_position': [-270,125], 'name_color': '#d8b469', 'name_position': [-270,-140], 'face_position': [820,100], 'write_url': './app/assets/images/profile_card_data_c.jpg'}
+    hash_c = {'base_img_url': './app/assets/images/base_img_c.png', 'color': 'white', 'personality_position': [-270,-60], 'birthday_position': [-270,-10], 'breed_position': [-270,35], 'treat_position': [-270,80], 'toy_position': [-270,125], 'name_color': '#d8b469', 'name_position': [-270,-140], 'face_position': [820,100], 'write_url': './app/assets/images/profile_card_data_c.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_c.jpg'}
 
-    hash_d = {'base_img_url': './app/assets/images/base_img_d.jpg', 'color': '#3d3b3e', 'personality_position': [-20,-150], 'birthday_position': [-20,5], 'breed_position': [-20,50], 'treat_position': [-20,95], 'toy_position': [-20,140], 'name_color': '#3d3b3e', 'name_position': [-20,-75], 'face_position': [1000,120], 'write_url': './app/assets/images/profile_card_data_d.jpg'}
+    hash_d = {'base_img_url': './app/assets/images/base_img_d.jpg', 'color': '#3d3b3e', 'personality_position': [-20,-150], 'birthday_position': [-20,5], 'breed_position': [-20,50], 'treat_position': [-20,95], 'toy_position': [-20,140], 'name_color': '#3d3b3e', 'name_position': [-20,-75], 'face_position': [1000,120], 'write_url': './app/assets/images/profile_card_data_d.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_d.jpg'}
 
-    hash_e = {'base_img_url': './app/assets/images/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/profile_card_data_e.jpg'}
+    hash_e = {'base_img_url': './app/assets/images/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/profile_card_data_e.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_e.jpg'}
 
-    hash_f = {'base_img_url': './app/assets/images/base_img_f.png', 'color': '#3d3b3e', 'personality_position': [0,-170], 'birthday_position': [0,-60], 'breed_position': [0,-15], 'treat_position': [0,30], 'toy_position': [0,75], 'name_color': '#3d3b3e', 'name_position': [0,-110], 'face_position': [1000,25], 'write_url': './app/assets/images/profile_card_data_f.jpg'}
+    hash_f = {'base_img_url': './app/assets/images/base_img_f.png', 'color': '#3d3b3e', 'personality_position': [0,-120], 'birthday_position': [0,-10], 'breed_position': [0,35], 'treat_position': [0,80], 'toy_position': [0,125], 'name_color': '#3d3b3e', 'name_position': [0,-60], 'face_position': [1000,25], 'write_url': './app/assets/images/profile_card_data_f.jpg', 'twitter_write_url': './app/assets/images/twitter_share_profile_card_data_f.jpg'}
 
     hash_g = {'base_img_url': './app/assets/images/base_img_g.png', 'color': '#3d3b3e', 'personality_position': [60,580], 'birthday_position': [60,640], 'breed_position': [60,685], 'treat_position': [60,730], 'toy_position': [60,775], 'name_color': '#3d3b3e', 'name_position': [200,-710], 'face_position': [0,320], 'write_url': './app/assets/images/profile_card_data_g.jpg'}
 
@@ -54,31 +54,37 @@ module CreateProfileCard
     if type == "A"
       create_profile_card_data(self,hash_a)
       self.profile_card_data_a = File.open(hash_a[:write_url], 'r')
+      self.twitter_share_profile_card_data_a = File.open(hash_a[:twitter_write_url], 'r')
       save
     end
     if type == "B"
       create_profile_card_data(self,hash_b)
       self.profile_card_data_b = File.open(hash_b[:write_url], 'r')
+      self.twitter_share_profile_card_data_b = File.open(hash_b[:twitter_write_url], 'r')
       save
     end
     if type == "C"
       create_profile_card_data(self,hash_c)
       self.profile_card_data_c = File.open(hash_c[:write_url], 'r')
+      self.twitter_share_profile_card_data_c = File.open(hash_c[:twitter_write_url], 'r')
       save
     end
     if type == "D"
       create_profile_card_data(self,hash_d)
       self.profile_card_data_d = File.open(hash_d[:write_url], 'r')
+      self.twitter_share_profile_card_data_d = File.open(hash_d[:twitter_write_url], 'r')
       save
     end
     if type == "E"
       create_profile_card_data_e(self,hash_e)
       self.profile_card_data_e = File.open(hash_e[:write_url], 'r')
+      self.twitter_share_profile_card_data_e = File.open(hash_e[:twitter_write_url], 'r')
       save
     end
     if type == "F"
       create_profile_card_data_f(self,hash_f)
       self.profile_card_data_f = File.open(hash_f[:write_url], 'r')
+      self.twitter_share_profile_card_data_f = File.open(hash_f[:twitter_write_url], 'r')
       save
     end
     if type == "G"
@@ -182,6 +188,9 @@ module CreateProfileCard
     # ここまで
 
     base_img.write(hash[:write_url])
+    twitter_share_base_img = ImageList.new('app/assets/images/twitter_share_base_img.png')
+    twitter_share_base_img.composite!(base_img, 0, 144, OverCompositeOp)
+    twitter_share_base_img.write(hash[:twitter_write_url])
   end
 
   def create_profile_card_data_e(profile_card, hash)
@@ -215,6 +224,9 @@ module CreateProfileCard
     draw.annotate(base_img, 0, 0, hash[:name_position][0], hash[:name_position][1], profile_card.name)
 
     base_img.write(hash[:write_url])
+    twitter_share_base_img = ImageList.new('app/assets/images/twitter_share_base_img.png')
+    twitter_share_base_img.composite!(base_img, 0, 144, OverCompositeOp)
+    twitter_share_base_img.write(hash[:twitter_write_url])
   end
 
   def create_profile_card_data_f(profile_card, hash)
@@ -245,6 +257,9 @@ module CreateProfileCard
     draw.annotate(base_img, 0, 0, hash[:name_position][0], hash[:name_position][1], profile_card.name)
 
     base_img.write(hash[:write_url])
+    twitter_share_base_img = ImageList.new('app/assets/images/twitter_share_base_img.png')
+    twitter_share_base_img.composite!(base_img, 0, 144, OverCompositeOp)
+    twitter_share_base_img.write(hash[:twitter_write_url])
   end
 
   def instagram_create_profile_card_data_g(profile_card, hash)

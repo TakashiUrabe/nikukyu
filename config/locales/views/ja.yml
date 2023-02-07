@@ -16,7 +16,8 @@ ja:
     take_test: "にくきゅう診断をする"
     send: "送信"
     password_reset: "パスワードリセット"
-    to_be_added: "12月追加予定のカード"
+    to_be_added_twitter: "3月追加予定の期間限定Twitterヘッダー"
+    to_be_added_instagram: "3月追加予定の期間限定Instagramストーリー"
     twitter_share_description_html: "<p>Twitterでシェアすると<br>ハッシュタグから同じ性格の子を検索できます</p><br><p>シェア画像が表示されない場合は<br>再度お試しください</p>"
     attachment: "愛着度"
     naughty: "やんちゃ度"
@@ -26,6 +27,8 @@ ja:
     friendly: "フレンドリー度"
     selfish: "わがまま度"
     or: "または"
+    twitter_share: "ツイッターシェア"
+    line_share: "LINEシェア"
 
     message:
       not_tested: "にくきゅう診断ができませんでした"
@@ -39,7 +42,7 @@ ja:
 
   welcome_pages:
     top_page_partial:
-      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で性格診断とTwitterヘッダー、Instagramストーリーに使えるプロフィールカードができます！'
+      site_description_html: 'このサイトでは<br>"にくきゅうの写真"さえあれば<br>３分で「AI技術を用いた性格診断」と「プロフィールカード(Twitterヘッダー、Instagramストーリー、スマホの壁紙)」ができます！'
   profile_cards:
     new:
       title: "にくきゅう診断をしてみよう"
@@ -50,7 +53,7 @@ ja:
       created_profile_card: "作成したプロフィールカード"
       created_profile_card_description_html: "<p>iPhoneの場合、画像を長押し「写真に保存」がおすすめです</p><br><p>カードは何枚でも繰り返し作ることができます</p><br><p>最後に作ったカードが「みんなのカード」に載ります</p>"
       save_card: "カードを保存"
-      line_share_card: "ラインシェア"
+      line_share_card: "LINEシェア"
       twitter_share_card: "ツイッターシェア"
       limited: "期間限定"
     form_edit:
@@ -95,7 +98,6 @@ ja:
     result:
       to_top_page: "トップページへ"
       create_card: "カードをつくる"
-      share_result: "結果をシェア"
   pages:
     privacy_policy:
       title: "プライバシーポリシー"

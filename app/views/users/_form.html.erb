@@ -1,6 +1,10 @@
 <h1 class="text-xl text-yellow-900 mb-5 font-zenmaru text-center font-bold"><%= t('.title') %></h1>
 <div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
   <p><%= t('.benefits_of_registering_html') %></p>
+  <p class='text-yellow-900 mt-3 mb-1'><%= t('defaults.to_be_added_twitter') %></p>
+  <div class='flex'>
+    <%= image_tag 'limited_sample_twitter.png' %>
+  </div>
 </div>
 <%= form_with model: user, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
@@ -23,4 +27,10 @@
 <div class='text-center my-20'>
   <p class='my-5'><%= t('defaults.or') %></p>
   <%= link_to t('defaults.twitter_register'),auth_at_provider_path(provider: :twitter), class:'btn bg-blue-400 text-white mx-2' %>
+</div>
+<div class='text-sm mb-5 grid card bg-base-200 rounded-box place-items-center p-5'>
+  <p class='text-yellow-900 mb-1'><%= t('defaults.to_be_added_instagram') %></p>
+  <div class='flex w-1/2'>
+    <%= image_tag 'limited_sample_instagram.png' %>
+  </div>
 </div>

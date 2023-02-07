@@ -6,7 +6,7 @@ class ProfileCardsController < ApplicationController
   end
 
   def index
-    @profile_cards = ProfileCard.where.not(card_type: nil).order(updated_at: :desc)
+    @profile_cards = ProfileCard.where(card_type: ..."M").order(updated_at: :desc)
     @profile_cards = @profile_cards.page(params[:page]).per(10)
   end
 
