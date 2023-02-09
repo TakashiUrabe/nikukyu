@@ -2,7 +2,7 @@
     <h1 class="text-xl text-yellow-900 font-zenmaru my-2 text-center font-bold"><%= t('.title') %></h1>
     <%= turbo_frame_tag "image-list" do %>
       <% @profile_cards.each do |profile_card| %>
-        <% if profile_card.card_type < 'M' %>
+        <% if profile_card.card_type < 'M' && profile_card.display_card %>
           <div class='py-5'>
             <% card_type_a_f = { 'A'=> profile_card.profile_card_data_a.to_s, 'B'=> profile_card.profile_card_data_b.to_s, 'C'=> profile_card.profile_card_data_c.to_s, 'D'=> profile_card.profile_card_data_d.to_s, 'E'=> profile_card.profile_card_data_e.to_s, 'F'=> profile_card.profile_card_data_f.to_s } %>
             <% card_type_a_f.each do |key, value| %>

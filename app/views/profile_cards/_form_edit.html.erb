@@ -132,6 +132,12 @@
         </div>
       </div>
     </div>
+    <div class="justify-center pt-5 flex">
+      <%= f.check_box :display_card, class:'checkbox checkbox-mg checkbox-primary mx-2'%>
+      <%= f.label 'display_card' do %>
+        <p>みんなのカードに表示する</p>
+      <% end %>
+    </div>
     <div class='my-5 text-center'>
       <%= f.submit t('.make_card_this_content'), class:'btn btn-primary' %>
     </div>
