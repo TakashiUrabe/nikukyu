@@ -12,7 +12,7 @@
     <% breed_idnos.zip(nos, dog_cat_kinds, dog_cats, treats, f_treats, toys, f_toys).each{|breed_idno, no, dog_cat_kind, dog_cat, treat, f_treat, toy, f_toy| %>
       <% if (breed_idno) || cookies[:kind] == no %>
         <div class='my-10'>
-          <%= f.label :breed_id, dog_cat_kind, class:'block mb-1' %>
+          <%= f.label :breed_id, dog_cat_kind, class:'block mb-1' %><p class='text-xs'><%= t('.breed_select_description') %></p>
           <%= f.select :breed_id, dog_cat.map{|breed|[breed.name, breed.id,{}]}, {}, class: 'w-full rounded p-2 border border-gray-200' %>
         </div>
         <div class='text-sm mb-5 grid card bg-base-200 rounded-box p-5'>
@@ -62,9 +62,9 @@
       <div data-controller="tabs">
         <div class="justify-between">
           <div class="tabs tabs-boxed w-full">
-            <a class="tab tab-active" data-tabs-target="menu" data-action="tabs#menuClick">Twitterヘッダー</a>
-            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">Instagramストーリー</a>
-            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick">スマホの壁紙</a>
+            <a class="tab tab-active" data-tabs-target="menu" data-action="tabs#menuClick"><%= t('defaults.twitter_header') %></a>
+            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick"><%= t('defaults.instagram_story') %></a>
+            <a class="tab not-active"  data-tabs-target="menu" data-action="tabs#menuClick"><%= t('defaults.wallpaper') %></a>
           </div>
         </div>
         <div data-tabs-target="content">
@@ -131,6 +131,12 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="justify-center pt-5 flex">
+      <%= f.check_box :display_card, class:'checkbox checkbox-mg checkbox-primary mx-2'%>
+      <%= f.label 'display_card' do %>
+        <p>みんなのカードに表示する</p>
+      <% end %>
     </div>
     <div class='my-5 text-center'>
       <%= f.submit t('.make_card_this_content'), class:'btn btn-primary' %>
