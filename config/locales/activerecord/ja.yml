@@ -12,7 +12,7 @@ ja:
         favorite_toy: '好きなおもちゃ'
         gender: '性別'
         birthday: 'お誕生日'
-        face_image: '顔もしくは全身の写真'
+        face_image: '全身または顔の写真'
       user:
         email: "メールアドレス"
         password: "パスワード"
