@@ -1,16 +1,10 @@
 <% set_meta_tags og:{image:image_url(@ogp_img)}, twitter:{image:image_url(@ogp_img)} %>
 <div>
   <div class='max-w-md pt-10'>
-    <%= render'results/result/dog/result_a', {profile_card: @profile_card} if @profile_card.personality == 'typeA' %>
-    <%= render'results/result/dog/result_b', {profile_card: @profile_card} if @profile_card.personality == 'typeB' %>
-    <%= render'results/result/dog/result_c', {profile_card: @profile_card} if @profile_card.personality == 'typeC' %>
-    <%= render'results/result/dog/result_d', {profile_card: @profile_card} if @profile_card.personality == 'typeD' %>
-    <%= render'results/result/dog/result_e', {profile_card: @profile_card} if @profile_card.personality == 'typeE' %>
-    <%= render'results/result/cat/result_f', {profile_card: @profile_card} if @profile_card.personality == 'typeF' %>
-    <%= render'results/result/cat/result_g', {profile_card: @profile_card} if @profile_card.personality == 'typeG' %>
-    <%= render'results/result/cat/result_h', {profile_card: @profile_card} if @profile_card.personality == 'typeH' %>
-    <%= render'results/result/cat/result_i', {profile_card: @profile_card} if @profile_card.personality == 'typeI' %>
-    <%= render'results/result/cat/result_j', {profile_card: @profile_card} if @profile_card.personality == 'typeJ' %>
+    <% result_hash = {'typeA': 'results/result/dog/result_a','typeB': 'results/result/dog/result_b','typeC': 'results/result/dog/result_c','typeD': 'results/result/dog/result_d','typeE': 'results/result/dog/result_e','typeF': 'results/result/cat/result_f','typeG': 'results/result/cat/result_g','typeH': 'results/result/cat/result_h', 'typeI': 'results/result/cat/result_i','typeJ': 'results/result/cat/result_j'} %>
+    <% result_hash.each do |key,value| %>
+      <%= render value, {profile_card: @profile_card} if @profile_card.personality == key.to_s %>
+    <% end %>
   </div>
   <% if @profile_card.user_id == current_user&.id || @profile_card.id == cookies[:nikukyu_id] %>
     <div class="flex py-3 justify-center">
