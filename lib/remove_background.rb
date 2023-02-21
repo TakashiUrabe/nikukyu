@@ -18,7 +18,7 @@ module RemoveBackground
       puts "Id: " + image_id.to_s
       puts "Secret: " + image_secret.to_s
 
-      File.open("./app/assets/images/remove_bg.png", 'wb') { |file| file.write(response.body) }
+      File.open("./app/assets/images/user/remove_bg.png", 'wb') { |file| file.write(response.body) }
     else
       puts "Error: Code: " + response.status.to_s + ", Reason: " + response.reason
     end
