@@ -82,10 +82,8 @@
               <% end %>
             </div>
           <% end %>
-          <%
-=begin%>
- <div class="pt-5">
-            <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（2/11まで）</h1>
+          <div class="pt-5">
+            <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（4/30まで）</h1>
           </div>
           <div class='flex mb-3'>
             <%= f.radio_button :card_type, 'F', class: 'hidden', checked: '' %>
@@ -93,8 +91,6 @@
               <%= image_tag 'sample_card_img/sample_profile_card_data_f.png' %>
             <% end %>
           </div>
-<%
-=end%>
         </div>
         <div class="hidden" data-tabs-target="content">
           <div class='flex my-3 justify-center flex flex-wrap'>
@@ -104,7 +100,7 @@
             <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'sample_card_img/sample_profile_card_data_j.png'} %>
             <% insta_base_img_k={'value': 'K', 'id': 'card_type_k', 'base': 'sample_card_img/sample_profile_card_data_k.png'} %>
             <% insta_base_img_l={'value': 'L', 'id': 'card_type_l', 'base': 'sample_card_img/sample_profile_card_data_l.png'} %>
-            <% insta_base_imgs_g_l=[insta_base_img_g, insta_base_img_h, insta_base_img_i, insta_base_img_j, insta_base_img_k, insta_base_img_l] %>
+            <% insta_base_imgs_g_l=[insta_base_img_g, insta_base_img_h, insta_base_img_i, insta_base_img_j, insta_base_img_k] %>
             <% insta_base_imgs_g_l.each do |insta_base_img| %>
               <div class='w-1/2 p-2'>
                 <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
@@ -113,6 +109,17 @@
                 <% end %>
               </div>
             <% end %>
+          </div>
+          <div class="pt-5">
+            <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（4/30まで）</h1>
+          </div>
+          <div class='flex my-3 justify-center'>
+            <div class='w-1/2 p-2'>
+              <%= f.radio_button :card_type, insta_base_img_l[:value], class:'hidden' %>
+              <%= f.label insta_base_img_l[:id] do %>
+                <%= image_tag insta_base_img_l[:base] %>
+              <% end %>
+            </div>
           </div>
         </div>
         <div class="hidden" data-tabs-target="content">
