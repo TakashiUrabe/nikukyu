@@ -11,9 +11,9 @@ module CreateProfileCard
 
     hash_d = {'type': 'D' ,'base_img_url': './app/assets/images/base_img/twitter/base_img_d.jpg', 'color': '#3d3b3e', 'personality_position': [-20,-150], 'birthday_position': [-20,5], 'breed_position': [-20,50], 'treat_position': [-20,95], 'toy_position': [-20,140], 'name_color': '#3d3b3e', 'name_position': [-20,-75], 'face_position': [1000,120], 'write_url': './app/assets/images/user/profile_card_data_d.jpg', 'twitter_write_url': './app/assets/images/user/twitter_share_profile_card_data_d.jpg'}
 
-    hash_e = {'type': 'E' ,'base_img_url': './app/assets/images/base_img/twitter/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/user/profile_card_data_e.jpg', 'twitter_write_url': './app/assets/images/user/twitter_share_profile_card_data_e.jpg'}
+    hash_e = {'type': 'E' ,'base_img_url': './app/assets/images/base_img/twitter/base_img_e.png', 'color': '#3d3b3e', 'personality_position': [-200,-170], 'birthday_position': [-200,-60], 'breed_position': [-200,-15], 'treat_position': [-200,30], 'toy_position': [-200,75], 'name_color': '#3d3b3e', 'name_position': [-200,-110], 'face_position': [800,0], 'write_url': './app/assets/images/user/profile_card_data_e.jpg', 'twitter_write_url': './app/assets/images/user/twitter_share_profile_card_data_e.jpg', 'face_image_size': [500,500], 'sticker': 'app/assets/images/base_img/twitter/base_img_e_sticker.png'}
 
-    hash_f = {'type': 'F' ,'base_img_url': './app/assets/images/base_img/twitter/base_img_f.png', 'color': '#3d3b3e', 'personality_position': [0,-120], 'birthday_position': [0,-10], 'breed_position': [0,35], 'treat_position': [0,80], 'toy_position': [0,125], 'name_color': '#3d3b3e', 'name_position': [0,-60], 'face_position': [1000,25], 'write_url': './app/assets/images/user/profile_card_data_f.jpg', 'twitter_write_url': './app/assets/images/user/twitter_share_profile_card_data_f.jpg'}
+    hash_f = {'type': 'F' ,'base_img_url': './app/assets/images/base_img/twitter/base_img_f.png', 'color': '#76501c', 'personality_position': [-150,-150], 'birthday_position': [-150,-100], 'breed_position': [-150,-55], 'treat_position': [-150,-10], 'toy_position': [-150,35], 'name_color': '#76501c', 'name_position': [-150,-200], 'face_position': [850,100], 'write_url': './app/assets/images/user/profile_card_data_f.jpg', 'twitter_write_url': './app/assets/images/user/twitter_share_profile_card_data_f.jpg', 'face_image_size': [400,400], 'sticker': 'app/assets/images/base_img/twitter/base_img_f_sticker.png'}
 
     hash_g = {'type': 'G' ,'base_img_url': './app/assets/images/base_img/instagram/base_img_g.png', 'color': '#3d3b3e', 'personality_position': [60,580], 'birthday_position': [60,640], 'breed_position': [60,685], 'treat_position': [60,730], 'toy_position': [60,775], 'name_color': '#3d3b3e', 'name_position': [200,-710], 'face_position': [0,320], 'write_url': './app/assets/images/user/profile_card_data_g.jpg'}
 
@@ -25,7 +25,7 @@ module CreateProfileCard
 
     hash_k = {'type': 'K' ,'base_img_url': './app/assets/images/base_img/instagram/base_img_k.png', 'color': '#3d3b3e', 'personality_position': [0,-850], 'birthday_position': [0,-790], 'breed_position': [0,-735], 'treat_position': [0,-680], 'toy_position': [0,-625], 'name_color': '#3d3b3e', 'name_position': [0,360], 'face_position': [220,540], 'write_url': './app/assets/images/user/profile_card_data_k.jpg'}
 
-    hash_l = {'type': 'L' ,'base_img_url': './app/assets/images/base_img/instagram/base_img_l.png', 'color': '#594a47', 'personality_position': [0,-900], 'birthday_position': [0,-670], 'breed_position': [0,-615], 'treat_position': [0,-560], 'toy_position': [0,-505], 'name_color': '#594a47', 'name_position': [0,-790], 'face_position': [150,490], 'write_url': './app/assets/images/user/profile_card_data_l.jpg', 'sticker': 'app/assets/images/base_img/instagram/base_img_l_sticker.png', 'face_image_size': [800,800], 'name_size': 90, 'others_size': 40, 'personality_color': '#594a47', 'others_gravity': CenterGravity, 'name_personality_gravity': CenterGravity}
+    hash_l = {'type': 'L' ,'base_img_url': './app/assets/images/base_img/instagram/base_img_l.png', 'color': '#76501c', 'personality_position': [0,-590], 'birthday_position': [0,-520], 'breed_position': [0,-465], 'treat_position': [0,-410], 'toy_position': [0,-355], 'name_color': '#76501c', 'name_position': [0,-700], 'face_position': [150,690], 'write_url': './app/assets/images/user/profile_card_data_l.jpg', 'sticker': 'app/assets/images/base_img/instagram/base_img_l_sticker.png', 'face_image_size': [800,800], 'name_size': 90, 'others_size': 40, 'personality_color': '#76501c', 'others_gravity': CenterGravity, 'name_personality_gravity': CenterGravity}
 
     hash_m = {'type': 'M' ,'base_img_url': './app/assets/images/base_img/wallpaper/base_img_m.png', 'color': '#3d3b3e', 'name_color': '#3d3b3e', 'name_position': [200,-990], 'face_position': [0,900], 'write_url': './app/assets/images/user/profile_card_data_m.jpg'}
 
@@ -80,7 +80,7 @@ module CreateProfileCard
       save
     end
     if type == "F"
-      twitter_create_profile_card_data_f(self,hash_f)
+      twitter_rembg_sticker_create_profile_card_data(self,hash_f)
       self.profile_card_data_f = File.open(hash_f[:write_url], 'r')
       self.twitter_share_profile_card_data_f = File.open(hash_f[:twitter_write_url], 'r')
       save
@@ -195,45 +195,12 @@ module CreateProfileCard
     base_img = ImageList.new(hash[:base_img_url])
 
     # ここからが顔画像の処理
-    profile_face_image = Magick::Image.read('app/assets/images/user/remove_bg.png').first.resize_to_fill(500, 500)
+    profile_face_image = Magick::Image.read('app/assets/images/user/remove_bg.png').first.resize_to_fill(hash[:face_image_size][0], hash[:face_image_size][1])
     base_img.composite!(profile_face_image, hash[:face_position][0], hash[:face_position][1], OverCompositeOp)
     # ここまで
 
-    base_img_sticker = ImageList.new('app/assets/images/base_img/twitter/base_img_e_sticker.png')
+    base_img_sticker = ImageList.new(hash[:sticker])
     base_img.composite!(base_img_sticker, 0, 0, OverCompositeOp)
-
-    draw = Draw.new
-    draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
-    draw.fill      = hash[:color]
-    draw.stroke    = 'transparent'
-    draw.pointsize = 40
-    draw.gravity   = CenterGravity
-    draw.annotate(base_img, 0, 0, hash[:personality_position][0], hash[:personality_position][1], profile_card.personality_i18n)
-    draw.font      = 'app/assets/fonts/NotoSansJP-Regular.otf'
-    draw.pointsize = 30
-    draw.annotate(base_img, 0, 0, hash[:birthday_position][0], hash[:birthday_position][1], "誕生日：#{I18n.l profile_card.birthday}    #{profile_card.gender_i18n}")
-    draw.annotate(base_img, 0, 0, hash[:breed_position][0], hash[:breed_position][1], "種類：#{profile_card.breed.name}")
-    draw.annotate(base_img, 0, 0, hash[:treat_position][0], hash[:treat_position][1], "好きなおやつ：#{profile_card.favorite_treat}") if profile_card.favorite_treat != ''
-    draw.annotate(base_img, 0, 0, hash[:toy_position][0], hash[:toy_position][1], "好きなおもちゃ：#{profile_card.favorite_toy}") if profile_card.favorite_toy != ''
-
-    draw.font = 'app/assets/fonts/keifont.ttf'
-    draw.pointsize = 50
-    draw.fill = hash[:name_color]
-    draw.annotate(base_img, 0, 0, hash[:name_position][0], hash[:name_position][1], profile_card.name)
-
-    base_img.write(hash[:write_url])
-    twitter_share_base_img = ImageList.new('app/assets/images/base_img/twitter_share.png')
-    twitter_share_base_img.composite!(base_img, 0, 144, OverCompositeOp)
-    twitter_share_base_img.write(hash[:twitter_write_url])
-  end
-
-  def twitter_create_profile_card_data_f(profile_card, hash)
-    base_img = ImageList.new(hash[:base_img_url])
-
-    # ここからが顔画像の処理
-    profile_face_image = Magick::Image.read('app/assets/images/user/remove_bg.png').first.resize_to_fill(450, 450)
-    base_img.composite!(profile_face_image, hash[:face_position][0], hash[:face_position][1], OverCompositeOp)
-    # ここまで
 
     draw = Draw.new
     draw.font      = 'app/assets/fonts/nicomoji-plus_v2.ttf'
