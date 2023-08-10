@@ -73,7 +73,7 @@
           <% base_img_c={'value': 'C', 'id': 'card_type_c', 'base': 'sample_card_img/sample_profile_card_data_c.png', 'check': ''} %>
           <% base_img_d={'value': 'D', 'id': 'card_type_d', 'base': 'sample_card_img/sample_profile_card_data_d.png', 'check': ''} %>
           <% base_img_e={'value': 'E', 'id': 'card_type_e', 'base': 'sample_card_img/sample_profile_card_data_e.png', 'check': ''} %>
-          <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d, base_img_e]%>
+          <% base_imgs=[base_img_a, base_img_b, base_img_c, base_img_d]%>
           <% base_imgs.each do |base_img| %>
             <div class='flex my-3'>
               <%= f.radio_button :card_type, base_img[:value], class: 'hidden', checked: base_img[:check] %>
@@ -82,7 +82,9 @@
               <% end %>
             </div>
           <% end %>
-          <div class="pt-5">
+          <%
+=begin%>
+ <div class="pt-5">
             <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（4/30まで）</h1>
           </div>
           <div class='flex mb-3'>
@@ -91,6 +93,8 @@
               <%= image_tag 'sample_card_img/sample_profile_card_data_f.png' %>
             <% end %>
           </div>
+<%
+=end%>
         </div>
         <div class="hidden" data-tabs-target="content">
           <div class='flex my-3 justify-center flex flex-wrap'>
@@ -100,7 +104,7 @@
             <% insta_base_img_j={'value': 'J', 'id': 'card_type_j', 'base': 'sample_card_img/sample_profile_card_data_j.png'} %>
             <% insta_base_img_k={'value': 'K', 'id': 'card_type_k', 'base': 'sample_card_img/sample_profile_card_data_k.png'} %>
             <% insta_base_img_l={'value': 'L', 'id': 'card_type_l', 'base': 'sample_card_img/sample_profile_card_data_l.png'} %>
-            <% insta_base_imgs_g_l=[insta_base_img_g, insta_base_img_h, insta_base_img_i, insta_base_img_j, insta_base_img_k] %>
+            <% insta_base_imgs_g_l=[insta_base_img_g, insta_base_img_k] %>
             <% insta_base_imgs_g_l.each do |insta_base_img| %>
               <div class='w-1/2 p-2'>
                 <%= f.radio_button :card_type, insta_base_img[:value], class:'hidden' %>
@@ -110,7 +114,9 @@
               </div>
             <% end %>
           </div>
-          <div class="pt-5">
+          <%
+=begin%>
+ <div class="pt-5">
             <h1 class="md:text-base text-sm text-yellow-900 my-2 font-zenmaru text-center font-bold">期間限定（4/30まで）</h1>
           </div>
           <div class='flex my-3 justify-center'>
@@ -121,6 +127,8 @@
               <% end %>
             </div>
           </div>
+<%
+=end%>
         </div>
         <div class="hidden" data-tabs-target="content">
           <div class='flex my-3 justify-center flex flex-wrap'>
@@ -130,7 +138,7 @@
             <% wallpaper_base_img_p={'value': 'P', 'id': 'card_type_p', 'base': 'sample_card_img/sample_profile_card_data_p.png'} %>
             <% wallpaper_base_img_q={'value': 'Q', 'id': 'card_type_q', 'base': 'sample_card_img/sample_profile_card_data_q.png'} %>
             <% wallpaper_base_img_r={'value': 'R', 'id': 'card_type_r', 'base': 'sample_card_img/sample_profile_card_data_r.png'} %>
-            <% wallpaper_base_imgs_g_h=[wallpaper_base_img_m, wallpaper_base_img_n, wallpaper_base_img_o, wallpaper_base_img_p, wallpaper_base_img_q, wallpaper_base_img_r] %>
+            <% wallpaper_base_imgs_g_h=[wallpaper_base_img_m, wallpaper_base_img_q] %>
             <% wallpaper_base_imgs_g_h.each do |wallpaper_base_img| %>
               <div class='w-1/2 p-2'>
                 <%= f.radio_button :card_type, wallpaper_base_img[:value], class:'hidden' %>
